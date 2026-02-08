@@ -1,4 +1,10 @@
-DOCS_CONSTITUTION_HUMANIA (canónica)
+﻿DOCS_CONSTITUTION_HUMANIA (canónica)
+
+0) Seguridad primero (irrenunciable)
+- Seguridad es la restricción #1. Conveniencia y velocidad van después.
+- Documentación pública: prohibido publicar rutas reales, usuarios, IPs/hosts, tokens, claves, secretos.
+- Usar placeholders/variables: $PROJECT_ROOT, $HOST_STAGING_DIR, $WSL_HOST_MOUNT, $HOST_IP, etc.
+- Antes de compartir bundles/evidencias: listar contenido y buscar patrones sensibles.
 
 1) Reproducibilidad por defecto
 - Todo cambio debe ser reproducible y verificable.
