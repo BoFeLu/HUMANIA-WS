@@ -1,0 +1,15 @@
+﻿# Office temporals
+~$*
+
+# Binary docs
+*.docx
+
+# Archives
+*.zip
+*.tar.gz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
