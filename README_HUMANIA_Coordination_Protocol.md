@@ -1,13 +1,13 @@
-# HUMANIA Coordination Protocol (HCP)
-## A Verified Multi‑Node Human–LLM Communication Framework
+﻿# HUMANIA Coordination Protocol (HCP)
+## A Verified Multiâ€‘Node Humanâ€“LLM Communication Framework
 
 ---
 
 ### What this is
 
-**HUMANIA Coordination Protocol (HCP)** is a practical, evidence‑driven framework for **coordinated work between a human and multiple intelligent systems** (LLMs, terminals, services, and tools).
+**HUMANIA Coordination Protocol (HCP)** is a practical, evidenceâ€‘driven framework for **coordinated work between a human and multiple intelligent systems** (LLMs, terminals, services, and tools).
 
-It formalizes a **multi‑node communication method** where:
+It formalizes a **multiâ€‘node communication method** where:
 - a **human remains the control authority**,
 - one or more **LLMs act as reasoning and planning nodes**,
 - one or more **execution environments** (terminal, OS, services, infra) act as stateful system nodes,
@@ -34,7 +34,7 @@ HCP exists to solve **that exact failure mode**.
 
 ### Core principles
 
-1. **Human‑in‑Control**
+1. **Humanâ€‘inâ€‘Control**
    - The human sets direction, rhythm, and stopping points.
    - LLMs never execute; they propose.
 
@@ -49,7 +49,7 @@ HCP exists to solve **that exact failure mode**.
    - Memory and interpretation are never substitutes for evidence.
 
 4. **Deterministic Exchange**
-   - No free‑form copy/paste.
+   - No freeâ€‘form copy/paste.
    - All artifacts move through defined exchange boundaries.
 
 5. **Small, Verified Steps**
@@ -83,13 +83,13 @@ The protocol scales linearly with complexity.
 
 ---
 
-### Multi‑node capability
+### Multiâ€‘node capability
 
 HCP is designed for **more than two nodes**:
 
 - Human
-- Chat‑based LLM
-- IDE‑embedded LLM (e.g. Cursor)
+- Chatâ€‘based LLM
+- IDEâ€‘embedded LLM (e.g. Cursor)
 - Terminal / OS
 - Observability stack
 - External tools
@@ -99,13 +99,13 @@ There is no hidden state sharing.
 
 ---
 
-### Key procedures (non‑exhaustive)
+### Key procedures (nonâ€‘exhaustive)
 
 - Shared Folder (ShF) as exchange boundary
 - Fast execution/feedback terminal loop
-- No‑`exit` rule for interactive shells
+- Noâ€‘`exit` rule for interactive shells
 - Message block limits per LLM response
-- Phase‑based validation and gating
+- Phaseâ€‘based validation and gating
 
 These procedures are documented in `/procedures`.
 
@@ -113,7 +113,7 @@ These procedures are documented in `/procedures`.
 
 ### What HCP enables
 
-- Long‑running projects without context collapse
+- Longâ€‘running projects without context collapse
 - Safe execution on live systems
 - Real verification of LLM reasoning
 - Collaboration across multiple AIs
@@ -142,4 +142,5 @@ This repository documents the **method**, not a product.
 
 ### License
 
-Open for reuse with attribution.
+Licensed under the MIT License. See the LICENSE file for details.
+
