@@ -1,0 +1,30 @@
+DOCS_CONSTITUTION_HUMANIA (canónica)
+
+1) Reproducibilidad por defecto
+- Todo cambio debe ser reproducible y verificable.
+- Evitar reemplazos frágiles (regex complejas, anclas inestables, “busca y pega en la línea X”).
+- Preferir edición explícita con bloques completos:
+  - cat <<'EOF' > archivo
+  - cat <<'EOF' >> archivo
+
+2) Regla de “sudo y rutas”
+- Con sudo NO usar `~` ni asumir $HOME.
+- Usar rutas absolutas.
+
+3) Regla de bloques de comandos
+- Cada bloque debe empezar por:
+  cd /home/aiops_user/aiops_os_agent_remote || exit 1
+  set -euo pipefail
+
+4) Política anti-deriva (alcance)
+- No tocar fuera del foco.
+- No introducir complejidad “porque sí”.
+- No duplicar lógica: una sola fuente de verdad.
+
+5) Evidencia obligatoria
+- Antes de concluir, aportar evidencia (salidas/archivos/logs).
+- Si hay ambigüedad, parar y pedir confirmación.
+
+6) Gestión de sesiones (fluidez)
+- Si el chat se ralentiza: cerrar sesión operativa con snapshot (STATUS_REPORT + CONTEXT_SUMMARY) y migrar.
+- El operador decide el cierre; el sistema lo facilita.
