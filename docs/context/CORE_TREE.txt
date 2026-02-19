@@ -1,0 +1,1418 @@
+﻿CORE_TREE ts_utc=2026-02-18T11:59:04.0299785Z
+
+ROOT=C:\HUMANIA
++-- .master_key
++-- AUDIT_CHAIN.jsonl
++-- audit_verify.ps1
++-- humania_guard.ps1
++-- humania_run.ps1
++-- kernel_manifest.json
++-- README_KERNEL.md
++-- .git
+|   +-- COMMIT_EDITMSG
+|   +-- config
+|   +-- description
+|   +-- HEAD
+|   +-- index
+|   +-- gk
+|   |   \-- config
+|   +-- hooks
+|   |   +-- applypatch-msg.sample
+|   |   +-- commit-msg.sample
+|   |   +-- fsmonitor-watchman.sample
+|   |   +-- post-update.sample
+|   |   +-- pre-applypatch.sample
+|   |   +-- pre-commit.sample
+|   |   +-- pre-merge-commit.sample
+|   |   +-- prepare-commit-msg.sample
+|   |   +-- pre-push.sample
+|   |   +-- pre-rebase.sample
+|   |   +-- pre-receive.sample
+|   |   +-- push-to-checkout.sample
+|   |   +-- sendemail-validate.sample
+|   |   \-- update.sample
+|   +-- info
+|   |   \-- exclude
+|   +-- logs
+|   |   +-- HEAD
+|   |   \-- refs
+|   |       \-- heads
+|   |           \-- main
+|   +-- objects
+|   |   +-- 00
+|   |   |   +-- 1da0aea3c7b48ad47a2de261e1d5cbef21691c
+|   |   |   \-- a9c819f7a8613bfa523a528b6ee952c9dda88c
+|   |   +-- 01
+|   |   |   +-- 050961885f43b1ddc54f4e699c379d4ca17012
+|   |   |   +-- 79fd805ca777ab5f0330ce8e5874d4ad62f357
+|   |   |   \-- a7ed9e9e8cd8959493af74c38aaa16ee97f8b7
+|   |   +-- 02
+|   |   |   \-- 0ff25940511c177feeec970aa667485352e5ad
+|   |   +-- 03
+|   |   |   \-- b87f6393ef0d9ae9c6c8cdc24b7f1725b223f8
+|   |   +-- 04
+|   |   |   +-- 5771a3ba17f4a51824c279e2b333375d178de5
+|   |   |   +-- e29af2e4dcebb062941b129cb43a78dd6d0d3c
+|   |   |   \-- f3462c8d1f3c79cc05180f940b6aac0fdedc4d
+|   |   +-- 05
+|   |   |   +-- 194f9a743cf08133123078e436a0c2b9b7d8cc
+|   |   |   +-- 26b98424ec8fa05d55e6506a80b3cf20440c68
+|   |   |   \-- b48b170fcd240e2dee7b3b0447afd6b992277d
+|   |   +-- 06
+|   |   |   +-- 76c72ecfba80ef26d747a2cdbcf3faf8d97446
+|   |   |   +-- 811b4ddcb50a92a5c78e882de746a9e874532e
+|   |   |   \-- e03c17b75f3c66760c3d1a192f697c025128ec
+|   |   +-- 07
+|   |   |   +-- 48d267d5517f72e86fd14da5484a7b765278bc
+|   |   |   +-- 6db455c257646a7e4d936ae95be5215d6926db
+|   |   |   \-- e157c8f68904b2fa545664e1d827ef1417e4c4
+|   |   +-- 08
+|   |   |   +-- 1e97c989184a0d1f601a34984893f5674e5003
+|   |   |   +-- 85abcd105c73b532c17ea526352e04d821badd
+|   |   |   \-- d33d5e2b1f33e39847994710f41920a4854bfd
+|   |   +-- 09
+|   |   |   +-- 6071f915a4bb041adf8979a401486347f0d6a2
+|   |   |   +-- 6440813a5e3939b525bb84104ac924a9f5cf88
+|   |   |   +-- c258ba124dfa2289d488a3172f1a9c53a5482c
+|   |   |   \-- fc1c662361f787a22721fca399055186e21270
+|   |   +-- 0a
+|   |   |   \-- fe5daca05df5c443a52e9110bf068c0d9dd519
+|   |   +-- 0c
+|   |   |   \-- 58a09425d3c8b686104899da4b1773502008d5
+|   |   +-- 0d
+|   |   |   +-- 0303e5fc49dce2c0092f5273df46743d8d4830
+|   |   |   +-- 1368c61399be871448530b48693955fb23a719
+|   |   |   +-- b62e8f96a63be00fa53b24a34828fbcac14dac
+|   |   |   \-- c275f353f2a35f05de6f3aa1950696157a1412
+|   |   +-- 0e
+|   |   |   +-- 48f490f9953237c489e0c6ade1dd4bbae4aca1
+|   |   |   +-- 88b1021667633927fe5e0e087b1c6bcc6638c0
+|   |   |   \-- c53bce16ba436bf5507f97c2898c95ff61df08
+|   |   +-- 0f
+|   |   |   \-- 2095547d7500d934a8a383b1e289b2f7dc5f4a
+|   |   +-- 10
+|   |   |   \-- d2c225d7203f350fc044b3296959a45c4e67fd
+|   |   +-- 11
+|   |   |   +-- 90efd75d9b1c4e6a1ad2b9277d6ac31e46994a
+|   |   |   \-- f44a0a073d9649f9130990bf9f19527a1ae3cd
+|   |   +-- 12
+|   |   |   \-- 71aac266f6582046403ae7be3f2d003215b75e
+|   |   +-- 13
+|   |   |   +-- 176baae908832ac9283361e9b6e5d0ee14ef2e
+|   |   |   \-- 5ea58ee9350db6ae320becc4a044d599dc3bf4
+|   |   +-- 14
+|   |   |   \-- 7d59c71de277f8ff03616c69fe9351ece313a0
+|   |   +-- 15
+|   |   |   +-- 42d9a347df2083d256ca6ac36e9420aec24682
+|   |   |   \-- a8becc24f67284cd64edb799e6b8a7819ce650
+|   |   +-- 16
+|   |   |   +-- 1750ef040b10da064ed1dfa714e4e67ff576e8
+|   |   |   +-- 8adfd015cd4e37acebb4044cf3d33d87815b81
+|   |   |   \-- b21445490375623706caa9317bc7c481d7de3c
+|   |   +-- 17
+|   |   |   +-- 6cb85edfc7e51a01f8ce3106adacc733654b0a
+|   |   |   +-- a4711d4370bd2f988e4965bfa795fe1a6cc7c2
+|   |   |   +-- aa499649b233b1a8d4080a86fc259da5a325f8
+|   |   |   +-- b767b3edfd48651d03b8dd0e9c4fcf7ba22e5e
+|   |   |   +-- ea81e29669647d38343cbc698dc7abe0a25703
+|   |   |   +-- ed635ab6f1684ada86d2769b1d9479e1101b88
+|   |   |   \-- f62e383605707c6b4483974e9c1097d69803a3
+|   |   +-- 18
+|   |   |   +-- 4a0a1b4577f10dbe50091269382438089171fb
+|   |   |   +-- 73cfb205675078ac409faf1df3b3c023ea00d4
+|   |   |   +-- 79c31b654a326333c7776e6782c3bcf7c7881b
+|   |   |   \-- 917e5a72be37fdb47c559f88808943dc989cd0
+|   |   +-- 19
+|   |   |   +-- 47310ff0473b755891952eacc98ffa3f7f6f36
+|   |   |   +-- b9c37db72f2bf9e28fce69f7685a79983fc94e
+|   |   |   \-- bfe23c936d6bf1de116b0a4308a4cd365a8186
+|   |   +-- 1b
+|   |   |   \-- d5d2456e9f54d43cabe04fe780c37fc6fcf16b
+|   |   +-- 1c
+|   |   |   +-- 346f2a35fe040db18173cc752c99cc50cbb7bf
+|   |   |   +-- 353565c50f8cd89faf1fc2eeef33575a82ebc6
+|   |   |   +-- 626ef5adc7ee63e947ba640620e328797ee1c4
+|   |   |   \-- 8c1e3edcf6683ac504b7d1577c8f583ccd4ab0
+|   |   +-- 1d
+|   |   |   +-- 4094e758303be3a957b35b590a1987f933563a
+|   |   |   +-- 542251dd5f8e94557f324f76f7af2a2d4211ce
+|   |   |   +-- 94e7a0ed040869dd819afb6fd0204472c15ce5
+|   |   |   +-- cb6bade8be4b82d2c280192ac6ff4f5fa0c100
+|   |   |   +-- e1e57e6b5e1de0f32358cee266719de8cde707
+|   |   |   \-- e440fd2f439e673e887ceeedd948fe34b2ccfd
+|   |   +-- 1e
+|   |   |   +-- 2919c9f4768a497e9577ff1e5168e4cbc2495c
+|   |   |   +-- 5f8487931afdb6ed34b18eb37a5e917c374abc
+|   |   |   +-- e2d83270a9c8eae31c77f73d0c10a87414d568
+|   |   |   \-- f49bc0f203875b007529e3f3d0aca99958e1b1
+|   |   +-- 1f
+|   |   |   +-- 0d8a74e78433bf7a329f33ee9a91c7b930cb8f
+|   |   |   +-- 475625fa324bc4c4a75e7c279a278db389f42b
+|   |   |   \-- eb7bcfa9db5a4a6c3260ccb8341b5f4e52f050
+|   |   +-- 20
+|   |   |   +-- 28d05bc40216e958157ba598d8426de5686e5e
+|   |   |   +-- 9146be1f45da89252db61234c5b370db390629
+|   |   |   \-- e53757f68fca20401e96c0759638bf0c8975af
+|   |   +-- 21
+|   |   |   +-- 8d9fe85c526dd083651be3ae20292f9e785512
+|   |   |   \-- c4680598d0e76a11b5fdd65485e5a828bd2870
+|   |   +-- 22
+|   |   |   +-- 3527c28267e1bfe42aa3f7a8aa04a84484d778
+|   |   |   +-- 5338cfa28319c50768e751df938650f8f299bc
+|   |   |   \-- f1a7ea27ecdf89bc98f78f43ce6e5fe3f2ba56
+|   |   +-- 23
+|   |   |   +-- 053d5f543d7c088442674a31deeef0527dff3b
+|   |   |   +-- 26770c3d2917c3bb14e80cee9c046d2e34722e
+|   |   |   +-- 6fec6dd456c1b38cbc0c334248930d5accd11e
+|   |   |   +-- 7304661ac6355d61cee8ca11a91878deea389f
+|   |   |   \-- 923eeac7b5c6cb296b5d5aafc254bb26fa21d0
+|   |   +-- 24
+|   |   |   \-- f27868ffca2cdd7ec98765166d8ca03fe5aad3
+|   |   +-- 27
+|   |   |   +-- 1466418aec56130d9ab222d462ff94ef1f39c7
+|   |   |   +-- 44a187cc07f286aaefc7b993836da7686b9129
+|   |   |   \-- 6b488d86c629bf18b85d876f332caab628d337
+|   |   +-- 28
+|   |   |   +-- 20eced22bf110706669558790db46ef35273d9
+|   |   |   +-- 4125e0ded0d40ebd722603c7a1618c32a2dd1b
+|   |   |   \-- e4e99533e94802073000f8dac645dd91bcccf7
+|   |   +-- 29
+|   |   |   \-- 5f9cfb6fd512cd38b086138e23e61d9ef0eac2
+|   |   +-- 2a
+|   |   |   +-- 0e515c98217d38f9e970b5bb51a06ca134d6d4
+|   |   |   +-- a319b0c7f9659680c86b675f1e22df09af8e15
+|   |   |   \-- e8e7b767c91c7a94237ed1109ecea83a5ef3ce
+|   |   +-- 2b
+|   |   |   +-- 4aa1c569081b8b654e6e301d7cefa50e7785d4
+|   |   |   +-- 5331b708208520268c69a3cf6d3f373e3c1a41
+|   |   |   \-- 836a9b361d256a0d8d4705f85ba5b7a35e73c0
+|   |   +-- 2c
+|   |   |   +-- 3e279184635c68d09c6cf404915b39b856a4aa
+|   |   |   +-- 4b31fc9a5661d51ca3118769efec0d6920c1e6
+|   |   |   \-- d8758359677cc527ed25d94079250b193b1c51
+|   |   +-- 2d
+|   |   |   +-- 135b8a8427429d0f8d8561a59c9d1cad3f82b7
+|   |   |   +-- 195aca1c1e93100c995da9a7ed845b6b765888
+|   |   |   +-- 19ba7da0b4ff80d08f4d09844a7aa79876dda4
+|   |   |   \-- be576086859694d7f281a7202223681bfc9552
+|   |   +-- 2e
+|   |   |   +-- 091025546e7c36b1eca0b61abde965586228c9
+|   |   |   +-- 0c6c420c1a45ea9b02612a88791d7fa6c05570
+|   |   |   +-- a039654f4d3c8fe94bd1826c3738cc971581ac
+|   |   |   \-- b0ecb1c7b16fd52517707d2c15432f5486874e
+|   |   +-- 2f
+|   |   |   +-- 8d62774bf623b3d47ec6128fac70b1da6e0401
+|   |   |   \-- bb15cefa975111b3051d2e4f57ad4ba7142c3f
+|   |   +-- 30
+|   |   |   +-- 92fae405b1f1622161bbbefc2c1f7954c01084
+|   |   |   \-- 95fdb14a4c43eaa951e9a2a1092c1b2c158ed3
+|   |   +-- 31
+|   |   |   +-- 19a4dcd3c885e51d69d86f12142445fd12eb09
+|   |   |   +-- aa4391531f837c01da12b2d256c7913be001cb
+|   |   |   \-- db913ad0739995eee59e0bda3f22fb50f977aa
+|   |   +-- 32
+|   |   |   +-- 00a5c2236b8225b1f6dfd52b5adeb0d9c78448
+|   |   |   +-- 64fe84de34ed80442164d2f41fe525f4e1c1fe
+|   |   |   \-- c8cfd537482bccdc732428e68ce478bb77c01f
+|   |   +-- 33
+|   |   |   +-- 3ae06254bdbeac2f7e064c21a47fa2aa2d686e
+|   |   |   +-- a96a82a08824352413c7cd2a1cebe4ccb1e062
+|   |   |   +-- ef739f9b8ddf8fcb6543f2324d1af14b67ba57
+|   |   |   \-- fc29d4c7c4bd52c6875220ff9cb526edb5f1b5
+|   |   +-- 34
+|   |   |   +-- 8514ca4f9d8009289523ddbd9f9ab8dda99f7c
+|   |   |   +-- 9e28263cb5ca3ad62cc5bcede6ab388b7056d8
+|   |   |   \-- c6246c713a80ca53c2a48e10bfc0b2d0dce78b
+|   |   +-- 35
+|   |   |   +-- 78fb210a5fdad487f10da2c1af585ef8e492b7
+|   |   |   +-- 8e58afd2c094b828ba003b60f519dea6954817
+|   |   |   \-- bfdbb4232bbf2c0ed54b08c0862f2f27518762
+|   |   +-- 36
+|   |   |   +-- 36d8953ea70ed22fbc3eef4464e081d31faf66
+|   |   |   +-- 486f5523a2f69294b5ac82b68ff9eb9d584b3d
+|   |   |   +-- 7f6378b4a1920bac64bd5c22eb716902071d85
+|   |   |   \-- b1723d6bc0cb869b4c1e8e4f5e2cee98fc9044
+|   |   +-- 37
+|   |   |   \-- ba7bb645bb49668ccffc21f74d431ac32bf293
+|   |   +-- 38
+|   |   |   +-- 086a20b77e4cee663810b9f72940441a7f474a
+|   |   |   +-- 780da8ee00d8a73607a7694b48d7d65c07f6fd
+|   |   |   +-- c4acf0362947b62c291f77dbfed6f94f57023b
+|   |   |   \-- d5ed11d7b411dc285277e2fdc279a12783184e
+|   |   +-- 39
+|   |   |   +-- a16b5c0a264961e66890d216fd37fcaf6e6430
+|   |   |   +-- cf36dca9e8ab12a8d455dad33f047dea796d9b
+|   |   |   +-- dc6ea9ee0237df9bef22451c1442827011b2e7
+|   |   |   \-- f739ab6b464f01f2ed0e9ae4c57e0708429fa6
+|   |   +-- 3a
+|   |   |   +-- 088d9c04b448dfafbb998f205e14171f811e16
+|   |   |   +-- ce94531a38633b0c7285e8f45cd3b5536493db
+|   |   |   \-- e0edc436e4f5b20888180ed01b8070349fc131
+|   |   +-- 3b
+|   |   |   +-- 2c3e3d43c00752ce819f51165ce9b3032829c3
+|   |   |   +-- 9b0f88aac8644ff2291d5b960b8234b90bda74
+|   |   |   +-- d73743910bb05eade012b55434e47145dbfe6a
+|   |   |   \-- e66e1cb64983fb911a546d6408421c0debbc66
+|   |   +-- 3c
+|   |   |   +-- 24ea09dcc1fcf7a0a7aba0ca7c3c58e18da578
+|   |   |   +-- 3ce1b9ea585faa37c0b4749c6692762ca470eb
+|   |   |   +-- 93ba01a46392f7c17bec5b2d339bf8cd154b3f
+|   |   |   \-- fcefbc9325f80574830625e289e5418605c8b3
+|   |   +-- 3d
+|   |   |   +-- 1a42c169a7dddcaec58f8b4ef2d70f523fc4eb
+|   |   |   +-- 6ff6fb8ab7f71b2bb7f7fbfe3adf792246fc28
+|   |   |   \-- da62126032691c37aa3c9b38675251edcb95d9
+|   |   +-- 3e
+|   |   |   +-- 043563ab772a3b4456368248b9935da5d9d84f
+|   |   |   +-- 725730a0a2cd28eb3ce1b2cd1e2617fb1f079c
+|   |   |   +-- 81735df7dadef2f40defcdb4ff0bc0d1657ac2
+|   |   |   \-- c52a40daa6e45f573d99ed7719a27dbd73d37c
+|   |   +-- 3f
+|   |   |   \-- 8b03479db0b4a7a67a544608463080ac64b47a
+|   |   +-- 40
+|   |   |   +-- bcd8534d56cff2eea372e1ec11047fe9ff57c2
+|   |   |   +-- bed7963909d99fda1b99b3600f9b85a1683dd3
+|   |   |   \-- dcc83600bbf704529d871513f84d7452b57c59
+|   |   +-- 41
+|   |   |   +-- 1a604940ec00ae3b7b9dcbbbe4fa5d432b8d8b
+|   |   |   \-- 1c36dec458de5df0b4244039fbf0fef7cafb57
+|   |   +-- 42
+|   |   |   \-- 1a86ab6a36c5ec7145585e147ed45b5bf44aa0
+|   |   +-- 43
+|   |   |   +-- 088784ac89a20402315e47c2e74a5b6ad82fb2
+|   |   |   +-- 838f49ccecf338cee40163729df9b947e2f3c1
+|   |   |   \-- 8a6bcea6044fa54c520c93db73b1ffbd1fe338
+|   |   +-- 44
+|   |   |   +-- 539cd826d58108ac7745e9117b4334605632d9
+|   |   |   +-- 826002387736b17755c56b37d5f58460231675
+|   |   |   \-- d7b2b3169f4d2c7759fcf42817d03434c1c8e3
+|   |   +-- 45
+|   |   |   +-- 1ab422a59401829a74d07e44aa9edc2ac12a57
+|   |   |   \-- 576227a3030b2cf4831696e7129e7b9b0c8161
+|   |   +-- 46
+|   |   |   \-- 0a4d07f56e82b81505f40012a1c07a7e679d94
+|   |   +-- 48
+|   |   |   +-- 8e61bdd611d62f44337bc19ce328acef7e3bd6
+|   |   |   +-- c396e27ed91651bbab655b5ac20767fc0c9f4d
+|   |   |   \-- ec79ab56dfa8d3cfe152475d5fb44e803711a9
+|   |   +-- 49
+|   |   |   +-- 0bb7aee084bc642222f3cdc74693318a65af35
+|   |   |   +-- 4ffdcbf1b8e1a9cced6e23c26254ff341d3212
+|   |   |   \-- cc0d4e822c22869b08f3192005b6c47fe60f7b
+|   |   +-- 4b
+|   |   |   +-- 0bcf15df9e8c6f63bf3c36650df96fee92cc19
+|   |   |   +-- 194b41a2a4684a423faab72a4d83bfa4554a20
+|   |   |   \-- 1eb4fb7025b57cf37bc441441b98b1231ccca6
+|   |   +-- 4c
+|   |   |   +-- 3548ac7acf54fced51961a52f38a8dccbfe823
+|   |   |   \-- 5f30c9226871f0c7bb322cd183eb1283d95f6e
+|   |   +-- 4d
+|   |   |   +-- 1a162bf45ed876bc5dc7f9b2b9357600a2a83c
+|   |   |   +-- 85f6b43992f8046084be53f62ddf6b737bd469
+|   |   |   \-- f44f945f5ab01d8bfcfea9d3a3c14481419c87
+|   |   +-- 4e
+|   |   |   +-- 2c0776c9a9d3ac8a0f0c029a072842b2b07bd2
+|   |   |   +-- a11c48ae90376ac45388a86cac178b32a06ca4
+|   |   |   \-- f738075e158e19dccf5cc41139e074eae8db24
+|   |   +-- 4f
+|   |   |   +-- 5e14f260fab7443ac873f6ed13b018e1a68f2f
+|   |   |   +-- 9c82f0b4999e15386a4f7331a37f8ed28fb8be
+|   |   |   +-- bf5760c39123648a5dfb3ad09830002c96f276
+|   |   |   +-- c5f9c28707621657c5fb52fac34a433cd125b3
+|   |   |   \-- fe61f67da77d8955e88a434a022ee7db512ff5
+|   |   +-- 50
+|   |   |   \-- 4573d93b60c174c884e615750d409ce8531582
+|   |   +-- 51
+|   |   |   +-- 319f21bd18cc324bafd38f8ba8523353c99917
+|   |   |   +-- 66427e80fec9cb638e54963b3ba7a1dfae3dfc
+|   |   |   +-- 94db03f81ac2e1b677d2e01dc815087da6cfc1
+|   |   |   \-- e44573887336bd1cc82b44226921b34cb35d3f
+|   |   +-- 53
+|   |   |   \-- 2b83cf0137f2f0c893e538f96fd64cb5fa8397
+|   |   +-- 55
+|   |   |   +-- 3d825279cd3267fa97a1d5826498053f9b1e86
+|   |   |   \-- f865f7892f048d4bf9db577529341ad89641e3
+|   |   +-- 56
+|   |   |   \-- d872c5b77f3a5ab2655288eec71651f2b61861
+|   |   +-- 57
+|   |   |   +-- 27bbabbdd01a50ab3236b972ae424b9c72793e
+|   |   |   +-- 6f15f91dd94a724df935cd5f4c6207bf2361f9
+|   |   |   +-- 7bc02bcca8b94e170a8900bd491c1ae09f7616
+|   |   |   \-- eac7ea7f5403d2d8a1fb0bba49b027c2450a8e
+|   |   +-- 58
+|   |   |   +-- 280fef1513993f3fede55f29448b5f9ca4bcd3
+|   |   |   +-- 6aafdce453829780cd27a24ea0c74178ae08ae
+|   |   |   +-- c313cdd0a3ddb51845df6bd78efe83d1a73412
+|   |   |   +-- cc7edc223afa667fa3eb124e5985df6eb9bb03
+|   |   |   \-- e1938f1215f82d59dbe5b7c00fcf0bb7d4c50a
+|   |   +-- 59
+|   |   |   +-- 24cabad247acaae87fe41082255a9802b2d67b
+|   |   |   +-- dd777ac93c67d1c41089d68c6d00d413a17282
+|   |   |   +-- f0f844d74d72fbb6e5a8d1f4e19b88597d1a1e
+|   |   |   +-- f7b496128a7e0d582adc4e21e3776dafed109d
+|   |   |   \-- fafb3da6a5001e4794166d820b71b0e8531d30
+|   |   +-- 5a
+|   |   |   +-- 37110eaed97ebd5634be4e331cfff8affbf7c3
+|   |   |   +-- 4a57dec945520509d171b1eceb452b3434d46d
+|   |   |   +-- 5dfa6037f961794448f688f1a7779ec972d538
+|   |   |   \-- 63c0e72b95e60ecded1de6abf94d263ee3eb75
+|   |   +-- 5b
+|   |   |   +-- 949c7f8b4d02491983fdcd37ee1fd2e09b2e5f
+|   |   |   \-- c6b16cda05297917697ca49b1239323ed1b6b6
+|   |   +-- 5d
+|   |   |   +-- 987eb079210aa277457ed875498494b7022b8f
+|   |   |   \-- ccf98aead187f3f5aff8084e78eaad5883028c
+|   |   +-- 5e
+|   |   |   +-- 28634df03e209ea170625fe642418613b0738f
+|   |   |   \-- 82880e7f1f785b3167657ebe091d835ad664c7
+|   |   +-- 60
+|   |   |   +-- 510c9b2a71f05bb2d357eee2760fe6969d4e42
+|   |   |   \-- c63c6ac76ebf9f45800297d2f9cc61a8db2606
+|   |   +-- 61
+|   |   |   \-- 57218ff5c4d43f7044688babc3bc0b21c4ce3c
+|   |   +-- 62
+|   |   |   \-- 0979ead38151cc83e3f993d521027c07b4aee6
+|   |   +-- 63
+|   |   |   \-- e687a98341140a99805db045c679360640956b
+|   |   +-- 64
+|   |   |   \-- 2d1f46819228944ec91c2e5fe518e0b6dd5ca8
+|   |   +-- 65
+|   |   |   \-- 2ae59b08baf481468a478cd4abe0cd57a8552e
+|   |   +-- 66
+|   |   |   +-- 17444cc6df9a87d42b94d4a6a20ec9c24af701
+|   |   |   +-- 1e24cc8eb0500f5fd509f12a0b654822365166
+|   |   |   +-- 4b17fbd72e07700c8f7a85815ad198761b2573
+|   |   |   +-- 7b69afb138841e013b571b9eef3e6019c14896
+|   |   |   +-- 8ab9103741085f6c54312620c6d9dd59e89947
+|   |   |   +-- e83c436eb3613554213ebf4aa6a9c89315d24f
+|   |   |   \-- ee6d6ba979a1646357d3a3f535d868712cec9c
+|   |   +-- 67
+|   |   |   +-- 332628ff91bc96be12901b770ef0809a1627e7
+|   |   |   +-- 4aac424dabec4e532bfc0168524780b35e555a
+|   |   |   +-- 8320d7b591d395c4049a6d99e3a92ec95c498f
+|   |   |   \-- dec69082d566cf89e81e0e77f81449c7158a19
+|   |   +-- 68
+|   |   |   +-- 9f0d9ab8b3dedeabb6f4dcf7e5a27213731a29
+|   |   |   +-- e51b01a66387bc5440387660c8edf5c2bef18d
+|   |   |   \-- f66b12a1d672c08b313807baf63211b3a94e45
+|   |   +-- 69
+|   |   |   +-- 71f75f1eea8f15996f158fc9af8afb169ebc07
+|   |   |   \-- 94d5fba2ccf5a124c27b200323e61575314d11
+|   |   +-- 6a
+|   |   |   +-- 1c5dcfd4d3f3e5c137219be95f5e1756b7685c
+|   |   |   \-- ff5cc624e7c13e0bd4dc91c4d2dc874eb84cae
+|   |   +-- 6b
+|   |   |   +-- 01b0297644272d7f009a12ebeacb5861e98581
+|   |   |   \-- efd417bc859a02a104d6929d422aad66a09920
+|   |   +-- 6c
+|   |   |   \-- a177ca7fc135a9716de767495d01ae383c0441
+|   |   +-- 6d
+|   |   |   +-- 0017e6259c4fd0a47a38126297678d7e3e1c4d
+|   |   |   +-- 348792284cc59c240ffc4e5903b6a8976f16e9
+|   |   |   +-- 5c1e8c5e490887150177b8cd3f5ece1827a345
+|   |   |   +-- 6274747d1329efcf1d54f5a372b63c42f614ed
+|   |   |   +-- e5d0ef1e2361c0257b13a48f2513101e927503
+|   |   |   \-- f4880101d6de9c51bb74d617b68b3ce29ee835
+|   |   +-- 6e
+|   |   |   +-- 4c22913ca558cf83264915dd262bf01345964b
+|   |   |   +-- 66854e13ba7b6a1b83c9d01212fc4f1e7b3bab
+|   |   |   \-- d65f1fa29bc5f0de9c0c1aac9014daf597e574
+|   |   +-- 6f
+|   |   |   +-- d9ce12b98e69b8d0e84f5818abb0324cf182e3
+|   |   |   \-- efa145129a1d4c7224f00123b2b334b5f18955
+|   |   +-- 70
+|   |   |   +-- 4ba678b3e7fdbe846d3f97a42c877808a8bfcb
+|   |   |   \-- 67be922ac0090c488bdce0e44a057b4dd48ae4
+|   |   +-- 71
+|   |   |   +-- 76173865a2d57dd89d7e6808c642226323b339
+|   |   |   +-- e2f1a2df156fa5c78f1001bf2976427b2fe4e3
+|   |   |   \-- f299b693ec631d498e88cd62d8df90916f94f2
+|   |   +-- 72
+|   |   |   +-- 2845b0e78bb09c8c4f7e5c095dbc9c8fcbeeb6
+|   |   |   \-- 4f7e8ed94720d7ec7011185ffd1148060540a2
+|   |   +-- 73
+|   |   |   \-- ca3c1d5e0126b12dfc61d7b195f367f9d7ea72
+|   |   +-- 74
+|   |   |   +-- 3ed6382a48cf889d1932640f16707e0095ac88
+|   |   |   \-- 40f96409f635752d1ff00b8f88d09816b34dfe
+|   |   +-- 75
+|   |   |   +-- 4347732a0ecbebf7d73ea4a61f052969d7796b
+|   |   |   \-- f809c51912e2883b6ac2d3e362e5bdc86dcb84
+|   |   +-- 76
+|   |   |   +-- 2fbf9c780ead34d557ac5d97ce750921e1ed34
+|   |   |   +-- 94ae5638b4666530c40dd916bb37c522afdc10
+|   |   |   +-- d3b81537bbd9bad89410d59d9d4525f490b514
+|   |   |   \-- dc71d501c3ffae442d9de144a3f91d61c22e16
+|   |   +-- 77
+|   |   |   +-- 0ff39b5bf8bbf79a6bb9c0013744bbbcd70bb0
+|   |   |   +-- 5f43884fc5d4b2bf69ea94812ff6e2678b3ba3
+|   |   |   +-- 810b8f0048fe52fff970aa049fb4c3a28da9d5
+|   |   |   \-- b2796d8c1d0b4974bcf1dd778e4deb238b2a87
+|   |   +-- 78
+|   |   |   +-- 0954f804ee079b1e94290d2f177f0d5faec47c
+|   |   |   +-- 762b3ef64f8ef95171b8ba91dca73e49af82fc
+|   |   |   +-- cc92308da5863bcbbed8e99c5b6c78adba7f51
+|   |   |   +-- f2162219dcd0aa70bd1579e3df9b10076850cf
+|   |   |   \-- fcd9672a62affd268fec69b043bb5509bf789c
+|   |   +-- 79
+|   |   |   +-- 0904bc52dcd3b174573421d077641d67ca2bda
+|   |   |   +-- 8101819e5fc36ea1a747e68080e70a211c64b7
+|   |   |   +-- a240d33ef9d475ce7501a93e36bab90f38e34b
+|   |   |   \-- e328b3b058489734dcd9cea79367cb96ff503e
+|   |   +-- 7b
+|   |   |   +-- 2421e2b691ec61db746b220665b3b834164650
+|   |   |   \-- f893b4a884ad31a79b136a19a23ff531c523c7
+|   |   +-- 7c
+|   |   |   +-- 1a534b75f17ce7612bacb76fbe98556cbbcb17
+|   |   |   +-- 4d2ee53b941c30675b71bf7bf9c5b0e4effcf3
+|   |   |   \-- b469cb965b5d905b890b8cc3fe8f88c828bb2c
+|   |   +-- 7d
+|   |   |   +-- 7136b2dd428f42e2362799423b135cb6b21c6b
+|   |   |   +-- 891bb5c77da62f149f307962ad47777cc7e0c2
+|   |   |   \-- c2df082704e3017167805f15f47364a78fb4fb
+|   |   +-- 7e
+|   |   |   +-- 0113b0de372169de3cf7c98f1cffd07f4e6ed0
+|   |   |   +-- 4875fea4b2d6ec77f9391e90572b83d9fb04b2
+|   |   |   +-- 734bf80d8f90103c7ae498b462dbcffac332a8
+|   |   |   \-- f22e9a431ad0272713b71fdc8794016c8ef12f
+|   |   +-- 7f
+|   |   |   +-- 79fb3a3f3195e38b14f5db9be505c579872e91
+|   |   |   +-- be5567674dfd20cf47e8c9a63d887268007800
+|   |   |   +-- dce6cf76b0f0c8294323841953ad21d9359fc1
+|   |   |   \-- e35072430cea0f3aff2d04bdf9b5d068a6cd82
+|   |   +-- 80
+|   |   |   +-- 392aa23860f81d70f04b10196eb159a14ca246
+|   |   |   +-- 53bfd2f0c873dd9a48e35140d101746dd97a96
+|   |   |   +-- 67cb9edafb304ae5a7f2fb75ef8fbe7e816ef9
+|   |   |   +-- a1a299580655991216a74fc95c5020bb7280a8
+|   |   |   \-- cbe59c9416e03d733a5e21ae0c8cf7d1d51c10
+|   |   +-- 81
+|   |   |   +-- b72e1a46d3b139e33c447b719a62993a4982cc
+|   |   |   \-- f1c38e66a5670d983e4eac61e56f4afa2b38f9
+|   |   +-- 82
+|   |   |   +-- 1491f25d8ce9ddee8e7f305dcbdfbdb5ef12f6
+|   |   |   +-- 273902f2f14c497cb531d7f0e98a10ac0b74ab
+|   |   |   \-- 440b42ea1555ce33b5a9b6d7432d5c05ca348a
+|   |   +-- 83
+|   |   |   +-- 039acb4ad2b69cb9da72741aa15b3aa2c85394
+|   |   |   +-- 5b4f4c0502f786d942597bce2a4da424168d6b
+|   |   |   \-- 6c36bf094045b6ab7f0945ed9cdcca8a73fecd
+|   |   +-- 84
+|   |   |   +-- 880bc752ceb64107d5a46c768e6fc2884721ce
+|   |   |   +-- d513fade9d5beaaf7e490d9ac424157e93ae2b
+|   |   |   \-- f055d05289b4109d9521c482a205fc52e08299
+|   |   +-- 85
+|   |   |   +-- 1a406dd8816412884bb7dcce57a3eb337580fe
+|   |   |   \-- d007130975dab716d15c29aad33bfd475d6acb
+|   |   +-- 86
+|   |   |   \-- 5ed371d3bd48903aff43a678c0a533fa6932eb
+|   |   +-- 87
+|   |   |   +-- 096d74a77e62600e330e5ce8d7b67afc25024a
+|   |   |   +-- 63bce118f87b5d2681f9d8076f852aed6cbf48
+|   |   |   \-- b5a82a11b50626e25129c10b066bc9da3f365a
+|   |   +-- 88
+|   |   |   \-- 711d915eed576bbe23bda7334109cc9b0b6476
+|   |   +-- 89
+|   |   |   +-- 2d07980341f11afc5319a57d70cf828e57bcec
+|   |   |   +-- 8900cfa939ea19ca6bdc06bf17fd48dc582614
+|   |   |   +-- 95794ac17ba7c4f8f8b29faca8e9c7ea889cf6
+|   |   |   +-- db17c9229f76f8ddf1300ec44b7e3ddfaf1f42
+|   |   |   \-- e15fcb934e71cd43be00eaba11945528533711
+|   |   +-- 8a
+|   |   |   +-- 064959685702298af925015fb8954861f37c04
+|   |   |   +-- 4fee9037d49881c4209c903b251b11681af43a
+|   |   |   +-- d3fbe4a0e6f674204f323e4bb76cc13df265fe
+|   |   |   \-- d944a3c1645e8aa07c22380561f314f5861b32
+|   |   +-- 8b
+|   |   |   +-- 137891791fe96927ad78e64b0aad7bded08bdc
+|   |   |   +-- 9dafb4aec7d8aab1744aa609716573f1417030
+|   |   |   \-- d125add36b3f07b1c42ece38c1c3f5f39904ab
+|   |   +-- 8c
+|   |   |   +-- 256bd31109edd754c90b3dd8cc510e02643f44
+|   |   |   +-- 3b95bec18b06bdb1d191be45f61b9ba7b9684b
+|   |   |   +-- 79318328c0206d31f076b1cbc8da78183a2515
+|   |   |   +-- 907a9bf7c47fc6bf6f8ba52b6bb9592de7da3e
+|   |   |   \-- fe15dd376f7e002fc99f855bdb0429941a8e0e
+|   |   +-- 8d
+|   |   |   +-- 2232503392bbd0be2d304b9d44c4fc8a3142a9
+|   |   |   +-- 65cdfce6f4098df4fc46740c2f054f0e7d52f7
+|   |   |   +-- 7b18b71fb56eb570ee640351ac5544426aa212
+|   |   |   +-- 931cb1ef61909b2683df38325205d978886d37
+|   |   |   \-- dbd535b2be196b1503b9d0cffdfe192764b439
+|   |   +-- 8e
+|   |   |   +-- 1b426b12e8a66752dcb4306775652803dd6673
+|   |   |   +-- c9b5848f108f6e0ea971b6103b6ca57cf22386
+|   |   |   +-- e37f949d9a21a9e0d85212a6b2c275ce5b7709
+|   |   |   \-- fa71167cc38b7398e8fdb7d9595675a199cae4
+|   |   +-- 8f
+|   |   |   +-- 18a26f3291b2673a15fd84ed52d73582a7d264
+|   |   |   +-- 6f55e5550d9ebc4407a5bb84c3942e20e652bd
+|   |   |   \-- d47aea863ac0d5c130a3f2841a7b3ea2a2f7ad
+|   |   +-- 90
+|   |   |   +-- 213786167107fa7954ba9d78d269a7c61a421e
+|   |   |   \-- 8036d6395ea8b69cae36622b77fb4d591ffea6
+|   |   +-- 91
+|   |   |   +-- 0afc0ab5010f0184df8bdfd5a79b56125c0518
+|   |   |   \-- fe751b5979068ec86e3f1c9d02b0e6cc30731f
+|   |   +-- 92
+|   |   |   +-- 29152f679ab238646c07eca7a63ea11ac516f2
+|   |   |   +-- a29372f2d2e3484ac3f528e2df021e06ea7bad
+|   |   |   \-- f0904f9c5905492487685fbe36c34d71bdf862
+|   |   +-- 93
+|   |   |   +-- 6ca5585f9cee9a0cfc9c7cabf6748dcda80106
+|   |   |   +-- ddacdefac7471a1aae99546c4835efe8f60789
+|   |   |   \-- eddf8c7c0dd3c074910573f31f0d9645931045
+|   |   +-- 94
+|   |   |   +-- 00ed5f7f0657f15a428f798a568aec4151fb46
+|   |   |   \-- 4b2bff8f77c7686597f2fe4e8d071f55ef08ee
+|   |   +-- 95
+|   |   |   +-- 097c623aea94c5238735bb8a8c7c5f15565c15
+|   |   |   +-- 1af63571e7dfae26337420652e72e9d3798846
+|   |   |   +-- 8a24bf829c40c8689e3fa01c20e6053ca51e05
+|   |   |   +-- e4d3794867a1b788158c2a8a4f46857e25f245
+|   |   |   \-- fa98cf9116052718c9dd063acaea727c594d12
+|   |   +-- 96
+|   |   |   +-- 43e27ab5f9a15b35c78b7601247294c3a08b35
+|   |   |   +-- 459b2b9c8360fd17657b6a94a9b429bb318438
+|   |   |   +-- aebdf06e2e9e941ca7c042369ea160552e3d76
+|   |   |   \-- e6e26fe39a50f64639e0f41c173ebd6ac63813
+|   |   +-- 97
+|   |   |   \-- 8f3f97fa4da2e20c17c2b8acc237e375ed01e4
+|   |   +-- 98
+|   |   |   \-- 470e64744fe4480078fd1a9f10a981aa09ea57
+|   |   +-- 99
+|   |   |   +-- 2d560909a3fbe3d6c2fcbb22ae4f91e8d91088
+|   |   |   +-- 9aad2814070754fb4b614c435868f829560f80
+|   |   |   \-- fa5a8a2ce99e1f135ed9702c735ea7a6f04dcd
+|   |   +-- 9a
+|   |   |   \-- 6e8350c4501e3e01755c624533f768cfeea5d1
+|   |   +-- 9b
+|   |   |   \-- 6df234979f242cc5fcdb3131e8776524a72087
+|   |   +-- 9c
+|   |   |   +-- 386fce450a08532a36d325c458d004e1ce9d0f
+|   |   |   +-- 4c2bec134d47e1544f1bd5d4c5ffd488c49611
+|   |   |   +-- 6f13339a8950167cc0ee61497fb5526c5fbe47
+|   |   |   +-- 81aa8875772abc1173d871bce8d6b954f27afd
+|   |   |   \-- 9b1643a14eed5c5ff68d2ec2655d865d75331e
+|   |   +-- 9d
+|   |   |   +-- b1f115f628075c8da886764b34daa214e0a202
+|   |   |   \-- ca3eaa0ac08798c7207245e1d4096b4b45deba
+|   |   +-- 9e
+|   |   |   \-- b39c16cf268e64551907c1ce4298aa94d6b212
+|   |   +-- 9f
+|   |   |   +-- 2d31176d11d9259683f421e612959b531ee50e
+|   |   |   \-- eb4b1912043b5672835b1716d313712fd94985
+|   |   +-- a1
+|   |   |   \-- f978f33bfa90a29ba36099082b293af39313f2
+|   |   +-- a2
+|   |   |   +-- 473a3954e5894e4c31244fae0b11f5349f6251
+|   |   |   +-- 62da8d50dfdd57c145e88f9763c8e815bc82c5
+|   |   |   \-- d58d0acf4eb88c29690a21ffda4a7956237805
+|   |   +-- a3
+|   |   |   +-- 9573c4fcef6b6c1757583ef51cb2ea41b9f273
+|   |   |   \-- da6ab65f81c36f29ab1f8b5c9465d27677e459
+|   |   +-- a4
+|   |   |   +-- 48aac80feb6f92fa70320a928df5f142d73065
+|   |   |   +-- 927fe06a2b2aa787599c1c8ac50afe4f68528b
+|   |   |   +-- acc0e275caeba2b34ee510b23c6365ab3ed24c
+|   |   |   +-- aefc044c2fc1d164cb54a28169f01fe2440b7c
+|   |   |   \-- afacc78f619e1c827dc7a177ab29808efa9131
+|   |   +-- a5
+|   |   |   +-- 2390c3c14a5c84f82637cf1834245c60106c74
+|   |   |   +-- be5cd19d72fb068b23c117f1d60f20dd478eca
+|   |   |   \-- ec6e1a7d4be69dc04861e9f310ff8fdcda86b3
+|   |   +-- a6
+|   |   |   +-- 88cb3c7d916938932e15f0f979c6a22d4b7ad0
+|   |   |   +-- 92d1def5f39644ba3386dee175db94738cf99c
+|   |   |   \-- d8ec828851b197e0edf941fef2f540b8f7780c
+|   |   +-- a7
+|   |   |   +-- 0174ed0f2f186d1b2f0b1e37efebc046753858
+|   |   |   +-- 762d45fadedebfad7ffe6599ea9dd32088774e
+|   |   |   +-- 8ea1ec0aa680899fb4a3ebfaafdb9450ae3d78
+|   |   |   +-- df409b588c18fbc7b0d9eca2813170dff2ef59
+|   |   |   \-- e334ada6a7d605eca0a2a3185e5582d3f61d0e
+|   |   +-- a8
+|   |   |   \-- 57f9d72665d1bdc068ff64a75f135119c144b7
+|   |   +-- a9
+|   |   |   +-- 261c5402fd3fc835e558b90c851692ed37c592
+|   |   |   +-- 8838d7eeb3ce476d7b194c13380772b2f70616
+|   |   |   +-- b2f51bd2c200d75b35d4a481b7fcf7a6d40055
+|   |   |   \-- f64db527d95497a589247a337400c6dbd8ca10
+|   |   +-- ab
+|   |   |   +-- 15544bec5dbf295bf04e911c36022e4bc03da6
+|   |   |   +-- 71af9510209c5df921573c3a224f5145004f63
+|   |   |   +-- 7a9864c196a19ea844bc80219fe28fa93acbd9
+|   |   |   +-- 8b4dce37b71de7a3b86eca4183f9476c8869a9
+|   |   |   \-- b924d51d3f93d9a84a587bda6abd237f781868
+|   |   +-- ac
+|   |   |   +-- 665b5c8bb4e0157bc3c879bc2284b1ef30f6ca
+|   |   |   +-- a37eae031767829581bf0a34d7679bbb083e49
+|   |   |   +-- c16ae5c7943bb2a0c11c9528f8b4796baa632b
+|   |   |   +-- cab8c1a85ce4632dc138bd84632651c58304aa
+|   |   |   \-- df07e6f65b526d65e631d3a7cc15d95978314f
+|   |   +-- ad
+|   |   |   +-- 42b6cbec1a382e0108c96437a7e26320d4b4ab
+|   |   |   +-- 64020cc93004e3b799e0035ea76bb14e833e50
+|   |   |   +-- 98d4c9bb54c5309c7b90ca2d32848698d6b5b6
+|   |   |   +-- b99c982def488349a84a897b19d84bc7768be9
+|   |   |   +-- d8a8953f414fb7a707870c94025e15890e87cc
+|   |   |   +-- e5c9ea6d3ad03c6e5d842e81d1fe55b0a947ef
+|   |   |   \-- f3f29445707019bd757ee79c1c751cfd8c5c02
+|   |   +-- ae
+|   |   |   +-- 1b23f0ec88964a38a2eefb5429106ae178ebb1
+|   |   |   +-- 1d6dbc563ef2bd312aabe8e355984c56207aed
+|   |   |   +-- 262f3c13187cfe4ac1b1f8704b2c885dbc4b1c
+|   |   |   +-- 4a957ea7c6f86be7151a6f11ef60cd13c9c0b5
+|   |   |   \-- 9c2b2683dfb76b33dd4ee43097a1bdb311fd3d
+|   |   +-- b0
+|   |   |   +-- 35223fd261f15af9c19e5d0f2b2949623164fb
+|   |   |   +-- 3906830e44c59fd6fd9be22a637280878cccc7
+|   |   |   +-- 54fe88a08c07c971efc1a630cf5da505139ab0
+|   |   |   \-- e40b471fa4b66c5305c70f5a859d0335cd5e99
+|   |   +-- b1
+|   |   |   +-- 5db00ac0ee076277064d2c1bec9c027103528b
+|   |   |   \-- fa698bd86f871a9bbc98ed9188b08b8b2049a5
+|   |   +-- b2
+|   |   |   \-- 33d90e72adfd9b9d12d5fa42949c97584e1237
+|   |   +-- b4
+|   |   |   +-- 372e2863962784f4f08e9351ca00dad2457594
+|   |   |   +-- 4d96b30ce276a8603bed91b01c1f9c91a8a563
+|   |   |   +-- 507cf8cb6f1b59e3023598c0a98545b0b1283d
+|   |   |   \-- e420e7a46371dca459a5b231a3c80e4c3faa33
+|   |   +-- b6
+|   |   |   +-- 111302a575a90be04e2b3be2fd99a321d38be9
+|   |   |   +-- 1b5c242b46131d45a40f2a7a4c99ecae3ae41e
+|   |   |   +-- 7db7bd4cb677b3f145808010702d23eb8b92a8
+|   |   |   \-- ab87dbeb73ad5c6e99248f4569fbbc0cd41da9
+|   |   +-- b7
+|   |   |   \-- 526dc211883eb2d9d944e3c1d0c5f1b4b00b29
+|   |   +-- b8
+|   |   |   \-- af7c57b82a6163c090d8515cf68d7d70f10f21
+|   |   +-- b9
+|   |   |   +-- 358ec225d568da65191913a76df99ea9a1dc6c
+|   |   |   \-- cf718ed7137a6f26c290737802a9da92e124c5
+|   |   +-- ba
+|   |   |   +-- 6783b77242358cd2f4be0006423022c1519c1d
+|   |   |   \-- 7405637bd4bb2967ed50be6c6405252c6ce56e
+|   |   +-- bb
+|   |   |   +-- 1bde6330e382f7b6e77e2c4dbe345c976b26fb
+|   |   |   \-- d305c1d7418a70b236230167f349b2d65e593b
+|   |   +-- bc
+|   |   |   +-- 501b179ee26956b1e179bff53dc2588866bb64
+|   |   |   +-- 5ffe83b651210d9abdc8aaa8a70c8db432fb7b
+|   |   |   +-- 7078e8d2462d16c2ba095e4312bb210ccfcf95
+|   |   |   +-- 73038c01476ea8c1853c120c7667e246b0d5f8
+|   |   |   +-- a426998952d9b3674c308b76086fb436f8eee8
+|   |   |   \-- fc305658675bf4d8c3d4a660d41a0632287e68
+|   |   +-- bd
+|   |   |   +-- 6dabc8bceea618cc4405a5b87c7f802d50cd60
+|   |   |   +-- 75f34a75830c342a79fa7a96f8b3a323213a22
+|   |   |   +-- ccd3ce004ce6b3b3ef0158d5467b569f10cefd
+|   |   |   +-- cdbbed9bfd1f36d72a9ad194a804f500b12415
+|   |   |   \-- d1e6c0c8ee2cd24e0537691dd5bfdb0a753ff4
+|   |   +-- be
+|   |   |   +-- 507ff653173c0a5242a8f1e87b9f7fc0734864
+|   |   |   +-- 68fde74bdf16a566060361418d8ebad432009e
+|   |   |   \-- d08ed413ab858ff678e4119767bf2d6068c7fd
+|   |   +-- bf
+|   |   |   +-- 4223f478b87d956b8ab2bda73f3894bcb729f0
+|   |   |   +-- 5773de007a72fb1f2ad5f46206999fef7a43c0
+|   |   |   +-- 89d6e47a26b6015fbbcf40ecf370b786b83558
+|   |   |   \-- d7aa2d616f21d13dc69bd187165e78bbf0301b
+|   |   +-- c0
+|   |   |   +-- 2d06dee479cd2be77fc2a413b2dcd0d15766fc
+|   |   |   +-- 579b7b998d3bd6bbce624ee88004865c2ad60d
+|   |   |   \-- dcc4342f74b1c6d3e132a3492da6c17f01789b
+|   |   +-- c1
+|   |   |   +-- 8086fa72e60869184e381f9524c678aee3aead
+|   |   |   \-- db585497ed416a3630cfb324f930a21d13c3f7
+|   |   +-- c3
+|   |   |   +-- 06ec1f0eb78c71e776398881b0983e63a94e94
+|   |   |   +-- 4a41d96eb4dc4287ad069e2c35c6f9227a2f7f
+|   |   |   +-- 5fe8b2dabfee429f7f9d46d5d9b4bf38b0a736
+|   |   |   +-- 7256e4e3699137c3a060f36a17b2b29a418684
+|   |   |   \-- 7d127eb093fe09382cfe09dbfc7709112663bf
+|   |   +-- c5
+|   |   |   +-- 6e4a5158ef87226af01ae7da62db394c3a9aa8
+|   |   |   \-- c6288b50018a837dc96a46fbbf1b5c85df7123
+|   |   +-- c6
+|   |   |   +-- 23e3d932147bd6b167e6bd1d5764be7608b27d
+|   |   |   +-- 62a731f72642872e28c1fc87135d7529689194
+|   |   |   +-- cd18470919f9ff6880688a03d6043f8841560e
+|   |   |   \-- d6a5d76ecfa991416e51db5d2b4cd479c83ed8
+|   |   +-- c7
+|   |   |   \-- c35a8331b7f19747c8f8d6cf1336db1251e720
+|   |   +-- c8
+|   |   |   +-- 22dc9bd7b7738b81f0349035b2ea7ee7ead1eb
+|   |   |   +-- 2bd31c3697eb5529e3e3f819d17390466df433
+|   |   |   +-- 75838f92de91606fd1210f6ef080aa0040d4f9
+|   |   |   \-- 98bee64058b030a3091447928ec71674a262fc
+|   |   +-- c9
+|   |   |   \-- b3e4c92caee7857dfe92dfc773ffb7c787669e
+|   |   +-- ca
+|   |   |   \-- 16d76a468ec01cbec3770c19e6592d3ddf109c
+|   |   +-- cb
+|   |   |   +-- 0d76a2bf7de4bf8868583c00518b3a7793c5f0
+|   |   |   \-- 80f73d2183124b68315371a3bbfa18b4070201
+|   |   +-- cc
+|   |   |   +-- 69d9b66b3d127c754b86379bdd763c739e4d1c
+|   |   |   \-- b51205a503c7a0e48959279d38ad718a07e657
+|   |   +-- cd
+|   |   |   +-- 6d4f8c2b109e9158bd22eff30927d3c2361fcc
+|   |   |   \-- c0d73c3779db6490662170b8615ab3a652b03b
+|   |   +-- ce
+|   |   |   +-- 3bbe74e060908fe1bdaab0d88ab76178fdb446
+|   |   |   \-- 913a6688f1553e54c1959903dd3bb18485c578
+|   |   +-- cf
+|   |   |   +-- 55cb4b6894c6613c80997f5096069c5048cea0
+|   |   |   \-- bdaabfcbf62e0266498ee396bbc773bf1287fe
+|   |   +-- d0
+|   |   |   \-- b14231851c82c7dd14785657e4a7efc0779086
+|   |   +-- d1
+|   |   |   +-- 30866f3de1c9726254c9853cb3bafea0b8b3b5
+|   |   |   +-- c129d27d4ddded38fd300699c54f51c1f2bc6b
+|   |   |   +-- c3aa77d88c8c41d253dcdc402efe92d5befd7e
+|   |   |   \-- f7ca65acf7c1a88bfcda5b100319810b59b9e1
+|   |   +-- d2
+|   |   |   +-- 56c25dd47534b7c0caee0e2b4192020be7acce
+|   |   |   +-- 6b3d4bb16169c02e7e577f48953017d80060d3
+|   |   |   \-- 77661e722c4229bbc955406c6979310399fd85
+|   |   +-- d3
+|   |   |   +-- 1d60c17f5057f4c6c462c902ee77871fa86632
+|   |   |   +-- 2b91d2548237ad2794bbf9641e4323602ba39b
+|   |   |   +-- 8287f1cc8b5030fa21c43436f007c1d2187a6c
+|   |   |   \-- be3bd63b768226ad82bb94ffeae9447b738796
+|   |   +-- d4
+|   |   |   \-- dbfc0f2e8b79ee4b1c56d3ccaed2c19e0f51fe
+|   |   +-- d5
+|   |   |   \-- a69281e700f212bf36d665ccafebcd5ee9d607
+|   |   +-- d6
+|   |   |   +-- 6e0f2c9e09b24ec6cdf9a78651272e7a62cf81
+|   |   |   +-- 6f039cf05ad359f571a7e222a9672d9cb721aa
+|   |   |   +-- 778e0b7b15e390862b19f2f48b1678e1c79e21
+|   |   |   \-- eea38d6242af87cc882b74154a7447bccfb2a7
+|   |   +-- d7
+|   |   |   +-- 3f4064a7b51bcfde4179bd6066196c7a1acca4
+|   |   |   +-- 6801f19ebabd2c8c394004a7a858265ca10912
+|   |   |   \-- bc4aff4d5856a80a1853a2214716d97a471483
+|   |   +-- d9
+|   |   |   +-- 2096e09b368e2b301345ff53c14b0dac2076bb
+|   |   |   \-- be5ffb398f212d86c3ac58355df2bba8e5f72e
+|   |   +-- da
+|   |   |   \-- 290ebad8a77022ca1d83bf5570501dfb71924c
+|   |   +-- db
+|   |   |   +-- 0a328fbe0f607bba93954f7cdbc1c3c7cc32a3
+|   |   |   +-- 0f70a7318dc9c2b6b97dfa2540f43cd03cb445
+|   |   |   +-- d70e72016cd329dd50e03ff11e6addeb547373
+|   |   |   \-- e4ee29979c974241452e3f096a7efc4ee45f85
+|   |   +-- dc
+|   |   |   \-- ea37658688fcfe26122720fc8accc4aa734f56
+|   |   +-- dd
+|   |   |   +-- 285f71354a28b24d9aae84654dbb983e50aaa6
+|   |   |   +-- 6b5ead6188397b4d9f5c3109c9dad7f3d87751
+|   |   |   +-- 7c5abdeda18c39a80d81c83895d99ae966ac9b
+|   |   |   +-- b6973d3f78350e5f227ddaac355b79db0a3b2f
+|   |   |   \-- d3dc86c0e4fa4c3e8f350ad1297f2842169aac
+|   |   +-- de
+|   |   |   +-- 1c775480706494b177546c01493b0545e3c369
+|   |   |   \-- da3c7bbbc66eeb1ba66432b45ee0e84ddd33c6
+|   |   +-- df
+|   |   |   +-- 6922b60f09666352268053d4190bdd346a1342
+|   |   |   +-- 869362fbf16c18d4ae072204be44a1d660f864
+|   |   |   \-- 8f3a2e35b56820c0f1213e1365764668324dfc
+|   |   +-- e0
+|   |   |   +-- 2abfc9b0e17c18f0c365f044cc760d3b961f4a
+|   |   |   +-- 5c375203e6e95ec5fa9b7ad4c7d52d7f09e718
+|   |   |   +-- ab1e8694073b9c8eb4670207b5a4f3b6c65abe
+|   |   |   \-- e74fccbab39ee1e3522951d2410f9ae26b9214
+|   |   +-- e1
+|   |   |   +-- 7e6a78ebee0093a0ca65138b4800501179fc9f
+|   |   |   \-- ee9c934bd7ae43b6f1d78ba4143dafa9333a04
+|   |   +-- e2
+|   |   |   \-- 91628bf76dfdf9ba8aff3741c6d896ddc3eba8
+|   |   +-- e3
+|   |   |   +-- 35852a5e87c1cfbf3ac28ea31b37b258bd504d
+|   |   |   +-- 46bebe0caff3a9939229f3c94d1b0bd702046a
+|   |   |   +-- 5aca64b06882c02794ac5e26172e495738275d
+|   |   |   \-- ef58029993d914eaa78979d80cadeda4cbf411
+|   |   +-- e4
+|   |   |   +-- 17ccaf40180bba4f2c025dcf576adea69c0da0
+|   |   |   +-- 403e45b03c0feec5538c5ba0bf23726e9de73c
+|   |   |   \-- c56e6649e4aca5421443acad42443a30a479d1
+|   |   +-- e6
+|   |   |   +-- 4c16b6670d5c6465b1de14e818ba24b22bf06b
+|   |   |   +-- 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+|   |   |   +-- a0233f19e9cffad09e5b007bd75d4fec7e4698
+|   |   |   \-- dc782a415d9469337cb7c8dd657114130b2e40
+|   |   +-- e7
+|   |   |   +-- 06c0a16a86d66c220c98f3ff36dd66460ba7f0
+|   |   |   \-- 2302da40e447284cf8fbe7cae143346934138a
+|   |   +-- e8
+|   |   |   +-- 3604622fd27922ddac74263c48a921dc1c7b13
+|   |   |   +-- 3e7ca70da04001646ed7c310c7a902e5982fc9
+|   |   |   \-- 80a691083a666990e943de872e9b1f73420e88
+|   |   +-- e9
+|   |   |   +-- 875125bb807b626531bb087d3a055b7fa38490
+|   |   |   \-- d681061e7c043e1742b69acdd35b781d64abf9
+|   |   +-- ea
+|   |   |   +-- a7c8dae61f400479511a02883a1267442b8002
+|   |   |   \-- d3b6b57e9b06aca406a6b57bac7526d2925995
+|   |   +-- eb
+|   |   |   \-- 5eb9f0ad116987e42b5f28cfa64db39c61affa
+|   |   +-- ec
+|   |   |   +-- 142ec9f11822f96af4ad7c714ceda39fcaf2cf
+|   |   |   \-- dbb59c758b37e10e5ced02c770708c23584dc8
+|   |   +-- ed
+|   |   |   \-- fc0c9288fb1f152ef606adcfc2dcd1cea55bd0
+|   |   +-- ee
+|   |   |   +-- 6000ae150065b6f61420893617651f346d731c
+|   |   |   +-- a7854c0ecb3d7652518e01f6c7698d4c113c89
+|   |   |   +-- eb20893287e29796f71430d24c128e0d7a1109
+|   |   |   +-- f01ebc0ad9171029e61a32a115f7e2dd55b16f
+|   |   |   \-- f8996f6082320b2cdf3463bf962ef07aaeb008
+|   |   +-- ef
+|   |   |   +-- 92eb691717d674e22583a5ca485391cbf69d3c
+|   |   |   +-- d1e35e3e41f9e8e849bfc44b55962daa325cec
+|   |   |   \-- dfe6b8e20d895bf53f087e575616ce1bb43a75
+|   |   +-- f0
+|   |   |   +-- 03cfbec1cd39d733e024b0ad18b42ba30b17ae
+|   |   |   +-- 3e1d28b11f8b1ae6bc5b580d31de2a9c86abe2
+|   |   |   +-- 769c2572576cb22c872779e364ff92e62ba4a2
+|   |   |   \-- 82151e6d133ccb1f9386852c0984965092e768
+|   |   +-- f2
+|   |   |   +-- d2087132cbdeb4303162ffa39c2f500ff976a8
+|   |   |   +-- d3941807e3c53f904610abd17830d340053a78
+|   |   |   \-- e6a6471947bf74522b887579c4b8e1fdd60366
+|   |   +-- f3
+|   |   |   +-- 483b04d2914a4268d6692f8766bd6b1a803159
+|   |   |   +-- 49c3a50a3f396872f951356e275dfacdfc12a1
+|   |   |   +-- 4d73b096d46c2c18ec05492028b19fad433de0
+|   |   |   +-- 98809d961144f5dd76bb4950b48a6757e4ed94
+|   |   |   \-- bf310a79bd290dc06b7b180e8b347b22c855a0
+|   |   +-- f4
+|   |   |   +-- 078ee69430af207104bfa97486f32df4adbe96
+|   |   |   +-- 1dab9edb24e9a846a9c55a9555b75a9ce894ec
+|   |   |   +-- 3fa8bc30b3e7bee0f332d6133a7928bbb2d1e2
+|   |   |   +-- 598a31465321e55133d02090f699a0dba3873e
+|   |   |   +-- 5a4da23bcdf6c2a121ac2ccc1e222c810ce607
+|   |   |   +-- 7ac307a762891cbc5bd8f16f4ee0bb9e5063ac
+|   |   |   \-- c0b06512e69cdc76df5b25f70c0a61c4ca425f
+|   |   +-- f5
+|   |   |   +-- ad82aef61211aa1364513412505e9593476610
+|   |   |   \-- b669123986623c0064fcb5b3140766b06c2810
+|   |   +-- f6
+|   |   |   \-- adeae3d47852bca5a302a59ff874b988fe7d8d
+|   |   +-- f7
+|   |   |   \-- 0e5e4e4f9959f3095fc32049fd139a25beaa59
+|   |   +-- f8
+|   |   |   \-- 48fe9421ff29994e0468678f73c2b444c31cec
+|   |   +-- f9
+|   |   |   +-- 0a774c9af2df006ea49251fa5419b738f51938
+|   |   |   +-- 12b60a1d1ca631586f874239e99e63444db096
+|   |   |   +-- 1d17ae2096be7027bc167bbfdba06b4cb6fa69
+|   |   |   \-- 5786ffb1a56ee74e171f1a0a484ea8c633a4b2
+|   |   +-- fa
+|   |   |   +-- 30f362641c08c33e357f57a7705f1dd574a8ef
+|   |   |   +-- 527b8dbf6a6c6349f58c4cf0e277c314b66778
+|   |   |   \-- c806922e27e2a5af0d1ba6dc7a44dd1989f75c
+|   |   +-- fb
+|   |   |   +-- 0f06434d720c17882a1d4ab3b4d025ef1917e6
+|   |   |   +-- e5dce5cc36e55ee19e3cb4fd864c62c04381a3
+|   |   |   +-- ee5545734f9e254d3feb6522f3c374949323e6
+|   |   |   \-- f9784a1f27580a7f00f79578fb9223550295fe
+|   |   +-- fc
+|   |   |   +-- 151ef3612b9c620bf4d7c9db19071612a44b15
+|   |   |   +-- 33caf96dfba7fe09a776a43b4a9ab5206915b8
+|   |   |   \-- 53518248e41d27afea1801caf501fe6c7701ad
+|   |   +-- fd
+|   |   |   +-- 31f8e8ee16ee4c1a4b6eb719d3117a9c59798c
+|   |   |   +-- 6fd45f65b4086fdc2275b1fc24acbf084581e7
+|   |   |   \-- adbf3341c53c1cbc77f59fb97c90bfbd6525c2
+|   |   +-- fe
+|   |   |   \-- 05198f1e1279a60698f5dd27bd5b58c4691763
+|   |   +-- ff
+|   |   |   \-- 3ad797cd53a8fff616d3adc7b90fb4f7b05c4f
+|   |   +-- info
+|   |   \-- pack
+|   \-- refs
+|       +-- heads
+|       |   \-- main
+|       \-- tags
++-- audit_archive
+|   \-- AUDIT_CHAIN_FIXED.jsonl
++-- docs
+|   +-- CONTEXT_SUMMARY.md
+|   +-- DOCS_CONSTITUTION.txt
+|   +-- INDEX_MAIN.md
+|   +-- SESSION_LEDGER.md
+|   +-- STATUS_REPORT.md
+|   +-- context
+|   |   +-- ACK_INIT_20260216_142808.md
+|   |   +-- ACK_INIT_20260216_143043.md
+|   |   +-- ACK_INIT_TEMPLATE_20260216_073239.md
+|   |   +-- ACK_INIT_TEMPLATE_20260216_131046.md
+|   |   +-- AUDIT_CHAIN_STATE_20260215_131103.txt
+|   |   +-- CHANGE_LEDGER.md
+|   |   +-- CONTEXT_SUMMARY.md
+|   |   +-- CONTEXT_SUMMARY_20260214_191702.md
+|   |   +-- CONTEXT_SUMMARY_20260215_105028.md
+|   |   +-- CONTEXT_SUMMARY_20260216_073239.md
+|   |   +-- CONTEXT_SUMMARY_20260216_131046.md
+|   |   +-- CONTEXT_SUMMARY_HUMANIA_20260216_092947.md
+|   |   +-- CONTEXT_SUMMARY_HUMANIA_20260217_230823.md
+|   |   +-- CORE_FILES_INDEX.txt
+|   |   +-- CORE_TREE.txt
+|   |   +-- DOCS_CONSTITUTION.txt
+|   |   +-- EXECUTION_MAP.txt
+|   |   +-- HANDOVER_MESSAGE_20260216_131046.md
+|   |   +-- HANDOVER_MESSAGE_HUMANIA_20260217_230823.md
+|   |   +-- INDEX_CANONICAL_20260216_131046.md
+|   |   +-- NEW_CHAT_HANDOVER_REPORT_20260214_191722.md
+|   |   +-- NEW_CHAT_HANDOVER_REPORT_20260215_105028.md
+|   |   +-- NEW_CHAT_HANDOVER_REPORT_20260216_073239.md
+|   |   +-- NEW_CHAT_STRATEGIC_CONTINUITY_REPORT.md
+|   |   +-- NEW_CHAT_STRATEGIC_CONTINUITY_REPORT_20260216_073845.md
+|   |   +-- REFERENCE_FREEZE.txt
+|   |   +-- STATUS_REPORT.md
+|   |   +-- STATUS_REPORT_20260214_191713.md
+|   |   +-- STATUS_REPORT_20260215_105028.md
+|   |   +-- STATUS_REPORT_20260216_073239.md
+|   |   +-- STATUS_REPORT_20260216_131046.md
+|   |   +-- STATUS_REPORT_HUMANIA_20260216_092947.md
+|   |   +-- STATUS_REPORT_HUMANIA_20260217_230823.md
+|   |   +-- SYSTEM_FULL_EXPORT.json
+|   |   \-- SYSTEM_STATE.json
+|   +-- contracts
+|   |   +-- DOCS_CONSTITUTION.txt
+|   |   +-- DOCS_CONSTITUTION_20260214_191718.txt
+|   |   +-- DOCS_CONSTITUTION_20260215_105028.txt
+|   |   +-- DOCS_CONSTITUTION_20260216_073239.txt
+|   |   +-- DOCS_CONSTITUTION_20260216_131046.txt
+|   |   +-- DOCS_CONSTITUTION_HUMANIA_20260216_092947.txt
+|   |   +-- DOCS_CONSTITUTION_HUMANIA_20260217_230823.txt
+|   |   +-- FREEZE_CRITERIA_HUMANIA_V1.md
+|   |   \-- LLM_OPERATOR_CONTRACT.md
+|   +-- laws
+|   |   +-- LAW_ARTIFACT_TRANSFER_METHOD.md
+|   |   +-- LAW_AUDIT_OUTPUT_BOUNDS.md
+|   |   +-- LAW_AUDIT_ROTATION_THRESHOLD_50MB.md
+|   |   +-- LAW_IO_003_PASTE_LIMIT_100_LINES.md
+|   |   +-- LAW_LEVEL_3_TRANSFER_PROTOCOL.md
+|   |   +-- LAW_NO_FRAGILE_PWSH_PIPELINES.md
+|   |   +-- LAW-COMM-001_TUTEO_OBLIGATORIO.md
+|   |   \-- LAW-IO-002_DETERMINISTIC_ARTIFACT_DELIVERY.md
+|   +-- LESSONS
+|   |   \-- LESSONS_LOG.psv
+|   +-- policies
+|   |   \-- ACTION_POLICY_MAP.json
+|   +-- PROCEDURES
+|   |   +-- FREEZE_PROCEDURE_HUMANIA_V1.md
+|   |   +-- PROC_ARTIFACT_DOWNLOAD_IMPORT_PROPOSE_APPLY.md
+|   |   +-- PROC_AUDIT_ROTATION_DETERMINISTIC.md
+|   |   +-- PROC_CMD_WRITE_FILE_BY_STEPS.md
+|   |   +-- PROC_EXPORT_FILE_FOR_REVIEW.md
+|   |   +-- PROC_IMPORT_FROM_DOWNLOADS_DETERMINISTIC.md
+|   |   +-- PROC_NEW_CHAT_HANDOVER_MESSAGE.md
+|   |   \-- PROC_SMALL_SCRIPT_DIRECT_PASTE.md
+|   \-- schemas
+|       \-- SOLUTION_PROPOSAL_SCHEMA.json
++-- logs
+|   +-- last_health_check.json
+|   +-- STAGING_FORENSIC_REPORT.txt
+|   +-- auto_tick
+|   |   +-- AUTO_TICK_20260216_152313.txt
+|   |   +-- AUTO_TICK_20260216_163501.txt
+|   |   +-- AUTO_TICK_20260216_165001.txt
+|   |   +-- AUTO_TICK_20260216_165317.txt
+|   |   +-- AUTO_TICK_20260216_165507.txt
+|   |   +-- AUTO_TICK_20260216_165922.txt
+|   |   +-- AUTO_TICK_20260216_173900.txt
+|   |   +-- AUTO_TICK_20260216_174402.txt
+|   |   +-- AUTO_TICK_20260216_175902.txt
+|   |   +-- AUTO_TICK_20260216_180350.txt
+|   |   +-- AUTO_TICK_20260216_181403.txt
+|   |   +-- AUTO_TICK_20260216_182902.txt
+|   |   +-- AUTO_TICK_20260216_184402.txt
+|   |   +-- AUTO_TICK_20260216_185902.txt
+|   |   +-- AUTO_TICK_20260216_191402.txt
+|   |   +-- AUTO_TICK_20260216_192426.txt
+|   |   +-- AUTO_TICK_20260216_192902.txt
+|   |   +-- AUTO_TICK_20260216_193057.txt
+|   |   +-- AUTO_TICK_20260216_193328.txt
+|   |   +-- AUTO_TICK_20260216_193520.txt
+|   |   +-- AUTO_TICK_20260216_194402.txt
+|   |   +-- AUTO_TICK_20260216_195354.txt
+|   |   +-- AUTO_TICK_20260216_195506.txt
+|   |   +-- AUTO_TICK_20260216_195526.txt
+|   |   +-- AUTO_TICK_20260216_195620.txt
+|   |   +-- AUTO_TICK_20260216_195705.txt
+|   |   +-- AUTO_TICK_20260216_195902.txt
+|   |   +-- AUTO_TICK_20260216_200404.txt
+|   |   +-- AUTO_TICK_20260216_200500.txt
+|   |   +-- AUTO_TICK_20260216_200630.txt
+|   |   +-- AUTO_TICK_20260216_200851.txt
+|   |   +-- AUTO_TICK_20260216_200915.txt
+|   |   +-- AUTO_TICK_20260216_201217.txt
+|   |   +-- AUTO_TICK_20260216_201326.txt
+|   |   +-- AUTO_TICK_20260216_201402.txt
+|   |   +-- AUTO_TICK_20260216_201601.txt
+|   |   +-- AUTO_TICK_20260216_205525.txt
+|   |   +-- AUTO_TICK_20260216_205903.txt
+|   |   +-- AUTO_TICK_20260216_211403.txt
+|   |   +-- AUTO_TICK_20260216_215624.txt
+|   |   +-- AUTO_TICK_20260216_215902.txt
+|   |   +-- AUTO_TICK_20260216_221402.txt
+|   |   +-- AUTO_TICK_20260216_222902.txt
+|   |   +-- AUTO_TICK_20260216_224402.txt
+|   |   +-- AUTO_TICK_20260216_225902.txt
+|   |   +-- AUTO_TICK_20260216_231402.txt
+|   |   +-- AUTO_TICK_20260216_232902.txt
+|   |   +-- AUTO_TICK_20260216_234402.txt
+|   |   +-- AUTO_TICK_20260216_235902.txt
+|   |   +-- AUTO_TICK_20260217_001402.txt
+|   |   +-- AUTO_TICK_20260217_071403.txt
+|   |   +-- AUTO_TICK_20260217_075903.txt
+|   |   +-- AUTO_TICK_20260217_081402.txt
+|   |   +-- AUTO_TICK_20260217_082902.txt
+|   |   +-- AUTO_TICK_20260217_084402.txt
+|   |   +-- AUTO_TICK_20260217_085902.txt
+|   |   +-- AUTO_TICK_20260217_091402.txt
+|   |   +-- AUTO_TICK_20260217_112902.txt
+|   |   +-- AUTO_TICK_20260217_114402.txt
+|   |   +-- AUTO_TICK_20260217_115902.txt
+|   |   +-- AUTO_TICK_20260217_121402.txt
+|   |   +-- AUTO_TICK_20260217_122902.txt
+|   |   +-- AUTO_TICK_20260217_124402.txt
+|   |   +-- AUTO_TICK_20260217_125902.txt
+|   |   +-- AUTO_TICK_20260217_131402.txt
+|   |   +-- AUTO_TICK_20260217_132904.txt
+|   |   +-- AUTO_TICK_20260217_134402.txt
+|   |   +-- AUTO_TICK_20260217_135903.txt
+|   |   +-- AUTO_TICK_20260217_141403.txt
+|   |   +-- AUTO_TICK_20260217_152905.txt
+|   |   +-- AUTO_TICK_20260217_154402.txt
+|   |   +-- AUTO_TICK_20260217_155903.txt
+|   |   +-- AUTO_TICK_20260217_161402.txt
+|   |   +-- AUTO_TICK_20260217_162902.txt
+|   |   +-- AUTO_TICK_20260217_164402.txt
+|   |   +-- AUTO_TICK_20260217_165905.txt
+|   |   +-- AUTO_TICK_20260217_171402.txt
+|   |   +-- AUTO_TICK_20260217_172902.txt
+|   |   +-- AUTO_TICK_20260217_174403.txt
+|   |   +-- AUTO_TICK_20260217_175903.txt
+|   |   +-- AUTO_TICK_20260217_181403.txt
+|   |   +-- AUTO_TICK_20260217_182903.txt
+|   |   +-- AUTO_TICK_20260217_184403.txt
+|   |   +-- AUTO_TICK_20260217_185902.txt
+|   |   +-- AUTO_TICK_20260217_191402.txt
+|   |   +-- AUTO_TICK_20260217_192902.txt
+|   |   +-- AUTO_TICK_20260217_194402.txt
+|   |   +-- AUTO_TICK_20260217_195902.txt
+|   |   +-- AUTO_TICK_20260217_201402.txt
+|   |   +-- AUTO_TICK_20260217_202902.txt
+|   |   +-- AUTO_TICK_20260217_204403.txt
+|   |   +-- AUTO_TICK_20260217_205902.txt
+|   |   +-- AUTO_TICK_20260217_211402.txt
+|   |   +-- AUTO_TICK_20260217_212902.txt
+|   |   +-- AUTO_TICK_20260217_214402.txt
+|   |   +-- AUTO_TICK_20260217_234402.txt
+|   |   +-- AUTO_TICK_20260217_235903.txt
+|   |   +-- AUTO_TICK_20260218_001402.txt
+|   |   +-- AUTO_TICK_20260218_002902.txt
+|   |   +-- AUTO_TICK_20260218_004403.txt
+|   |   +-- AUTO_TICK_20260218_005903.txt
+|   |   +-- AUTO_TICK_20260218_011403.txt
+|   |   +-- AUTO_TICK_20260218_012902.txt
+|   |   +-- AUTO_TICK_20260218_014402.txt
+|   |   +-- AUTO_TICK_20260218_015903.txt
+|   |   +-- AUTO_TICK_20260218_021402.txt
+|   |   +-- AUTO_TICK_20260218_074250.txt
+|   |   +-- AUTO_TICK_20260218_074402.txt
+|   |   +-- AUTO_TICK_20260218_075902.txt
+|   |   +-- AUTO_TICK_20260218_081402.txt
+|   |   +-- AUTO_TICK_20260218_082902.txt
+|   |   +-- AUTO_TICK_20260218_084402.txt
+|   |   +-- AUTO_TICK_20260218_085903.txt
+|   |   +-- AUTO_TICK_20260218_091402.txt
+|   |   +-- AUTO_TICK_20260218_092902.txt
+|   |   +-- AUTO_TICK_20260218_094402.txt
+|   |   +-- AUTO_TICK_20260218_114402.txt
+|   |   +-- AUTO_TICK_20260218_115903.txt
+|   |   +-- AUTO_TICK_20260218_121402.txt
+|   |   +-- AUTO_TICK_20260218_122902.txt
+|   |   +-- AUTO_TICK_20260218_124402.txt
+|   |   +-- AUTO_TICK_20260218_125903.txt
+|   |   +-- LAST_FAIL.txt
+|   |   +-- LAST_PASS.txt
+|   |   +-- LAST_RUNNING.txt
+|   |   \-- TASK_LAST_RUN.txt
+|   +-- diagnostics
+|   |   +-- ACTION_CLASSIFIER.BAK_20260216_150024
+|   |   +-- ACTION_CLASSIFIER.BAK_EXPLICIT_20260216
+|   |   +-- ACTION_CLASSIFIER.BAK_HYBRID_20260216
+|   |   +-- ACTION_POLICY_MAP.BAK_20260216_150024
+|   |   +-- ACTION_POLICY_MAP.BAK_HYBRID_20260216
+|   |   +-- ACTION_UNIVERSE_20260216.txt
+|   |   +-- auto_tick.BAK_20260216_163302.ps1
+|   |   +-- auto_tick.BAK_CAPTURE_ALL_20260216_165040.ps1
+|   |   +-- auto_tick.BAK_CLEAR_FAIL_ON_PASS_20260216_165506.ps1
+|   |   +-- auto_tick.BAK_REWRITE_20260216_165311.ps1
+|   |   +-- DIAG_20260216_123434.txt
+|   |   +-- DIAG_20260216_123443.txt
+|   |   +-- emit_core_inventory.BAK_FIX_CMDLINE_20260216_163831.ps1
+|   |   +-- emit_core_inventory.BAK_ITEMS_ARRAY_20260216_164451.ps1
+|   |   +-- emit_core_inventory.BAK_TREE_POWERSHELL_20260216_164125.ps1
+|   |   +-- emit_core_inventory.BAK_TREE_UTF8_20260216_163651.ps1
+|   |   +-- EMIT_CORE_INVENTORY_STDERR_STDOUT_20260216_163633.txt
+|   |   +-- emit_execution_map.BAK_REWRITE_20260216_173941.ps1
+|   |   +-- FIND_BUILDER_VAR_20260216.txt
+|   |   +-- FIND_FREEZE_REFERENCE_20260216_145812.txt
+|   |   +-- FIND_FREEZE_SNAPSHOT_GENERATOR_20260216_150024.txt
+|   |   +-- FIND_MANIFEST_WRITER_20260216.txt
+|   |   +-- FIND_MANIFEST_WRITER_IN_FREEZE_BUILDER_20260216.txt
+|   |   +-- FIND_REAL_MANIFEST_GENERATOR_20260216.txt
+|   |   +-- FIND_SNAPSHOT_BUILDER_BLOCK_20260216.txt
+|   |   +-- FIND_SYSTEM_STATE_20260216_143043.txt
+|   |   +-- FREEZE_BUILDER_CONTEXT_L260_360_20260216.txt
+|   |   +-- FREEZE_BUILDER_HEAD_L1_240_20260216.txt
+|   |   +-- FREEZE_BUILDER_MANIFEST_CONTEXT_20260216.txt
+|   |   +-- freeze_humania_v1.BAK_ACTION_UNIVERSE_20260216_152415.ps1
+|   |   +-- freeze_humania_v1.BAK_ACTION_UNIVERSE_INSERT_20260216_160333.ps1
+|   |   +-- freeze_humania_v1.BAK_SAFE_20260216_152456.ps1
+|   |   +-- freeze_humania_v1.BAK_SAFE_20260216_152509.ps1
+|   |   +-- freeze_humania_v1.RESTORE_BAK_20260216_160022.ps1
+|   |   +-- FREEZE_SNAPSHOT_INSPECT_20260216_150024.txt
+|   |   +-- humania_run.ps1.BAK_20260216_143043
+|   |   +-- humania_run.ps1.BAK_FREEZE_BUILDER_20260216_150024
+|   |   +-- humania_run.ps1.BAK_FREEZE_TRI_20260216_150746
+|   |   +-- humania_run.ps1.BAK_FREEZE_VERIFY_20260216_150553
+|   |   +-- humania_run.ps1.BAK2_20260216_143043
+|   |   +-- HUMANIA_RUN_CONTENT_20260216_143043.txt
+|   |   +-- NOOP_DIRECT_CAPTURE_20260216_165034.txt
+|   |   +-- NOOP_FAIL_FREEZE_20260216_145812.txt
+|   |   +-- PATCH_ACTION_UNIVERSE_INSERT_20260216_160333.txt
+|   |   +-- PATCH_AUTO_TICK_CAPTURE_ALL_20260216_165040.txt
+|   |   +-- PATCH_ITEMS_ARRAY_20260216_164451.txt
+|   |   +-- PATCH_RUNNER_BLOCK_CMD_DISABLED_20260216_143043_INVALID.txt
+|   |   +-- PATCH_RUNNER_BLOCK_CMD_DISABLED_20260216_143043_v2.txt
+|   |   +-- PRE_CHAT_GATE_20260216_143043.txt
+|   |   +-- RESTORE_FREEZE_BUILDER_20260216_160022.txt
+|   |   +-- REVIEW_RUNNER_EXECUTION_MODEL_20260216_161037.txt
+|   |   +-- RUN_EMIT_CORE_INVENTORY_20260216_164314.txt
+|   |   +-- RUN_EMIT_CORE_INVENTORY_AFTER_PATCH_20260216_164451.txt
+|   |   +-- RUNNER_CONTEXT_L220_230_20260216_143043.txt
+|   |   +-- RUNNER_FREEZE_BLOCK_HEAD_20260216_150024.txt
+|   |   +-- RUNNER_FREEZE_SELECT_BLOCK_20260216_150024.txt
+|   |   +-- WINDOW_AROUND_FREEZE_STATUS_WRITER_20260216.txt
+|   |   \-- WINDOW_AROUND_MANIFESTPATH_20260216.txt
+|   +-- evidence
+|   |   +-- audit_20260214_141418
+|   |   |   \-- AUDIT_STATS.txt
+|   |   +-- audit_20260214_141431
+|   |   |   \-- AUDIT_STATS.txt
+|   |   +-- constit_20260214_141510
+|   |   |   +-- AUDIT_STATS_copy.txt
+|   |   |   +-- constitution_fileinfo.txt
+|   |   |   +-- constitution_head_220.txt
+|   |   |   +-- constitution_help.txt
+|   |   |   +-- constitution_param_block.txt
+|   |   |   +-- constitution_param_hints.txt
+|   |   |   +-- constitution_param_marker.txt
+|   |   |   \-- constitution_run_noargs.txt
+|   |   \-- handover_20260215_112834
+|   |       +-- AUDIT_CHAIN_state.txt
+|   |       +-- audit_verify.ps1
+|   |       +-- constitution_change.ps1
+|   |       +-- hash_audit_verify.ps1.txt
+|   |       +-- hash_constitution_change.ps1.txt
+|   |       +-- hash_humania_guard.ps1.txt
+|   |       +-- hash_humania_run.ps1.txt
+|   |       +-- head60_audit_verify.ps1.txt
+|   |       +-- head60_constitution_change.ps1.txt
+|   |       +-- head60_humania_guard.ps1.txt
+|   |       +-- head60_humania_run.ps1.txt
+|   |       +-- humania_guard.ps1
+|   |       \-- humania_run.ps1
+|   +-- outputs
+|   |   +-- err_05d554ba-84f0-413e-bf37-d5da918a1f9d.txt
+|   |   +-- err_0d486d73-355d-4f41-a908-f3a12e165c8a.txt
+|   |   +-- err_11aaa73c-a08b-4066-894d-1bab0b09928f.txt
+|   |   +-- err_33c41f44-5c34-4f62-b710-4e5cbd3c1615.txt
+|   |   +-- err_36ea014a-32ee-4465-8cd5-27e8b0244280.txt
+|   |   +-- err_3ee4daed-9727-4bda-bce4-b6d4593987d6.txt
+|   |   +-- err_600be89d-7873-40dc-87b0-fbfb8b22adb6.txt
+|   |   +-- err_6cc99e52-9e61-49b9-b4bc-e1edba3991c6.txt
+|   |   +-- err_7c7e8a0c-7181-4da2-95b2-31c0350571ce.txt
+|   |   +-- err_7e7b29b6-9e7e-4b23-b258-d624462a4c55.txt
+|   |   +-- err_a03b1c7c-04b3-4485-a938-f83da504a050.txt
+|   |   +-- err_a743748c-99a8-4a36-b057-e1b987749e1b.txt
+|   |   +-- err_bf0f04c5-fe3c-4a75-9cb4-efc767c893f6.txt
+|   |   +-- err_e1e318df-cde8-4690-b608-04e3deac2245.txt
+|   |   +-- err_f997e010-476f-4f5f-b36f-59bdb264354e.txt
+|   |   +-- err_f9e9a069-b951-47f5-9893-2a327fdabf11.txt
+|   |   +-- raw_05d554ba-84f0-413e-bf37-d5da918a1f9d.txt
+|   |   +-- raw_0d486d73-355d-4f41-a908-f3a12e165c8a.txt
+|   |   +-- raw_11aaa73c-a08b-4066-894d-1bab0b09928f.txt
+|   |   +-- raw_33c41f44-5c34-4f62-b710-4e5cbd3c1615.txt
+|   |   +-- raw_36ea014a-32ee-4465-8cd5-27e8b0244280.txt
+|   |   +-- raw_3ee4daed-9727-4bda-bce4-b6d4593987d6.txt
+|   |   +-- raw_600be89d-7873-40dc-87b0-fbfb8b22adb6.txt
+|   |   +-- raw_6cc99e52-9e61-49b9-b4bc-e1edba3991c6.txt
+|   |   +-- raw_7c7e8a0c-7181-4da2-95b2-31c0350571ce.txt
+|   |   +-- raw_7e7b29b6-9e7e-4b23-b258-d624462a4c55.txt
+|   |   +-- raw_a03b1c7c-04b3-4485-a938-f83da504a050.txt
+|   |   +-- raw_a743748c-99a8-4a36-b057-e1b987749e1b.txt
+|   |   +-- raw_bf0f04c5-fe3c-4a75-9cb4-efc767c893f6.txt
+|   |   +-- raw_e1e318df-cde8-4690-b608-04e3deac2245.txt
+|   |   +-- raw_f997e010-476f-4f5f-b36f-59bdb264354e.txt
+|   |   +-- raw_f9e9a069-b951-47f5-9893-2a327fdabf11.txt
+|   |   +-- WRAP_FREEZE_20260216_150004.txt
+|   |   +-- WRAP_NOOP_20260216_145812.txt
+|   |   \-- WRAP_NOOP_AFTER_FREEZE_20260216_150024.txt
+|   \-- signals
+|       +-- SIGNAL_20260216_121414_SIGNAL_TEST_OK.json
+|       \-- SIGNAL_20260216_123443_EXIT_99_LAST.json
++-- staging
+|   +-- alarm_last_exit99.ps1
+|   +-- audit_verify.ps1
+|   +-- AUDIT_VERIFY_20260217_162535.log
+|   +-- AUDIT_VERIFY_20260217_174046.log
+|   +-- AUDIT_VERIFY_20260217_174539.log
+|   +-- AUDIT_VERIFY_20260217_192936.log
+|   +-- audit_verify_integrityonly.ps1
+|   +-- audit_verify_new.ps1
+|   +-- auto_control_tick.ps1
+|   +-- auto_tick.ps1
+|   +-- baseline_closure_091911_20260216_105115.txt
+|   +-- CANON_HASHSET_20260217_202822.txt
+|   +-- capabilities_dump.ps1
+|   +-- CHANGES_LAST_3_DAYS.csv
+|   +-- compliance_proof_illegal_action_20260216_110504.txt
+|   +-- constitutional_validate.ps1
+|   +-- diff_20260216_075105_allowed_actions.txt.txt
+|   +-- diff_20260216_075108_allowed_scripts.txt.txt
+|   +-- diff_20260216_080802_allowed_scripts.txt.txt
+|   +-- diff_20260216_081613_validator_solution_proposal.ps1.txt
+|   +-- diff_20260216_082436_humania_run.ps1.txt
+|   +-- emit_allowlist_evidence.ps1
+|   +-- emit_core_inventory.ps1
+|   +-- emit_execution_map.ps1
+|   +-- emit_handover_bundle_20260217_230823.ps1
+|   +-- emit_signal.ps1
+|   +-- emit_test_evidence.ps1
+|   +-- evidence_blocked_20260216_104347.txt
+|   +-- FIND_NONCOMPLIANT_99_20260216_125153.txt
+|   +-- FIND_NONCOMPLIANT_99_CODEONLY_20260216_125849.txt
+|   +-- FIND_NONCOMPLIANT_99_FIXED_20260216_125533.txt
+|   +-- freeze_humania_v1.ps1
+|   +-- HEADSCRIPTS_LAST_3_DAYS.txt
+|   +-- humania_guard.ps1
+|   +-- humania_guard_allowlist_new.ps1
+|   +-- humania_guard_new.ps1
+|   +-- HUMANIA_HANDOVER_BUNDLE_20260218_011042.zip
+|   +-- humania_run.ps1
+|   +-- humania_run_scripts_allowlist_new.ps1
+|   +-- humania_run_v2.ps1
+|   +-- index_refresh_20260216_131046.ps1
+|   +-- INDEX_SCAN_SUMMARY_20260216_131845.txt
+|   +-- informe_pruebas_humania_20260218_080706.txt
+|   +-- kernel_manifest_generate.ps1
+|   +-- kernel_manifest_verify.ps1
+|   +-- kpi_results.csv
+|   +-- LAWS_IO_NEW_001.md
+|   +-- MISMATCH_REPORT_20260216_073239_vs_FREEZE_065543.txt
+|   +-- new_allowed_actions_add_capabilities_dump.txt
+|   +-- NEW_allowed_actions_FREEZE.txt
+|   +-- new_allowed_scripts_add_capabilities_dump.txt
+|   +-- NEW_allowed_scripts_FREEZE.txt
+|   +-- NEW_allowed_scripts_VALIDATOR.txt
+|   +-- new_allowed_scripts_with_run_v2.txt
+|   +-- new_allowed_scripts_with_run_v2_clean.txt
+|   +-- new_allowed_scripts_with_run_v2_noblank.txt
+|   +-- new_audit_verify.ps1
+|   +-- new_constitution_change_20260214_142010.ps1
+|   +-- new_constitution_change_20260214_161014.ps1
+|   +-- NEW_constitution_change_SAFE_20260214_162023.ps1
+|   +-- new_humania_guard.ps1
+|   +-- new_humania_run.ps1
+|   +-- NEW_humania_run_exitcode_fix.ps1
+|   +-- new_LAWS_OPERATOR_OUTPUT.md
+|   +-- new_LAWS_TESTING.md
+|   +-- NEW_validator_solution_proposal.ps1
+|   +-- patch_humania_run_split_stderr.ps1
+|   +-- patch_ledger_blocked_v1.ps1
+|   +-- patch_ledger_blocked_v2.ps1
+|   +-- patch_ledger_blocked_v3.ps1
+|   +-- PHASE1_CLOSURE_20260216_123523.txt
+|   +-- phase1_pairproof_20260216_123303.txt
+|   +-- PHASE2_CLOSURE_20260216_124118.txt
+|   +-- PHASE2_MATRIX_20260216_123636.txt
+|   +-- PHASE2_MATRIX_V2_20260216_124015.txt
+|   +-- POLICY_SCHEMA_INSPECT_20260217_192526.log
+|   +-- proposal_20260216_075105_allowed_actions.txt.txt
+|   +-- proposal_20260216_075108_allowed_scripts.txt.txt
+|   +-- proposal_20260216_080802_allowed_scripts.txt.txt
+|   +-- proposal_20260216_081613_validator_solution_proposal.ps1.txt
+|   +-- proposal_20260216_082436_humania_run.ps1.txt
+|   +-- proposal_allowed_scripts_add_run_v2.txt
+|   +-- proposal_invalid.json
+|   +-- proposal_LAWS_OPERATOR_OUTPUT.md.txt
+|   +-- proposal_LAWS_TESTING.md.txt
+|   +-- proposal_valid.json
+|   +-- recon_092947_20260216_104245.txt
+|   +-- rotate_audit_chain.ps1
+|   +-- sentinel_tick_new.ps1
+|   +-- sentinel_tick_notify.ps1
+|   +-- smoke_evidence_20260216_104848.txt
+|   +-- smoke_validator_v2.ps1
+|   +-- task_auto_tick_wrapper.ps1
+|   +-- exports_20260213_162047
+|   |   +-- CONTEXT_SUMMARY_20260213_162047.md
+|   |   +-- DOCS_CONSTITUTION_20260213_162047.txt
+|   |   +-- SHA256SUMS_20260213_162047.txt
+|   |   \-- STATUS_REPORT_20260213_162047.md
+|   +-- HUMANIA_HANDOVER_EXTRACTED
+|   |   +-- AUDIT_CHAIN.jsonl
+|   |   +-- humania_guard.ps1
+|   |   +-- humania_run.ps1
+|   |   \-- kernel_manifest.json
+|   +-- KERNEL_MANIFEST_BACKUP_20260217_204441
+|   +-- KERNEL_MISMATCH_TEST_BACKUP_20260217_213049
+|   |   +-- humania_run.ps1
+|   |   +-- kernel_verify_after.log
+|   |   +-- kernel_verify_before.log
+|   |   +-- kernel_verify_restored.log
+|   |   +-- runner_block_ALLOWLIST_SELFTEST_BAD.log
+|   |   \-- runner_noop_under_mismatch.log
+|   +-- POLICY_RECOVERY_BACKUP_20260217_190559
+|   |   +-- ACTION_CLASSIFIER.ps1
+|   |   +-- ACTION_POLICY_MAP.json
+|   |   \-- allowed_actions.txt
+|   +-- POLICY_SCHEMA_FIX_BACKUP_20260217_192641
+|   |   \-- ACTION_POLICY_MAP.json
+|   +-- pre_chat_logs
+|   |   +-- PRECHAT_VERIFY_20260217_194715.log
+|   |   \-- PRECHAT_VERIFY_20260218_003055.log
+|   +-- PRECHAT_CREATE_BACKUP_20260217_194715
+|   +-- PRECHAT_HUNT_20260217_193852
+|   |   \-- HITS.txt
+|   +-- PRECHAT_RECOVERY_BACKUP_20260217_193213
+|   +-- RECOVERY_BACKUP_20260217_183803
+|   +-- RUNNER_KERNEL_GUARD_BACKUP_20260217_210200
+|   |   \-- humania_run.ps1
+|   +-- sandbox
+|   |   \-- test_file.txt
+|   \-- TRI_DIAG_20260217_190344
+|       +-- allow_actions.txt
+|       +-- classifier_tokens.txt
+|       +-- DIFF_allow_vs_policy.txt
+|       \-- policy_actions.txt
+\-- verifiers
+    +-- ACTION_CLASSIFIER.ps1
+    +-- kernel_manifest_verify.ps1
+    +-- log_rotate.ps1
+    +-- pre_chat_freeze_verify.ps1
+    +-- self_diagnose.ps1
+    +-- SYSTEM_FULL_EXPORT.ps1
+    +-- verify_action_tri_consistency.ps1
+    \-- verify_classifier_policy.ps1

@@ -1,0 +1,85 @@
+﻿EXECUTION_MAP ts_utc=2026-02-16T16:53:02.0009535Z
+ROOT=C:\HUMANIA
+
+=== RUNNER ENTRYPOINT ===
+humania_run.ps1 is the orchestrator. Scheduled Task calls task_auto_tick_wrapper -> auto_tick -> humania_run NOOP + verifier scripts.
+
+=== SCRIPT CALL SITES (humania_run.ps1) ===
+L9: $FreezeGuard = "$Root\staging\pre_chat_freeze_verify.ps1"
+L24:   "C:\HUMANIA\docs\policies\ACTION_POLICY_MAP.json",
+L116:   $classifierHash = Get-Sha256Hex "$Root\staging\ACTION_CLASSIFIER.ps1"
+L118:   $policyMapHash = Get-Sha256Hex "$Root\docs\policies\ACTION_POLICY_MAP.json"
+L134: hash_action_classifier_ps1=$classifierHash
+L136: hash_action_policy_map_json=$policyMapHash
+L160: if (($sys.state -eq "FREEZE_REQUIRED") -and ($Action -ne "FREEZE_HUMANIA_V1")) {
+L168: if ($Action -ne "FREEZE_HUMANIA_V1") {
+L171:     Add-AuditEntry "PRECHECK_FAIL" @{ reason="pre_chat_freeze_verify missing" }
+L180:   powershell.exe -NoProfile -ExecutionPolicy Bypass -File $FreezeGuard
+L201: powershell.exe -NoProfile -ExecutionPolicy Bypass -File $ConstitutionalValidator -Action $Action
+L251: if ($Action -eq "FREEZE_HUMANIA_V1") {
+L254:   $builder = Join-Path $Root "staging\freeze_humania_v1.ps1"
+L261:   powershell.exe -NoProfile -ExecutionPolicy Bypass -File $builder
+L269:   $verifier = Join-Path $Root "staging\verify_classifier_policy.ps1"
+L271:     Add-AuditEntry "FREEZE_VERIFY_FAIL" @{ reason="verify_script_missing" }
+L272:     Write-State -State "FREEZE_REQUIRED" -Reason "freeze_verify_missing"
+L276:   powershell.exe -NoProfile -ExecutionPolicy Bypass -File $verifier
+L278:     Add-AuditEntry "FREEZE_VERIFY_FAIL" @{ reason="classifier_policy_mismatch" }
+L284:   $tri = Join-Path $Root "staging\verify_action_tri_consistency.ps1"
+L286:     Add-AuditEntry "FREEZE_VERIFY_FAIL" @{ reason="tri_verify_missing" }
+L287:     Write-State -State "FREEZE_REQUIRED" -Reason "tri_verify_missing"
+L291:   powershell.exe -NoProfile -ExecutionPolicy Bypass -File $tri
+L293:     Add-AuditEntry "FREEZE_VERIFY_FAIL" @{ reason="action_tri_mismatch" }
+
+=== AUTO_TICK OVERVIEW ===
+L23: function Run-ProcessCapture {
+L80:   $rc = Run-ProcessCapture -Name "emit_core_inventory" -FilePath $ps `
+L81:     -Arguments '-NoProfile -ExecutionPolicy Bypass -File "C:\HUMANIA\staging\emit_core_inventory.ps1"'
+L82:   if ($rc -ne 0) { throw "FAIL_STEP:emit_core_inventory rc=$rc" }
+L85:   $rc = Run-ProcessCapture -Name "NOOP" -FilePath $ps `
+L86:     -Arguments '-NoProfile -ExecutionPolicy Bypass -File "C:\HUMANIA\humania_run.ps1" -Action "NOOP"'
+L89:   # 2) verify_classifier_policy
+L90:   $rc = Run-ProcessCapture -Name "verify_classifier_policy" -FilePath $ps `
+L91:     -Arguments '-NoProfile -ExecutionPolicy Bypass -File "C:\HUMANIA\staging\verify_classifier_policy.ps1"'
+L92:   if ($rc -ne 0) { throw "FAIL_STEP:verify_classifier_policy rc=$rc" }
+L94:   # 3) verify_action_tri_consistency
+L95:   $rc = Run-ProcessCapture -Name "verify_action_tri_consistency" -FilePath $ps `
+L96:     -Arguments '-NoProfile -ExecutionPolicy Bypass -File "C:\HUMANIA\staging\verify_action_tri_consistency.ps1"'
+L97:   if ($rc -ne 0) { throw "FAIL_STEP:verify_action_tri_consistency rc=$rc" }
+L99:   "RESULT=PASS" | Add-Content -Encoding UTF8 $log
+L105:   "RESULT=FAIL" | Add-Content -Encoding UTF8 $log
+
+=== ALLOWLISTS / POLICY INPUTS ===
+OK: C:\HUMANIA\allowed_actions.txt
+OK: C:\HUMANIA\staging\auto_control_tick.ps1
+== RUN: emit_core_inventory ==
+FILE: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+ARGS: -NoProfile -ExecutionPolicy Bypass -File "C:\HUMANIA\staging\emit_core_inventory.ps1"
+---- STDERR ----
+Get-FileHash : El término 'Get-FileHash' no se reconoce como nombre de un cmdlet, función, archivo de script o 
+programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que 
+dicha ruta es correcta e inténtelo de nuevo.
+En C:\HUMANIA\staging\emit_core_inventory.ps1: 10 Carácter: 24
++ function Sha256($p) { (Get-FileHash $p -Algorithm SHA256).Hash.ToLowe ...
++                        ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Get-FileHash:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+emit_core_inventory exit_code=1 elapsed_ms=527
+
+== RUN: emit_core_inventory ==
+FILE: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+ARGS: -NoProfile -ExecutionPolicy Bypass -File "C:\HUMANIA\staging\emit_core_inventory.ps1"
+---- STDERR ----
+Get-FileHash : El término 'Get-FileHash' no se reconoce como nombre de un cmdlet, función, archivo de script o 
+programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que 
+dicha ruta es correcta e inténtelo de nuevo.
+En C:\HUMANIA\staging\emit_core_inventory.ps1: 10 Carácter: 24
++ function Sha256($p) { (Get-FileHash $p -Algorithm SHA256).Hash.ToLowe ...
++                        ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Get-FileHash:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+emit_core_inventory exit_code=1 elapsed_ms=371
+

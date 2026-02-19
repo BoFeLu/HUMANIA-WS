@@ -1,0 +1,36 @@
+{
+  "version": "4.0.0-GOLD",
+  "ts_utc": "2026-02-19T11:48:29.716Z",
+  "items": [
+    {
+      "path": "C:\\HUMANIA\\humania_run.ps1",
+      "sha256": "8F58D8C2A0604CD5120B765D34D26B16EDD4403F73DBFA329142760452C0E53B",
+      "length": 4317,
+      "last_write_time_utc": "2026-02-18T11:27:05Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\humania_guard.ps1",
+      "sha256": "5163775932CAAAE2D3053AAC0C62F70FA8DBD4AD6CA64BAAD3D2399E7C82ADE4",
+      "length": 3340,
+      "last_write_time_utc": "2026-02-18T11:24:29Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\audit_verify.ps1",
+      "sha256": "BEFA2B2CB6B80B811D5C4AD97C265FC7184EA6F793A7376D433B08C39A023E85",
+      "length": 4238,
+      "last_write_time_utc": "2026-02-15T13:05:29Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\kernel_manifest.json",
+      "sha256": "7820DAFE5190A2984A84AC57A82581AD22CD11DDB3B78AB1CB38CD27BBE6A9FC",
+      "length": 1219,
+      "last_write_time_utc": "2026-02-18T13:42:52Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\AUDIT_CHAIN.jsonl",
+      "sha256": "A8EEDC102E5EFEBEAEBD6C709B1F82208F3F6C2DB162E3A9197EAC9E00C560D2",
+      "length": 98593,
+      "last_write_time_utc": "2026-02-18T11:34:02Z"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# --- SEGURIDAD Y PRIVACIDAD ---
+secrets/
+*.key
+*.token
+.env
+LA_CLAVE.txt
+session_caps_ok.json
+
+# --- DATOS PESADOS Y LOGS ---
+AUDIT_CHAIN.jsonl
+AUDIT_LOG.txt
+audit_archive/
+logs/
+staging/
+*.jsonl
+*.log
+*.bak_*
+
+# --- BINARIOS Y SISTEMA ---
+Handle/
+*.exe
+*.zip
+*.7z
+.vscode/

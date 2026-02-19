@@ -1,0 +1,48 @@
+
+HUMANIA – CANONICAL CONSTITUTION
+Generated (UTC): 2026-02-14T13:03:47.100377
+Version: CONST_LEVEL_3_20260214_130345
+
+ARTICLE 1 – SINGLE ENTRY POINT
+All execution must pass through humania_run.ps1.
+
+ARTICLE 2 – PRE-FLIGHT ENFORCEMENT
+humania_guard.ps1 must verify integrity and action allowlist.
+
+ARTICLE 3 – SCRIPT ALLOWLIST ENFORCEMENT
+No script execution outside allowed_scripts.txt.
+
+ARTICLE 4 – ACTION ALLOWLIST ENFORCEMENT
+No action outside allowed_actions.txt.
+
+ARTICLE 5 – CONSTITUTION CHANGE MECHANISM
+All structural modifications require propose/apply cycle.
+
+ARTICLE 6 – AUDIT IMMUTABILITY
+Audit chain entries are SHA256 chained and append-only.
+
+ARTICLE 7 – SESSION LEVEL_3
+Each session must end with formal snapshot (STATUS_REPORT LEVEL_3).
+
+ARTICLE 8 – CONTINUITY MANDATE
+Future chats must enforce:
+- ACK_INIT mandatory.
+- pre_chat_gate mandatory.
+- Wrapper as single entry.
+- Tests as final arbiter.
+
+ARTICLE 9 – HUMAN DECISION SUPREMACY
+Final authority remains with human operator.
+
+ARTICLE 10 – HUMAN-IN-THE-LOOP SUPREMACY (THE CAPTAIN'S LAW)
+10.1 TOTAL RESPONSIBILITY: The user holds absolute responsibility for the repository's 
+     integrity, cleanliness, and logical order.
+10.2 THE SQUIRE MANDATE: The AI is a faithful squire (collaboration-comparison-synergy). 
+     The user must leverage multiple LLMs to verify, but the user alone is the Deciding Brain.
+10.3 PERPETUAL STRUGGLE: The user must work tirelessly to optimize, analyze, and clean. 
+     Cleaning without analysis is strictly forbidden (NEVER DELETE WITHOUT ANALYSIS).
+10.4 SYSTEM ALERT: The system shall proactively remind the user of their duty to maintain 
+     order, clarity, and rigor when signs of entropy (disorganization, large unmanaged 
+     files, or outdated laws) are detected.
+10.5 STRATEGIC DEPTH: The user must maintain escape plans, recovery protocols, and 
+     continuous testing. The AI suggests, but the Human executes and verifies.

@@ -1,0 +1,3 @@
+ts_utc|scope|tag|lesson
+2026-02-14T15:56:39.8537649Z|HUMANIA|CMD_PARENS_IN_BLOCKS|En cmd.exe, parentesis dentro de bloque ( ... ) rompen parseo si no se escapan; evitar bloques o escapar.
+2026-02-15T14:51:20.8251322Z|HUMANIA|LAW_AUDIT_ROTATION_THRESHOLD_50MB|Law created: docs\LAWS\LAW_AUDIT_ROTATION_THRESHOLD_50MB.md (hash recorded via certutil).
