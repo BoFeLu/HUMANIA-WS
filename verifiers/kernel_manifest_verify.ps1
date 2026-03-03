@@ -1,4 +1,4 @@
-$Root = "C:\HUMANIA"
+﻿$Root = "C:\HUMANIA"
 $ManifestPath = "$Root\kernel_manifest.json"
 if (!(Test-Path $ManifestPath)) { exit 1 }
 

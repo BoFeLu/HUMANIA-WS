@@ -1,4 +1,4 @@
-param()
+﻿param()
 
 $root = "C:\HUMANIA"
 

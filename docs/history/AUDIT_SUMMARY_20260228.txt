@@ -1,0 +1,37 @@
+
+Name                                         Count
+----                                         -----
+.md                                           2371
+.txt                                          1079
+.json                                          787
+.ps1                                            66
+.bak                                            58
+.xml                                            18
+.log                                            17
+.cmd                                             6
+.jsonl                                           4
+.vbs                                             3
+.exe                                             2
+.psv                                             2
+.BAK_20260216_150024                             2
+.old                                             2
+.BAK_HYBRID_20260216                             2
+.BAK_20260216_143043                             1
+.BAK_20260223_114834                             1
+.lock                                            1
+.BAK_20260223_114840                             1
+.html                                            1
+.BAK_EXPLICIT_20260216                           1
+.bak_20260226_201709                             1
+.bat                                             1
+.BAK_FREEZE_VERIFY_20260216_150553               1
+.BAK_FREEZE_TRI_20260216_150746                  1
+.BAK_FREEZE_BUILDER_20260216_150024              1
+.bak_forcebom_20260226_203349                    1
+.bak_fix_status_order_marker_20260227_065556     1
+.bak_fix_status_order_marker_20260227_065536     1
+.bak_fix_status_marker_20260226_203952           1
+.bak_fix_encoding_20260226_203047                1
+.gitignore                                       1
+.BAK2_20260216_143043                            1
+

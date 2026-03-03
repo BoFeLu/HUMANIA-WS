@@ -1,4 +1,4 @@
-$ExportPath = "C:\HUMANIA\SYSTEM_FULL_EXPORT.json"
+﻿$ExportPath = "C:\HUMANIA\SYSTEM_FULL_EXPORT.json"
 $Root = "C:\HUMANIA"
 
 Write-Host "Iniciando exportaci" + [char]0xF3 + "n de seguridad..." -ForegroundColor Cyan

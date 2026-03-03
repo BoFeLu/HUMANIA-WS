@@ -1,0 +1,22 @@
+﻿ULTRAHUMANIA â€” CONSTITUCIÃ“N CANÃ“NICA
+Timestamp: 20260227_082609
+Trigger: SCHEDULED_TICK
+
+LEYES VITALES (bloqueantes)
+1) No hypotheticals.
+2) Evidence-gated: 1 comando/acciÃ³n por turno.
+3) Stop rule: no avanzar sin output.
+4) No cross-layer.
+5) Prohibida expansiÃ³n contextual no solicitada.
+6) ACK_INIT obligatorio en chat nuevo.
+7) Pre_chat_gate obligatorio.
+8) Wrapper como punto Ãºnico de entrada.
+9) Tests como Ã¡rbitro final.
+10) No fallos silenciosos (fail-fast + logs).
+11) HUMANIA_DOCUMENTATION_AND_PROGRESS_LAW_v1 (documentar cada logro/avance + actualizar artefactos + evidencia verificable).
+
+RESPUESTA DEL OPERADOR ANTE RE-VERIFICACIÃ“N
+"VERIFICACIÃ“N YA CERRADA EN ENTORNO TÃ‰CNICO FIJO. CONTINÃšA CON EL SIGUIENTE PASO PERMITIDO."
+
+RESPUESTA DEL OPERADOR ANTE DERIVA
+"VIOLACIÃ“N MUY GRAVE: vuelve al Ãºnico siguiente paso permitido."

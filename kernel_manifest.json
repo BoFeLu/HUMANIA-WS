@@ -1,36 +1,204 @@
 {
-  "version": "4.0.0-GOLD",
-  "ts_utc": "2026-02-19T11:48:29.716Z",
+  "version": "6.0.0-GOLD",
+  "ts_utc": "2026-02-28T10:52:36.0491107Z",
   "items": [
     {
-      "path": "C:\\HUMANIA\\humania_run.ps1",
-      "sha256": "8F58D8C2A0604CD5120B765D34D26B16EDD4403F73DBFA329142760452C0E53B",
-      "length": 4317,
-      "last_write_time_utc": "2026-02-18T11:27:05Z"
+      "path": "C:\\HUMANIA\\sentinel\\sentinel_tick_new.ps1",
+      "sha256": "F69AAD7C964F7D9B00C3EE0E52A537F472BD2DAF0311FF96A20712248DAD6EF1",
+      "length": 2548,
+      "last_write_time_utc": "2026-02-28T10:50:37.7144892Z"
     },
     {
-      "path": "C:\\HUMANIA\\humania_guard.ps1",
-      "sha256": "5163775932CAAAE2D3053AAC0C62F70FA8DBD4AD6CA64BAAD3D2399E7C82ADE4",
-      "length": 3340,
-      "last_write_time_utc": "2026-02-18T11:24:29Z"
+      "path": "C:\\HUMANIA\\sentinel\\sentinel_tick_notify.ps1",
+      "sha256": "72B05624429273A8F9A23B44D4B11199B9472F64DAF8FD8BAED70A29B17BC802",
+      "length": 8020,
+      "last_write_time_utc": "2026-02-13T18:30:15.7865721Z"
     },
     {
-      "path": "C:\\HUMANIA\\audit_verify.ps1",
-      "sha256": "BEFA2B2CB6B80B811D5C4AD97C265FC7184EA6F793A7376D433B08C39A023E85",
-      "length": 4238,
-      "last_write_time_utc": "2026-02-15T13:05:29Z"
+      "path": "C:\\HUMANIA\\sentinel\\Show-CriticalError.ps1",
+      "sha256": "021E71D7F1D7E822E00F1C9A806697A439F64DE5CC601B934D9703BD0E5EBF2B",
+      "length": 820,
+      "last_write_time_utc": "2026-02-28T10:38:29.3830487Z"
     },
     {
-      "path": "C:\\HUMANIA\\kernel_manifest.json",
-      "sha256": "7820DAFE5190A2984A84AC57A82581AD22CD11DDB3B78AB1CB38CD27BBE6A9FC",
-      "length": 1219,
-      "last_write_time_utc": "2026-02-18T13:42:52Z"
+      "path": "C:\\HUMANIA\\watchdog\\UH_WATCHDOG_LOOP.ps1",
+      "sha256": "307C565D119C1FAE30DB29C154C249B3CBB3363EAADAC997A53E6C1E9C3FBDC9",
+      "length": 1384,
+      "last_write_time_utc": "2026-02-28T10:37:13.4246746Z"
     },
     {
-      "path": "C:\\HUMANIA\\AUDIT_CHAIN.jsonl",
-      "sha256": "A8EEDC102E5EFEBEAEBD6C709B1F82208F3F6C2DB162E3A9197EAC9E00C560D2",
-      "length": 98593,
-      "last_write_time_utc": "2026-02-18T11:34:02Z"
+      "path": "C:\\HUMANIA\\verifiers\\ACTION_CLASSIFIER.ps1",
+      "sha256": "685F8710DF67FE4CE658E519387C483399629F7016DDA7E8BD5EBEFE69E667EF",
+      "length": 3079,
+      "last_write_time_utc": "2026-02-27T11:40:33.4871959Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\check_diff.ps1",
+      "sha256": "B00001ED70B5B025A2E4D9075F7E8F790E35DD049EAA3BA383D655F5C14CFF5E",
+      "length": 1673,
+      "last_write_time_utc": "2026-02-27T11:55:20.0431051Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\emit_canonical_inventory.ps1",
+      "sha256": "55CBAB84767F50FD0EBBA613D73B16A6D2CEF9271A9E5F5C260913E55AC93EF8",
+      "length": 2227,
+      "last_write_time_utc": "2026-02-27T11:40:33.4902015Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\encoding_add_utf8_bom.ps1",
+      "sha256": "B0E72C3B16B52FB0F3E5AFC4282D9224FFF39FE5BC613D816C0F20DF98DD77F0",
+      "length": 761,
+      "last_write_time_utc": "2026-02-23T19:48:45.2558856Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\encoding_fix_cp1252_to_utf8.ps1",
+      "sha256": "FECC5EE71B601D68897A2605571C3B7E0738AEE5CD1D4797E52CBC442BB8B2CF",
+      "length": 1254,
+      "last_write_time_utc": "2026-02-23T19:29:35.7238159Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\encoding_fix_mojibake_to_utf8.ps1",
+      "sha256": "C5A5436CEE3BD50E70AAAEFC634A622417D7A717E62CA647E41063C457391E79",
+      "length": 1383,
+      "last_write_time_utc": "2026-02-23T19:34:32.1466529Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\fix_encoding_twopass.ps1",
+      "sha256": "A1CB16D9308DDF9A8D84F5231E97589BF23791AA8CF8E55C1723258CD44409E1",
+      "length": 1033,
+      "last_write_time_utc": "2026-02-23T19:25:07.5113759Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\HUMANIA_AUDIT_N2.ps1",
+      "sha256": "ED073193A0BB4D7361F4C14FF9CCA8BFFEE792E493701566909D10613CF3B957",
+      "length": 1367,
+      "last_write_time_utc": "2026-02-27T11:55:20.0431051Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\humania_heal copy.ps1",
+      "sha256": "260938AC7C9E9A4082D8463A84FB1FD6025635EA7A5956888D0510A859100F9A",
+      "length": 677,
+      "last_write_time_utc": "2026-02-27T11:55:20.0543322Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\humania_heal_v2.ps1",
+      "sha256": "B61FFE6C219E6644F92109DC7DE338CA0505C7A4BA8C1891217B81C06D37070D",
+      "length": 1079,
+      "last_write_time_utc": "2026-02-27T11:55:20.0543322Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\humania_heal.ps1",
+      "sha256": "06C08AD0849F480777BAC1CD67519635509066C73F1F8E4783AABA8488884CBD",
+      "length": 1442,
+      "last_write_time_utc": "2026-02-27T11:55:20.0543322Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\humania_startup.ps1",
+      "sha256": "2EC60C82C0C5D64C67D18BBAA9C7FC505A3FFFC048CCF57D01DD1667ECC929B1",
+      "length": 3290,
+      "last_write_time_utc": "2026-02-27T11:55:20.0642294Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\kernel_backup.ps1",
+      "sha256": "85C7C50E209C4F35403E171BEC3B805A56A1119C19CCF988F3D47AE7EB790C48",
+      "length": 1385,
+      "last_write_time_utc": "2026-02-23T12:55:01.7732044Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\kernel_manifest_verify.ps1",
+      "sha256": "9260A7B167B470D5799F94A7901FBEB829B6999E22468AFCE8B57BCDBE3F5DD7",
+      "length": 673,
+      "last_write_time_utc": "2026-02-27T11:55:20.0695508Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\kernel_restore.ps1",
+      "sha256": "02DEFFDC08FC94E5832844DEAD7DE41DBD59ADD6FAE293CD8725664FB7BAF312",
+      "length": 872,
+      "last_write_time_utc": "2026-02-23T12:56:35.9288663Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\level1_evidence_bundle.ps1",
+      "sha256": "9CC3AEB3374BA3B36EC6966AC75741AC669C1B4EAEAF83BAEEE5B90E56DFE96E",
+      "length": 2958,
+      "last_write_time_utc": "2026-02-24T06:42:24.3363237Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\log_rotate.ps1",
+      "sha256": "CF4F2586A036D71DEC4105724931B0A8EA22F98C20D0B5BE42A2C66212E53841",
+      "length": 444,
+      "last_write_time_utc": "2026-02-27T11:55:20.0745725Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\pre_chat_freeze_verify.ps1",
+      "sha256": "FA0FFBA66259BB695140CB9511D2291ABDB675E7BF95A6637C264D338543A2F2",
+      "length": 1565,
+      "last_write_time_utc": "2026-02-27T11:40:33.4927284Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\self_diagnose.ps1",
+      "sha256": "896BD1E44E60862E30CA02860BB6EF4D5ED25DC0068EAE2ABC8A1BD42DB61DA9",
+      "length": 1442,
+      "last_write_time_utc": "2026-02-27T11:55:20.0745725Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\self_integrity_level1.ps1",
+      "sha256": "CB1670C758A61D2C3CE2D03C364405F3E5882838B2A7093D23E04E0FF70EC5E9",
+      "length": 2573,
+      "last_write_time_utc": "2026-02-24T05:41:07.1574231Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\self_integrity_level2.ps1",
+      "sha256": "13BB82930D7A33913249942214F311F45B0EE12F809C8A7F2B7F5E139B844A03",
+      "length": 2413,
+      "last_write_time_utc": "2026-02-24T07:11:39.7612648Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\SYSTEM_FULL_EXPORT.ps1",
+      "sha256": "97504C42A372BE2730BE892E0011FF75DBF9FC5196B24183EFB4720C52F63438",
+      "length": 855,
+      "last_write_time_utc": "2026-02-27T11:40:33.4962585Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\test_local_ai.ps1",
+      "sha256": "17DA375B6D90194C5959CAC8FA708D7D8F1B3F1888828505200815807CC0F892",
+      "length": 882,
+      "last_write_time_utc": "2026-02-27T11:55:20.0859052Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\test_system_direct.ps1",
+      "sha256": "D638342842B39ED07EB8E26CD5D5E97C1D9A007FD224218F40EF62B6B81176F6",
+      "length": 207,
+      "last_write_time_utc": "2026-02-24T10:02:41.3803494Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\UH_LogRotate.ps1",
+      "sha256": "22FC7D03811F1301C4AFEDA02C1B7A4293F24147ADE34FA21AA44CE6186193D8",
+      "length": 1057,
+      "last_write_time_utc": "2026-02-28T10:52:24.8059083Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\verify_action_tri_consistency.ps1",
+      "sha256": "55048C118AF65EDC4ABFD7ECDD265CAD63E91C263AFBCA6F1C519E9048797D26",
+      "length": 2165,
+      "last_write_time_utc": "2026-02-27T11:40:33.4982586Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\verify_classifier_policy.ps1",
+      "sha256": "8EA6447D3C182B73FFADD17E30032FE561DAD213A2158B4180D5FFD5C91C23FC",
+      "length": 1343,
+      "last_write_time_utc": "2026-02-27T11:40:33.4982586Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\verify_sentinel_hashset.ps1",
+      "sha256": "AD3FD63C56A07F918D6FDF6879A2A9D363104338DC62B59AB94F683A12D6808A",
+      "length": 1393,
+      "last_write_time_utc": "2026-02-27T11:40:33.4982586Z"
+    },
+    {
+      "path": "C:\\HUMANIA\\verifiers\\verify_utf8_bom_ps1.ps1",
+      "sha256": "36097518444719E5C58A82FC79DB8FE2A661CAD4292A94D7639F450583F7E5FC",
+      "length": 637,
+      "last_write_time_utc": "2026-02-27T08:35:29.9963766Z"
     }
   ]
 }

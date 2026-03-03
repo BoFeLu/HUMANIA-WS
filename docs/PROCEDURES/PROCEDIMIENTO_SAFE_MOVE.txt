@@ -1,0 +1,18 @@
+﻿PROCEDIMIENTO_SAFE_MOVE (Runbook)
+
+Objetivo:
+Evitar pérdidas por movimientos destructivos y garantizar preflight.
+
+Pasos:
+1) Ejecutar precheck crítico:
+   powershell -NoProfile -ExecutionPolicy Bypass -File C:\HUMANIA\DIAG\UH_CRITICAL_PRECHECK.ps1
+
+2) Ejecutar movimiento seguro:
+   powershell -NoProfile -ExecutionPolicy Bypass -File C:\HUMANIA\DIAG\SAFE_MOVE.ps1 -SourcePath "<ruta>" -DestDir "<destino>"
+
+3) Verificar post-move:
+   - el origen ya no existe (si era move)
+   - el destino existe y contiene lo esperado
+
+Regla:
+Prohibido usar Move-Item manual para C:\HUMANIA.

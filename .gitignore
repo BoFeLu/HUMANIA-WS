@@ -1,24 +1,13 @@
-# --- SEGURIDAD Y PRIVACIDAD ---
-secrets/
-*.key
-*.token
-.env
-LA_CLAVE.txt
-session_caps_ok.json
-
-# --- DATOS PESADOS Y LOGS ---
-AUDIT_CHAIN.jsonl
-AUDIT_LOG.txt
-audit_archive/
-logs/
-staging/
-*.jsonl
+# Ignorar archivos de contexto temporales
+docs/context/CONTEXT_SUMMARY_*
+*.json
 *.log
-*.bak_*
+# Ignorar carpetas de diagnóstico y temporales
+BIN/
+DIAG/
+SNAPSHOTS/
+logs/
+*.out.txt
+*.bak
+audit_archive/
 
-# --- BINARIOS Y SISTEMA ---
-Handle/
-*.exe
-*.zip
-*.7z
-.vscode/

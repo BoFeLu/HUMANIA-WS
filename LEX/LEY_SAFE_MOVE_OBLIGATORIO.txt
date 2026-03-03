@@ -1,0 +1,22 @@
+﻿LEY_SAFE_MOVE_OBLIGATORIO (Prioridad Alta)
+
+1) Prohibición:
+Queda prohibido mover, archivar o borrar manualmente cualquier ruta dentro de C:\HUMANIA.
+
+2) Mecanismo único permitido:
+Todo movimiento debe ejecutarse exclusivamente mediante:
+C:\HUMANIA\DIAG\SAFE_MOVE.ps1
+
+3) Precondiciones obligatorias:
+SAFE_MOVE.ps1 debe ejecutar y exigir:
+- UH_CRITICAL_PRECHECK.ps1 (artefactos críticos presentes)
+- UH_PREMOVE_GUARD.ps1 (escaneo de referencias del núcleo)
+
+4) Evidencia mínima:
+Tras cada movimiento, debe existir evidencia de:
+- origen, destino, timestamp
+- resultado (OK/BLOCK)
+- verificación de existencia post-move
+
+5) Excepción:
+No hay excepciones salvo autorización explícita documentada y hasheada en LEX.

@@ -1,0 +1,16 @@
+﻿<service>
+  <id>UH_WATCHDOG</id>
+  <name>UH_WATCHDOG</name>
+  <description>ULTRAHUMANIA Watchdog: persistent loop invoking UH_GUARD_RUN periodically with backoff.</description>
+
+  <executable>powershell.exe</executable>
+  <arguments>-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\HUMANIA\watchdog\UH_WATCHDOG_LOOP.ps1" -IntervalSeconds 60 -FailBackoffSeconds 300</arguments>
+
+  <logpath>C:\HUMANIA\logs\watchdog</logpath>
+  <log mode="roll-by-size">
+    <sizeThreshold>1048576</sizeThreshold>
+    <keepFiles>10</keepFiles>
+  </log>
+
+  <onfailure action="restart" delay="10 sec" />
+</service>

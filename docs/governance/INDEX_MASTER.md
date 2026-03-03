@@ -3,17 +3,45 @@
 
 ## I. GOBERNANZA (N2)
 - [CONSTITUTION_MASTER_N2.md](CONSTITUTION_MASTER_N2.md) - Fundamento Constitucional.
+- [ARCHITECTURE_MASTER_N2.md](ARCHITECTURE_MASTER_N2.md) - Arquitectura Maestra (SSoT).
 - [INDEX_MASTER.md](INDEX_MASTER.md) - Este documento (SSoT).
 
 ## II. LEYES INVARIANTES (N3)
+- [LAW_EVIDENCE_OUTPUT_REQUIRED.md](../laws/LAW_EVIDENCE_OUTPUT_REQUIRED.md) - Evidencia obligatoria (output + exitcode + ruta guardada).
 - [LAW_IO_MASTER_TRANSFER.md](../laws/LAW_IO_MASTER_TRANSFER.md) - Protocolo de Intercambio.
 - [LAW_AUDIT_ROTATION_THRESHOLD_50MB.md](../laws/LAW_AUDIT_ROTATION_THRESHOLD_50MB.md) - Umbral Anti-Monstruo.
 - [LAW-COMM-001_TUTEO_OBLIGATORIO.md](../laws/LAW-COMM-001_TUTEO_OBLIGATORIO.md) - Norma de Comunicación.
 
 ## III. PROCEDIMIENTOS (N5)
+- [KNOWN_ISSUES_DB_SEED.jsonl](../procedures/KNOWN_ISSUES_DB_SEED.jsonl) - Semilla canónica (JSONL) para el esquema Problemas→Soluciones (futuro Postgres).
 - [PROC_MASTER_V5_ULTIMATE.md](../procedures/PROC_MASTER_V5_ULTIMATE.md) - Manual de Operaciones.
 - [STRATEGY_DB_MIGRATION_POSTGRES.md](../procedures/STRATEGY_DB_MIGRATION_POSTGRES.md) - Plan de Datos (Ex-LOG_005).
 - [KNOWLEDGE_BASE_LESSONS.psv](../procedures/KNOWLEDGE_BASE_LESSONS.psv) - Memoria de fallos técnicos.
 
 ## IV. PROTOCOLO DE EXCELENCIA (N1)
 - **Verificación Rápida Obligatoria:** Ninguna fase se cierra sin que el Operador pegue el output de éxito de la terminal.
+- Codificación canónica docs: **UTF-8 (preferible sin BOM)**. BOM tolerado si no rompe tooling. Evidencia: logs\ENCODING_*.
+---
+
+## Seguridad y Resiliencia del Núcleo (Kernel)
+
+- Blindaje del núcleo (ACL anti-borrado + backup externo D:\ + verificación SHA256)
+  - Documento canónico: docs/governance/CONSTITUTION_MASTER_N2.md (sección “BLINDAJE DEL NÚCLEO”)
+  - Evidencia: logs/KERNEL_HASHSET_*.txt y backups en D:\HUMANIA_BACKUP_SECURE\
+
+
+## V. INTEGRIDAD Y RESILIENCIA (OPERATIVO)
+
+### Kernel Backup (D:\)
+- Tarea: HUMANIA_KERNEL_BACKUP (Daily 03:00)
+- Script: C:\HUMANIA\verifiers\kernel_backup.ps1
+- Evidencia: C:\HUMANIA\logs\KERNEL_HASHSET_*.txt y D:\HUMANIA_BACKUP_SECURE\KERNEL_*\KERNEL_HASHES.txt
+
+### Self-Integrity Check (LEVEL_1)
+- Script: C:\HUMANIA\verifiers\self_integrity_level1.ps1
+- Ejecución: powershell -NoProfile -ExecutionPolicy Bypass -File C:\HUMANIA\verifiers\self_integrity_level1.ps1
+- Evidencia: C:\HUMANIA\logs\SELF_INTEGRITY_LEVEL1_*.txt
+
+
+
+

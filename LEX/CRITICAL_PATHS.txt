@@ -1,0 +1,8 @@
+﻿C:\HUMANIA\humania_run.ps1
+C:\HUMANIA\humania_guard.ps1
+C:\HUMANIA\CORE\humania_run.ps1
+C:\HUMANIA\CORE\humania_guard.ps1
+C:\HUMANIA\allowed_actions.txt
+C:\HUMANIA\kernel_manifest.json
+C:\HUMANIA\verifiers\kernel_manifest_verify.ps1
+C:\HUMANIA\AUDIT_CHAIN.jsonl

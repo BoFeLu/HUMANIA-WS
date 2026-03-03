@@ -1,0 +1,13 @@
+ El script 'humania_heal.ps1' analiza los archivos de la carpeta especificada en la variable '$Root\verifiers\vault', y comprueba si cada uno de ellos se encuentra corrompido o no. Si un archivo está corrompido, el script restaura una copia del mismo desde la carpeta '$Vault'.
+
+El script utiliza la función `Test-Path` para comprobar si un archivo existe en el sistema y la función `Get-FileHash` para obtener el hash SHA256 de cada archivo. Además, utiliza la función `ConvertFrom-Json` para convertir el contenido del archivo 'kernel_manifest.json' en formato JSON a objetos de PowerShell.
+
+En general, este script parece seguro y tiene sentido en un entorno como HUMANIA N2, donde se necesita garantizar la integridad de los archivos importantes. Sin embargo, es importante tener en cuenta que el script no realiza ninguna verificación de la firma digital de los archivos antes de restaurarlos, lo que podría permitir que un atacante modifique los archivos y luego restaure una copia corrupta de ellos.
+
+Para mejorar la seguridad del script, se recomienda agregar una verificación de la firma digital de cada archivo antes de restaurarlos. También es importante tener en cuenta que el script puede modificarse por parte de un atacante y se debe asegurarse de que solo se ejecute código confiable.
+
+En cuanto al contenido del directorio, el script no muestra ningún archivo específico, ya que solo analiza los archivos mencionados en el 'kernel_manifest.json'. Para obtener una lista completa de todos los archivos .ps1 en la carpeta, se puede utilizar el siguiente comando:
+```bash
+Get-ChildItem -Path "C:\HUMANIA" -Filter *.ps1 | Select-Object FullName
+```
+Este comando busca todos los archivos .ps1 en la carpeta 'C:\HUMANIA' y muestra su ruta completa.

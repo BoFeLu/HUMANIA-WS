@@ -1,0 +1,109 @@
+DOCUMENT: HUMANIA_DOCUMENTATION_AND_PROGRESS_LAW_v1
+CLASSIFICATION: VITAL_LAW
+STATUS: ACTIVE
+TS_UTC: AUTO-GENERATED
+
+=====================================================================
+LEY OPERATIVA PERMANENTE DE DOCUMENTACIÓN, TRAZABILIDAD Y CONSOLIDACIÓN
+=====================================================================
+
+I. PRINCIPIO FUNDAMENTAL
+
+Ningún avance técnico, corrección, estabilización, mejora,
+optimización, blindaje o cambio estructural podrá considerarse
+válido dentro del sistema HUMANIA / ULTRAHUMANIA si no queda:
+
+1. Documentado explícitamente.
+2. Reflejado en artefactos canónicos.
+3. Verificado por evidencia ejecutable.
+4. Sellado mediante hash.
+5. Trazable en logs.
+6. Reproducible desde estado limpio.
+
+=====================================================================
+
+II. OBLIGACIÓN DE ACTUALIZACIÓN
+
+Cada logro debe provocar:
+
+- Actualización de CONTEXT_SUMMARY.md
+- Actualización de STATUS_REPORT.md
+- Regeneración de MINI_REPORT.md
+- Actualización de constitución si afecta normas estructurales
+- Registro en logs\evidence si modifica componentes críticos
+- Hash de archivos modificados
+
+=====================================================================
+
+III. PROHIBICIONES
+
+Queda estrictamente prohibido:
+
+- Dejar avances sin explicar.
+- Introducir cambios sin trazabilidad.
+- Modificar componentes críticos sin baseline previo.
+- Omitir registro de evidencia.
+- Asumir estabilidad sin verificación.
+- Consolidar estado sin regenerar artefactos.
+
+=====================================================================
+
+IV. REGLA DE CIERRE DE AVANCE
+
+Un avance se considera cerrado únicamente cuando:
+
+1. Produce PASS del runner.
+2. Genera artefactos canónicos.
+3. No genera errores 7031.
+4. No deja locks inconsistentes.
+5. Tiene evidencia escrita y hasheada.
+
+=====================================================================
+
+V. PRINCIPIO DE MEMORIA SISTÉMICA
+
+El sistema debe poder explicar:
+
+- Qué cambió.
+- Por qué cambió.
+- Cuándo cambió.
+- Qué evidencia lo respalda.
+- Qué riesgos fueron mitigados.
+
+Si no puede explicarlo, el cambio no existe oficialmente.
+
+=====================================================================
+
+VI. PRIORIDAD PERMANENTE
+
+En caso de conflicto entre:
+- Velocidad
+- Complejidad
+- Innovación
+- Estética
+
+Siempre prevalecerá:
+
+SOLIDEZ
+ESTABILIDAD
+SEGURIDAD
+CLARIDAD
+EFICIENCIA + EFICACIA
+TRAZABILIDAD
+REPRODUCIBILIDAD
+
+=====================================================================
+
+VII. CARÁCTER VINCULANTE
+
+Esta ley es vinculante para:
+
+- UH_GUARD_RUN
+- WATCHDOG
+- Verifiers
+- Sentinel
+- Cualquier agente futuro (AIOPS1, AIOPS2, Nexus, etc.)
+
+=====================================================================
+
+END_OF_DOCUMENT

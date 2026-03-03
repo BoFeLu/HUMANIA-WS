@@ -2,6 +2,7 @@
 **ESTADO: VIGENTE | VERSIÓN: 2026.02.19 | AUTORIDAD: MÁXIMA**
 
 ## 1. PRINCIPIOS FUNDAMENTALES (Vigencia desde 2026-02-12)
+- **Evidencia de Verificación Obligatoria:** Ninguna operación importante se cierra sin output principal + exitcode + ruta guardada (ver LAW_EVIDENCE_OUTPUT_REQUIRED).
 - **Evidencia Primero:** Toda guía de ejecución requiere una ruta de evidencia concreta y pasos verificables.
 - **Fallo-Cerrado (Fail-Closed):** Ante la incertidumbre o información incompleta, el comportamiento por defecto es RECHAZAR.
 - **Disciplina de Salida:** Prohibida la especulación ("quizás", "probablemente"). Solo rutas verificadas.
@@ -16,6 +17,52 @@
     - **Nivel 2 (REFERENCIAL):** Leyes generales y contratos marco.
     - **Nivel 3 (HISTÓRICO):** Logs antiguos y versiones derogadas (Zona Vital).
 
+## CODIFICACIÓN CANÓNICA DE DOCUMENTACIÓN (UTF-8)
+- Regla adicional (scripts): todos los **.ps1 canónicos** deben almacenarse como **UTF-8 con BOM** (EF BB BF). Motivo: PowerShell 5.1 puede interpretar .ps1 sin BOM como ANSI/ACP y corromper literales Unicode (mojibake).
+- Verificación obligatoria (fail-closed): C:\HUMANIA\verifiers\verify_utf8_bom_ps1.ps1 (si falla, se aborta la generación/runner).
+- Todos los documentos canónicos en C:\HUMANIA\docs\ deben almacenarse como **UTF-8 con BOM**.
+- Motivo: compatibilidad con herramientas legacy (p. ej. PowerShell 5.1 Get-Content) sin requerir flags manuales.
+- Evidencia: logs\ENCODING_PROOF_HEAD2_*.txt y logs\ENCODING_BOM_REPORT_*.txt
 ## 3. PROHIBICIONES OPERATIVAS
 - No reintroducir \Get-FileHash\ en rutas de ejecución (Usar métodos auditados).
 - No realizar copias descontroladas. Toda redundancia debe ser fusionada.
+---
+
+## BLINDAJE DEL NÚCLEO (ACL + BACKUP EXTERNO)
+
+### Objetivo
+Garantizar que los artefactos críticos del núcleo (kernel operativo) no puedan ser borrados accidentalmente y que exista recuperación verificable fuera de C:\.
+
+### Artefactos blindados (Kernel)
+- C:\HUMANIA\humania_run.ps1
+- C:\HUMANIA\humania_guard.ps1
+- C:\HUMANIA\audit_verify.ps1
+- C:\HUMANIA\kernel_manifest.json
+
+### Medida 1 — Anti-borrado local (ACL: DENY Delete)
+Se aplica explícitamente una denegación de borrado (DENY)(DE) al usuario operador, manteniendo Control Total para:
+- NT AUTHORITY\SYSTEM
+- BUILTIN\Administradores
+
+Nota: Esta medida mitiga borrados accidentales en operaciones normales. No sustituye el backup externo.
+
+### Medida 2 — Backup externo verificable (D:\)
+Se mantiene un backup del kernel fuera de C:\ en:
+- D:\HUMANIA_BACKUP_SECURE\KERNEL_YYYYMMDD_HHMMSS\
+
+Cada snapshot de backup incluye:
+- Los 4 artefactos del kernel
+- KERNEL_HASHES.txt con SHA256 por archivo
+
+### Criterio de aceptación
+Un backup del kernel solo se considera válido si:
+- Existen los 4 archivos en D:\
+- El archivo KERNEL_HASHES.txt existe
+- Los SHA256 de C:\ y D:\ coinciden 1:1
+
+### Procedimiento operativo (resumen)
+1) Aplicar ACL (deny delete) al kernel.
+2) Ejecutar backup a D:\.
+3) Verificar hashes C:\ vs D:\.
+4) Registrar evidencia en logs.
+

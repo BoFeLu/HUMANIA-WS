@@ -1,4 +1,4 @@
-# LAW: Audit Output Bounding + Safe Reading (LEVEL_3)
+﻿# LAW: Audit Output Bounding + Safe Reading (LEVEL_3)
 
 ## Motivo
 AUDIT_CHAIN.jsonl puede contener líneas gigantes (pocas entradas con output masivo), causando cuelgues y degradación.

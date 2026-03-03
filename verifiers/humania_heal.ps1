@@ -1,20 +1,34 @@
+﻿# HUMANIA N2 - SCRIPT DE CURACIÓN FORTALECIDO
 $Root = "C:\HUMANIA"
 $Vault = "$Root\verifiers\vault"
-$Manifest = Get-Content "$Root\kernel_manifest.json" | ConvertFrom-Json
+$ManifestPath = "$Root\verifiers\kernel_manifest.json"
 
-foreach ($item in $Manifest.items) {
-    $fileName = Split-Path $item.path -Leaf
-    $vaultFile = "$Vault\$fileName"
-    $needsHeal = $false
+Write-Host "`n[ESCUDO N2]: Iniciando verificación de integridad reforzada..." -ForegroundColor Cyan
 
-    if (!(Test-Path $item.path)) { $needsHeal = $true }
-    else {
-        $currentHash = (Get-FileHash $item.path -Algorithm SHA256).Hash
-        if ($currentHash -ne $item.sha256) { $needsHeal = $true }
-    }
+# Verificación de existencia del manifiesto
+if (-not (Test-Path $ManifestPath)) {
+    Write-Host "[!] ERROR: Manifiesto no encontrado. El sistema está ciego." -ForegroundColor Red
+    exit
+}
 
-    if ($needsHeal) {
-        Write-Host "[ALERTA] Corrupción detectada en $fileName. Restaurando..." -ForegroundColor Red
-        Copy-Item $vaultFile -Destination $item.path -Force
+$Manifest = Get-Content $ManifestPath | ConvertFrom-Json
+
+foreach ($Entry in $Manifest.files) {
+    $FilePath = Join-Path $Root $Entry.path
+    
+    if (Test-Path $FilePath) {
+        # Cálculo del hash actual
+        $CurrentHash = (Get-FileHash $FilePath -Algorithm SHA256).Hash
+        
+        if ($CurrentHash -ne $Entry.hash) {
+            Write-Host "[!] ALERTA: Archivo $($Entry.path) CORRUPTO o MODIFICADO." -ForegroundColor Red
+            Write-Host "[+] Restaurando desde la Vault segura..." -ForegroundColor Yellow
+            Copy-Item -Path (Join-Path $Vault (Split-Path $Entry.path -Leaf)) -Destination $FilePath -Force
+        } else {
+            Write-Host "[OK]: $($Entry.path) verificado y seguro." -ForegroundColor Green
+        }
+    } else {
+        Write-Host "[!] CRÍTICO: Falta el archivo $($Entry.path). Restaurando..." -ForegroundColor Magenta
+        Copy-Item -Path (Join-Path $Vault (Split-Path $Entry.path -Leaf)) -Destination $FilePath -Force
     }
 }

@@ -1,4 +1,4 @@
-# ESTRATEGIA DE DATOS Y MIGRACIÓN POSTGRESQL (N5)
+﻿# ESTRATEGIA DE DATOS Y MIGRACIÓN POSTGRESQL (N5)
 **OBJETIVO:** Transición de repositorio plano a Base de Datos Relacional de Conocimiento.
 
 ## 1. TAXONOMÍA DE FILTRADO (PRINCIPIO DE VALOR)

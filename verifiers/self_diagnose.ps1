@@ -1,4 +1,4 @@
-$Root = "C:\HUMANIA"
+﻿$Root = "C:\HUMANIA"
 $ManifestPath = "$Root\kernel_manifest.json"
 $Report = [ordered]@{
     ts_utc = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")

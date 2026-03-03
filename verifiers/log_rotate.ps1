@@ -1,4 +1,4 @@
-$LogFile = "C:\HUMANIA\AUDIT_CHAIN.jsonl"
+﻿$LogFile = "C:\HUMANIA\AUDIT_CHAIN.jsonl"
 $MaxSize = 10MB
 if (Test-Path $LogFile) {
     $Size = (Get-Item $LogFile).Length

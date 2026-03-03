@@ -1,0 +1,418 @@
+param(
+  [string]$Trigger = "SCHEDULED_TICK",
+  [string]$Root = "C:\HUMANIA",
+  [int]$LockTtlSeconds = 180,
+  [int]$HeartbeatStaleSeconds = 120,
+  [int]$MaxLogBytes = 20MB,
+  [int]$KeepLogs = 10
+)
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
+# --- Paths ---
+$GuardDir     = Join-Path $Root "guard"
+$StateDir     = Join-Path $Root "state"
+$RunnerState  = Join-Path $StateDir "runner"
+$LocksDir     = Join-Path $StateDir "locks"
+$LogsDir      = Join-Path $Root "logs"
+$RunnerLogs   = Join-Path $LogsDir "runner"
+
+$DocsContext  = Join-Path $Root "docs\context"
+$DocsStatus   = Join-Path $Root "docs\status"
+$DocsConst    = Join-Path $Root "docs\constitution"
+$DocsVital    = Join-Path $Root "docs\laws\vital"
+
+$LockPath     = Join-Path $LocksDir "UH_GUARD.lock"
+$Heartbeat    = Join-Path $RunnerState "heartbeat.json"
+$LastSuccess  = Join-Path $RunnerState "last_success.json"
+$LastFailure  = Join-Path $RunnerState "last_failure.json"
+
+# --- Utilities ---
+function Ensure-Dir([string]$p) {
+  if (!(Test-Path $p)) { New-Item -ItemType Directory -Path $p | Out-Null }
+}
+
+function NowStamp { (Get-Date).ToString("yyyyMMdd_HHmmss") }
+
+function Write-Json([string]$Path, [hashtable]$Obj) {
+  $Obj | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 -Path $Path
+}
+
+function Rotate-Log([string]$LogPath, [int]$MaxBytes, [int]$Keep) {
+  if (!(Test-Path $LogPath)) { return }
+  $len = (Get-Item $LogPath).Length
+  if ($len -lt $MaxBytes) { return }
+
+  for ($i = $Keep; $i -ge 1; $i--) {
+    $older = "$LogPath.$i"
+    $newer = "$LogPath." + ($i + 1)
+    if (Test-Path $older) {
+      if ($i -eq $Keep) { Remove-Item -Force $older }
+      else { Rename-Item -Force $older $newer }
+    }
+  }
+  Rename-Item -Force $LogPath "$LogPath.1"
+}
+
+function Log([string]$LogFile, [string]$Msg) {
+  Rotate-Log -LogPath $LogFile -MaxBytes $MaxLogBytes -Keep $KeepLogs
+  $line = "{0}  {1}" -f (Get-Date -Format o), $Msg
+  Add-Content -Encoding UTF8 -Path $LogFile -Value $line
+}
+
+function Acquire-Lock([string]$Path) {
+  # Exclusive lock by opening with no sharing
+  $fs = [System.IO.File]::Open($Path,
+    [System.IO.FileMode]::OpenOrCreate,
+    [System.IO.FileAccess]::ReadWrite,
+    [System.IO.FileShare]::None)
+
+  # Stamp lock content
+  $stamp = (Get-Date -Format o)
+  $bytes = [System.Text.Encoding]::UTF8.GetBytes($stamp)
+  $fs.SetLength(0)
+  $fs.Write($bytes, 0, $bytes.Length)
+  $fs.Flush()
+  return $fs
+}
+
+function Touch-Heartbeat([string]$Path, [string]$Phase, [string]$RunId) {
+  $obj = @{
+    ts    = (Get-Date -Format o)
+    phase = $Phase
+    runid = $RunId
+  }
+  Write-Json -Path $Path -Obj $obj
+}
+
+function Require-File([string]$Path, [string]$Label) {
+  if (!(Test-Path $Path)) { throw "FALTA_CRITICA: $Label => $Path" }
+}
+
+function Test-Required-Sections([string]$Text, [string[]]$Markers, [string]$Label) {
+  foreach ($m in $Markers) {
+    if ($Text -notmatch [Regex]::Escape($m)) {
+      throw "TEST_FAIL($Label): falta marcador obligatorio: $m"
+    }
+  }
+}
+
+function Test-NoHypotheticals([string]$Text, [string]$Label) {
+  $bad = @(
+    "supongamos",
+    "si devuelve",
+    "debería",
+    "probablemente"
+  )
+  foreach ($b in $bad) {
+    if ($Text.ToLowerInvariant().Contains($b)) {
+      throw "TEST_FAIL($Label): contiene hipotético prohibido: $b"
+    }
+  }
+}
+
+
+# ===============================
+# INTEGRITY CHECK MODULE (CORE)
+# ===============================
+
+function Integrity-Check-CoreStructure {
+
+  $root = "C:\HUMANIA"
+
+  if (-not (Test-Path $root)) {
+    throw "INTEGRITY_FAIL: Root path C:\HUMANIA does not exist."
+  }
+
+  # Enforce execution context
+  if ($PSScriptRoot -notlike "C:\HUMANIA*") {
+    throw "INTEGRITY_FAIL: Script not running inside C:\HUMANIA context."
+  }
+
+  $expectedRootDirs = @(
+    "audit_archive",
+    "BIN",
+    "CORE",
+    "DIAG",
+    "docs",
+    "guard",
+    "LEX",
+    "logs",
+    "RUNS",
+    "sentinel",
+    "SNAPSHOTS",
+    "staging",
+    "state",
+    "verifiers",
+    "watchdog"
+  )
+
+  $actualRootDirs = Get-ChildItem $root -Directory | Select-Object -ExpandProperty Name
+
+  foreach ($expected in $expectedRootDirs) {
+    if ($actualRootDirs -notcontains $expected) {
+      throw "INTEGRITY_FAIL: Missing root directory: $expected"
+    }
+  }
+
+  foreach ($actual in $actualRootDirs) {
+    if ($expectedRootDirs -notcontains $actual) {
+      throw "INTEGRITY_FAIL: Unexpected root directory detected: $actual"
+    }
+  }
+
+  $requiredFiles = @(
+    "C:\HUMANIA\guard\UH_GUARD_RUN.ps1",
+    "C:\HUMANIA\docs\laws\vital\UH_GUARD_SPEC_v1.md",
+    "C:\HUMANIA\docs\laws\vital\UH_STATUS_REPORT_GENERATION_PROCEDURE_v1.md",
+    "C:\HUMANIA\verifiers\silent_run.vbs"
+  )
+
+  foreach ($f in $requiredFiles) {
+    if (!(Test-Path $f)) {
+      throw "INTEGRITY_FAIL: Missing file: $f"
+    }
+    if ((Get-Item $f).Length -eq 0) {
+      throw "INTEGRITY_FAIL: Empty file detected: $f"
+    }
+  }
+}
+
+# --- Ensure dirs ---
+Ensure-Dir $GuardDir
+Ensure-Dir $RunnerState
+Ensure-Dir $LocksDir
+Ensure-Dir $RunnerLogs
+Ensure-Dir $DocsContext
+Ensure-Dir $DocsStatus
+Ensure-Dir $DocsConst
+Ensure-Dir $DocsVital
+
+$RunId = NowStamp
+$LogFile = Join-Path $RunnerLogs ("UH_GUARD_{0}.log" -f (Get-Date).ToString("yyyyMMdd"))
+
+try {
+  Log $LogFile "[START] UH_GUARD_RUN runid=$RunId"
+  Touch-Heartbeat -Path $Heartbeat -Phase "start" -RunId $RunId
+  # --- Integrity enforcement ---
+  Integrity-Check-CoreStructure
+  # --- End integrity enforcement ---
+
+  # Lock (exclusive)
+  $lockFs = Acquire-Lock -Path $LockPath
+  try {
+    Touch-Heartbeat -Path $Heartbeat -Phase "lock_acquired" -RunId $RunId
+
+    # Require vital spec (guard rail)
+    Require-File -Path (Join-Path $DocsVital "UH_GUARD_SPEC_v1.md") -Label "UH_GUARD_SPEC_v1"
+    Require-File -Path (Join-Path $DocsVital "HUMANIA_DOCUMENTATION_AND_PROGRESS_LAW_v1.txt") -Label "HUMANIA_DOCUMENTATION_AND_PROGRESS_LAW_v1"
+
+    # Generate artifacts (timestamped)
+    $ts = NowStamp
+    $contextPath = Join-Path $DocsContext ("CONTEXT_SUMMARY_{0}.md" -f $ts)
+    $statusPath  = Join-Path $DocsStatus  ("STATUS_REPORT_{0}.md" -f $ts)
+    $constPath   = Join-Path $DocsConst   ("DOCS_CONSTITUTION_{0}.txt" -f $ts)
+    $miniPath    = Join-Path $DocsStatus  ("MINI_REPORT_{0}.md" -f $ts)
+
+    # --- Canonical inventory generation ---
+    $inventoryPath = Join-Path $DocsContext ("INVENTORY_CANON_{0}.json" -f $ts)
+    $invOut = & powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File (Join-Path $Root "verifiers\emit_canonical_inventory.ps1") -Root $Root -OutPath $inventoryPath 2>&1; if ($LASTEXITCODE -ne 0) { throw ("INVENTORY_GEN_FAIL exit=" + $LASTEXITCODE + " out=" + ($invOut -join "`n")) }
+    # INVENTORY_DEBUG: emit inventoryPath
+    Log $LogFile ("[DBG] inventoryPath=" + $inventoryPath)
+    # INVENTORY_GUARD: ensure file exists immediately
+    if (!(Test-Path $inventoryPath)) { throw "ARTIFACT_FAIL: Missing artifact: $inventoryPath" }
+    # --- End canonical inventory generation ---
+
+
+    Touch-Heartbeat -Path $Heartbeat -Phase "generate_docs" -RunId $RunId
+
+    @"
+# CONTEXT_SUMMARY — ULTRAHUMANIA
+Timestamp: $ts
+Trigger: $Trigger
+
+## Decisiones/avances recientes
+- Blindaje: no hypotheticals, evidence-gated, stop rule, no cross-layer.
+- Pre_chat_gate obligatorio.
+- ACK_INIT obligatorio.
+- Wrapper como punto único de entrada.
+- Tests como árbitro final.
+- Runner+Watchdog definidos como doble sistema no interferible.
+
+## Riesgos
+- Deriva de foco en chats nuevos.
+- Re-verificación de entorno ya cerrado.
+- Expansión contextual no solicitada.
+
+## Pendientes inmediatos
+- Implementar Watchdog (WinSW).
+- Implementar tests adicionales (scanner de 1 comando, coherencia extendida).
+"@ | Set-Content -Encoding UTF8 $contextPath
+
+    @"
+ULTRAHUMANIA — CONSTITUCIÓN CANÓNICA
+Timestamp: $ts
+Trigger: $Trigger
+
+LEYES VITALES (bloqueantes)
+1) No hypotheticals.
+2) Evidence-gated: 1 comando/acción por turno.
+3) Stop rule: no avanzar sin output.
+4) No cross-layer.
+5) Prohibida expansión contextual no solicitada.
+6) ACK_INIT obligatorio en chat nuevo.
+7) Pre_chat_gate obligatorio.
+8) Wrapper como punto único de entrada.
+9) Tests como árbitro final.
+10) No fallos silenciosos (fail-fast + logs).
+11) HUMANIA_DOCUMENTATION_AND_PROGRESS_LAW_v1 (documentar cada logro/avance + actualizar artefactos + evidencia verificable).
+
+RESPUESTA DEL OPERADOR ANTE RE-VERIFICACIÓN
+"VERIFICACIÓN YA CERRADA EN ENTORNO TÉCNICO FIJO. CONTINÚA CON EL SIGUIENTE PASO PERMITIDO."
+
+RESPUESTA DEL OPERADOR ANTE DERIVA
+"VIOLACIÓN MUY GRAVE: vuelve al único siguiente paso permitido."
+"@ | Set-Content -Encoding UTF8 $constPath
+
+    @"
+# STATUS_REPORT — ULTRAHUMANIA
+Timestamp: $ts
+Trigger: $Trigger
+
+## Estado operativo
+- Runner UH_GUARD_RUN operativo (fail-fast, lock, heartbeat, logs+rotate).
+- Especificación UH_GUARD_SPEC_v1 presente.
+- Estructura base (guard/state/logs) presente.
+
+## Foco activo
+- Control conductual absoluto: impedir suposiciones/adelantos/reverificaciones/deriva.
+
+## Snapshot de cierre — LEVEL_3
+Este cierre es LEVEL_3.
+
+### Orden explícita al operador
+1) Abrir nuevo chat.
+2) Adjuntar los 3 canónicos y el MINI_REPORT de este cierre.
+3) Pegar el mensaje de “Nuevo Chat” (cláusulas bloqueantes).
+4) Exigir ACK_INIT obligatorio antes de cualquier acción.
+
+### Delta final
+- Runner creado.
+- Lock/heartbeat/logrotate activos.
+- Marco de control conductual reforzado (ACK_INIT + Pre_chat_gate + Wrapper + Tests).
+
+### Últimos 8 mensajes con valor (resumen)
+1) Prioridad absoluta: no suponer/no adelantarse.
+2) Entorno técnico cerrado (sin re-verificar).
+3) Creación de SPEC v1.
+4) Estructura base guard/state/logs.
+5) Definición doble sistema runner+watchdog.
+6) Exigencia de invisibilidad sin fallos silenciosos.
+7) Miniinforme por cierre.
+8) Cierre LEVEL_3 y continuidad perfecta.
+
+### Aviso de chat ralentizado
+Si el chat se ralentiza o deriva, decisión humana: cerrar y abrir nuevo chat con este snapshot.
+"@ | Set-Content -Encoding UTF8 $statusPath
+
+    @"
+# MINI_REPORT — ULTRAHUMANIA
+Timestamp: $ts
+Trigger: $Trigger
+
+Artefactos generados:
+- $contextPath
+- $statusPath
+- $constPath
+- $inventoryPath
+
+Tests:
+- PENDIENTE: ejecución automática ampliada (este runner aplica tests mínimos a contenido).
+
+Orden al operador:
+- Abrir nuevo chat + adjuntar canónicos + exigir ACK_INIT.
+"@ | Set-Content -Encoding UTF8 $miniPath
+
+    Touch-Heartbeat -Path $Heartbeat -Phase "tests" -RunId $RunId
+
+    # Tests mínimos (contenido generado)
+    $ctx = Get-Content $contextPath -Raw
+    $st  = Get-Content $statusPath -Raw
+    $co  = Get-Content $constPath -Raw
+
+    # --- Artifact consistency enforcement ---
+function Integrity-Check-ArtifactConsistency {
+  param(
+    [string]$RunId,
+    [string]$Trigger,
+    [string]$ContextPath,
+    [string]$StatusPath,
+    [string]$ConstPath,
+    [string]$InventoryPath,
+    [string]$MiniPath
+  )
+
+  $artifacts = @($ContextPath, $StatusPath, $ConstPath, $InventoryPath, $MiniPath)
+
+  foreach ($a in $artifacts) {
+    if (!(Test-Path $a)) {
+      throw "ARTIFACT_FAIL: Missing artifact: $a"
+    }
+    if ((Get-Item $a).Length -eq 0) {
+      throw "ARTIFACT_FAIL: Empty artifact: $a"
+    }
+  }
+
+  # Timestamp consistency
+  $tsExpected = $RunId
+
+  foreach ($a in $artifacts) {
+    if ($a -notmatch $tsExpected) {
+      throw "ARTIFACT_FAIL: Timestamp mismatch in $a"
+    }
+  }
+
+  # MINI_REPORT must contain trigger
+  $miniContent = Get-Content $MiniPath -Raw
+  if ($miniContent -notmatch "Trigger:\s+$Trigger") {
+    throw "ARTIFACT_FAIL: Trigger mismatch in MINI_REPORT"
+  }
+}
+
+    Integrity-Check-ArtifactConsistency -RunId $ts -Trigger $Trigger -ContextPath $contextPath -StatusPath $statusPath -ConstPath $constPath -InventoryPath $inventoryPath -MiniPath $miniPath
+    # --- End artifact consistency enforcement ---
+
+    Test-NoHypotheticals -Text $ctx -Label "CONTEXT_SUMMARY"
+    Test-NoHypotheticals -Text $st  -Label "STATUS_REPORT"
+    Test-NoHypotheticals -Text $co  -Label "DOCS_CONSTITUTION"
+
+    Test-Required-Sections -Text $st -Markers @("Snapshot de cierre — LEVEL_3","Orden explícita al operador","Delta final") -Label "STATUS_REPORT"
+
+    Touch-Heartbeat -Path $Heartbeat -Phase "success" -RunId $RunId
+    Write-Json -Path $LastSuccess -Obj @{ ts=(Get-Date -Format o); runid=$RunId; trigger=$Trigger; artifacts=@($contextPath,$statusPath,$constPath,$miniPath) }
+
+    Log $LogFile "[PASS] runid=$RunId artifacts_ts=$ts"
+    Write-Host "[OK] Runner PASS. Artifacts timestamp=$ts"
+  }
+  finally {
+    if ($lockFs) { $lockFs.Dispose() }
+  }
+}
+catch {
+  $err = $_.Exception.ToString()
+  try {
+    Write-Json -Path $LastFailure -Obj @{ ts=(Get-Date -Format o); runid=$RunId; trigger=$Trigger; error=$err }
+  } catch {}
+  try { Log $LogFile "[FAIL] runid=$RunId err=$err" } catch {}
+  Write-Host "[FAIL] Runner FAIL (ver last_failure.json y logs)."
+  exit 1
+}
+
+
+
+
+
+# ===============================
+# ARTIFACT CONSISTENCY CHECK
+
