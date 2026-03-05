@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "sha256": "67F1C1F1D3CE0216C86839D15ABA99CA112934C226EABEDBF6CA03A9DF4DE001",
+      "path": "C:\\HUMANIA\\BIN\\guardian.exe"
+    },
+    {
+      "sha256": "8CBE727A6A31F1A472C1EBD500AA96F2AC49FC7C80F0F80956F52BDC4F58C041",
+      "path": "C:\\HUMANIA\\sentinel\\sentinel_tick_new.ps1"
+    }
+  ]
+}

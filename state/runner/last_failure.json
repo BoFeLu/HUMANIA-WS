@@ -1,0 +1,6 @@
+﻿{
+    "error":  "System.Management.Automation.RuntimeException: INTEGRITY_FAIL: Unexpected root directory detected: audit",
+    "trigger":  "WATCHDOG_SERVICE",
+    "runid":  "20260305_110817",
+    "ts":  "2026-03-05T11:08:17.4187627+01:00"
+}

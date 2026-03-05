@@ -1,13 +1,4 @@
-# Ignorar archivos de contexto temporales
-docs/context/CONTEXT_SUMMARY_*
-*.json
-*.log
-# Ignorar carpetas de diagnóstico y temporales
-BIN/
-DIAG/
-SNAPSHOTS/
 logs/
-*.out.txt
-*.bak
-audit_archive/
-
+*.log
+*.tmp
+*.state

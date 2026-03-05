@@ -1,0 +1,25 @@
+
+Hash                                                             Path
+----                                                             ----
+F92608C40AE8209192DF84A6905894A2BAEFA1B6BF40635C8595C70E77F271C8 C:\HUMANIA\humania_run.ps1
+
+
+Hash                                                             Path
+----                                                             ----
+1258588A12ABC044EE98C602D67A9A0FE7DFE67C916EB899847B7086022448EF C:\HUMANIA\humania_guard.ps1
+
+
+Hash                                                             Path
+----                                                             ----
+17C408225CEE0F8EC1E8923AB9230F348AD4FFD7AD64D4D7EB65FE2312F25FA7 C:\HUMANIA\audit_verify.ps1
+
+
+Hash                                                             Path
+----                                                             ----
+4DF8A62BC364AB95C050273210BEE4AFEA0FC993CEF99A2B6A2D9E0C28734969 C:\HUMANIA\kernel_manifest.json
+
+
+Hash                                                             Path
+----                                                             ----
+685F8710DF67FE4CE658E519387C483399629F7016DDA7E8BD5EBEFE69E667EF C:\HUMANIA\verifiers\ACTION_CLASSIFIER.ps1
+

@@ -1,59 +1,42 @@
-$Root = "C:\HUMANIA"
-$Log = "$Root\AUDIT_CHAIN.jsonl"
-$ManifestPath = "$Root\kernel_manifest.json"
-$StateJson = "$Root\STATE.json"
+# --- ULTRAHUMANIA SENTINEL CORE V3.0 (ULTRAEXCELENCIA) ---
+$ManifestPath = "C:\HUMANIA\sentinel\manifest.json"
+$StateFile = "C:\HUMANIA\sentinel\last_alert.state" # Control de Fatiga
+$DocPaths = @("C:\HUMANIA\INFRA_MAP.md", "$env:USERPROFILE\Desktop\INFRA_MAP.md")
 
-function Add-AuditEntry {
-    param([string]$Event,[hashtable]$Data)
-    try {
-        $prev = ("0" * 64)
-        if (Test-Path $Log) {
-            $last = Get-Content $Log -Tail 1 -ErrorAction SilentlyContinue
-            if ($last) { $prev = (ConvertFrom-Json $last).entry_hash }
-        }
-        $obj = [ordered]@{
-            ts_utc     = (Get-Date).ToUniversalTime().ToString("o")
-            event      = $Event
-            data       = $Data
-            prev_hash  = $prev
-        }
-        $core = ($obj | ConvertTo-Json -Compress)
-        $bytes = [Text.Encoding]::UTF8.GetBytes($core)
-        $stream = New-Object IO.MemoryStream( ,$bytes)
-        $hash = (Get-FileHash -InputStream $stream -Algorithm SHA256).Hash.ToLower()
-        $obj["entry_hash"] = $hash
-        ($obj | ConvertTo-Json -Compress) | Out-File -FilePath $Log -Encoding UTF8 -Append
-    } catch { 
-        Write-Error "Fallo en Add-AuditEntry: $(.Exception.Message)" 
-    }
-}
-
-# --- INICIO DE VERIFICACIÓN ---
 try {
     if (!(Test-Path $ManifestPath)) { throw "Manifiesto no encontrado" }
     $Manifest = Get-Content $ManifestPath | ConvertFrom-Json
-    
+    $StatusReport = "### ESTADO DE INFRAESTRUCTURA - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`n`n"
+
     foreach ($Item in $Manifest.items) {
-        $PathExists = Test-Path $Item.path
-        
-        if (!$PathExists) {
-            # ERROR CRÍTICO: ARCHIVO DESAPARECIDO
-            Write-Host "[CRÍTICO]: $($Item.path) - ¡ARCHIVO ELIMINADO!" -ForegroundColor Red
-            Start-Process powershell.exe -ArgumentList "-NoProfile", "-File", "C:\HUMANIA\sentinel\Show-CriticalError.ps1"
-            Add-AuditEntry -Event "FILE_MISSING" -Data @{ Path = $Item.path }
-            return # Detenemos ejecución para que la alarma sea la prioridad
-        }
-        
-        $CurrentHash = (Get-FileHash $Item.path -Algorithm SHA256).Hash
-        if ($CurrentHash -ne $Item.sha256) {
-            # ERROR CRÍTICO: ARCHIVO MODIFICADO
-            Write-Host "[ALERTA]: $($Item.path) - ¡MODIFICACIÓN DETECTADA!" -ForegroundColor Red
-            Start-Process powershell.exe -ArgumentList "-NoProfile", "-File", "C:\HUMANIA\sentinel\Show-CriticalError.ps1"
-            Add-AuditEntry -Event "INTEGRITY_VIOLATION" -Data @{ Path = $Item.path; Expected = $Item.sha256; Found = $CurrentHash }
-            return
-        }
-        Write-Host "[OK]: $($Item.path)" -ForegroundColor Green
+        $Exists = Test-Path $Item.path
+        if ($Exists) {
+            $CurrentHash = (Get-FileHash $Item.path -Algorithm SHA256).Hash
+            if ($CurrentHash -eq $Item.sha256) {
+                Write-Host "[OK]: $($Item.path)" -ForegroundColor Green
+                $StatusReport += "- **[OK]** $($Item.path) (Integridad verificada)`n"
+            } else { throw "MODIFICACIÓN DETECTADA en $($Item.path)" }
+        } else { throw "ARCHIVO ELIMINADO: $($Item.path)" }
     }
+
+    # AUTO-DOCUMENTACIÓN: Escribir en raíz y escritorio
+    $StatusReport += "`n---`n*Generado automáticamente por Sentinel V3.0*"
+    $StatusReport | Out-File $DocPaths[0] -Encoding utf8
+    $StatusReport | Copy-Item -Destination $DocPaths[1] -Force
+
 } catch {
-    Write-Host "[ERROR DE SISTEMA]: $(.Exception.Message)" -ForegroundColor Magenta
+    $ErrorMsg = "ALERTA CRÍTICA: $($_.Exception.Message)"
+    Write-Host "[FALLO]: $ErrorMsg" -ForegroundColor Red
+    
+    # LEY DE FATIGA: Solo avisa si han pasado más de 10 min desde la última alerta
+    $SendAlert = $true
+    if (Test-Path $StateFile) {
+        $LastAlert = Get-Item $StateFile
+        if ($LastAlert.LastWriteTime -gt (Get-Date).AddMinutes(-10)) { $SendAlert = $false }
+    }
+
+    if ($SendAlert) {
+        New-Item $StateFile -ItemType File -Force | Out-Null
+        Invoke-Expression "msg * /TIME:0 '$ErrorMsg'"
+    }
 }

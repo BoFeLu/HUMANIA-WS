@@ -1,0 +1,9 @@
+<service>
+  <id>UH_WATCHDOG_N2</id>
+  <name>ULTRAHUMANIA Watchdog (N2)</name>
+  <description>Persistencia y supervisión del Runner Canónico de ULTRAHUMANIA.</description>
+  <executable>powershell.exe</executable>
+  <arguments>-ExecutionPolicy Bypass -File C:\HUMANIA\guard\UH_GUARD_RUN.ps1 -Trigger WATCHDOG_SERVICE</arguments>
+  <log mode="roll"></log>
+  <onfailure action="restart" delay="10sec"/>
+</service>
