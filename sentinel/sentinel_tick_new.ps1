@@ -33,8 +33,12 @@ try {
 
     $StatusReport += "`r`n---`r`nGenerado automaticamente por Sentinel V3.1`r`n"
 
-    $StatusReport | Set-Content -LiteralPath $DocPaths[0] -Encoding UTF8
-    $StatusReport | Set-Content -LiteralPath $DocPaths[1] -Encoding UTF8
+    foreach ($path in $DocPaths) {
+        $dir = Split-Path $path
+        if (Test-Path -LiteralPath $dir) {
+            $StatusReport | Set-Content -LiteralPath $path -Encoding UTF8
+        }
+    }
 
     exit 0
 }
