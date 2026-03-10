@@ -1,42 +1,62 @@
-# --- ULTRAHUMANIA SENTINEL CORE V3.0 (ULTRAEXCELENCIA) ---
+# --- ULTRAHUMANIA SENTINEL CORE V3.1 ---
+$ErrorActionPreference = 'Stop'
+
 $ManifestPath = "C:\HUMANIA\sentinel\manifest.json"
-$StateFile = "C:\HUMANIA\sentinel\last_alert.state" # Control de Fatiga
-$DocPaths = @("C:\HUMANIA\INFRA_MAP.md", "$env:USERPROFILE\Desktop\INFRA_MAP.md")
+$StateFile = "C:\HUMANIA\sentinel\last_alert.state"
+$DocPaths = @(
+    "C:\HUMANIA\INFRA_MAP.md",
+    "$env:USERPROFILE\Desktop\INFRA_MAP.md"
+)
 
 try {
-    if (!(Test-Path $ManifestPath)) { throw "Manifiesto no encontrado" }
-    $Manifest = Get-Content $ManifestPath | ConvertFrom-Json
-    $StatusReport = "### ESTADO DE INFRAESTRUCTURA - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`n`n"
-
-    foreach ($Item in $Manifest.items) {
-        $Exists = Test-Path $Item.path
-        if ($Exists) {
-            $CurrentHash = (Get-FileHash $Item.path -Algorithm SHA256).Hash
-            if ($CurrentHash -eq $Item.sha256) {
-                Write-Host "[OK]: $($Item.path)" -ForegroundColor Green
-                $StatusReport += "- **[OK]** $($Item.path) (Integridad verificada)`n"
-            } else { throw "MODIFICACIÓN DETECTADA en $($Item.path)" }
-        } else { throw "ARCHIVO ELIMINADO: $($Item.path)" }
+    if (!(Test-Path -LiteralPath $ManifestPath)) {
+        throw "Manifest not found: $ManifestPath"
     }
 
-    # AUTO-DOCUMENTACIÓN: Escribir en raíz y escritorio
-    $StatusReport += "`n---`n*Generado automáticamente por Sentinel V3.0*"
-    $StatusReport | Out-File $DocPaths[0] -Encoding utf8
-    $StatusReport | Copy-Item -Destination $DocPaths[1] -Force
+    $Manifest = Get-Content -LiteralPath $ManifestPath -Raw | ConvertFrom-Json
+    $StatusReport = "### ESTADO DE INFRAESTRUCTURA - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`r`n`r`n"
 
-} catch {
-    $ErrorMsg = "ALERTA CRÍTICA: $($_.Exception.Message)"
-    Write-Host "[FALLO]: $ErrorMsg" -ForegroundColor Red
-    
-    # LEY DE FATIGA: Solo avisa si han pasado más de 10 min desde la última alerta
+    foreach ($Item in $Manifest.items) {
+        $Exists = Test-Path -LiteralPath $Item.path
+        if (-not $Exists) {
+            throw "ARCHIVO ELIMINADO: $($Item.path)"
+        }
+
+        $CurrentHash = (Get-FileHash -LiteralPath $Item.path -Algorithm SHA256).Hash
+        if ($CurrentHash -ne $Item.sha256) {
+            throw "MODIFICACION DETECTADA en $($Item.path)"
+        }
+
+        Write-Host "[OK] $($Item.path)" -ForegroundColor Green
+        $StatusReport += "- [OK] $($Item.path) (Integridad verificada)`r`n"
+    }
+
+    $StatusReport += "`r`n---`r`nGenerado automaticamente por Sentinel V3.1`r`n"
+
+    $StatusReport | Set-Content -LiteralPath $DocPaths[0] -Encoding UTF8
+    $StatusReport | Set-Content -LiteralPath $DocPaths[1] -Encoding UTF8
+
+    exit 0
+}
+catch {
+    $ErrorMsg = "ALERTA CRITICA: $($_.Exception.Message)"
+    Write-Host "[FALLO] $ErrorMsg" -ForegroundColor Red
+
     $SendAlert = $true
-    if (Test-Path $StateFile) {
-        $LastAlert = Get-Item $StateFile
-        if ($LastAlert.LastWriteTime -gt (Get-Date).AddMinutes(-10)) { $SendAlert = $false }
+    if (Test-Path -LiteralPath $StateFile) {
+        $LastAlert = Get-Item -LiteralPath $StateFile
+        if ($LastAlert.LastWriteTime -gt (Get-Date).AddMinutes(-10)) {
+            $SendAlert = $false
+        }
     }
 
     if ($SendAlert) {
-        New-Item $StateFile -ItemType File -Force | Out-Null
-        Invoke-Expression "msg * /TIME:0 '$ErrorMsg'"
+        New-Item -ItemType File -Force -Path $StateFile | Out-Null
+        try {
+            msg * /TIME:0 "$ErrorMsg" | Out-Null
+        } catch {
+        }
     }
+
+    exit 1
 }
