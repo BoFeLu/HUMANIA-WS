@@ -2,3 +2,14 @@ logs/
 *.log
 *.tmp
 *.state
+
+# Python runtime
+__pycache__/
+*.pyc
+
+# Orchestrator runtime artifacts
+orchestrator/evidence/
+
+# Windows service logs
+BIN/*.log
+BIN/*.out.log
