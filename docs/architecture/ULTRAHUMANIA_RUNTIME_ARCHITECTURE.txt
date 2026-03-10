@@ -1,0 +1,272 @@
+ULTRAHUMANIA RUNTIME ARCHITECTURE
+Status: Runtime-oriented architecture baseline
+Location: C:\HUMANIA\docs\architecture\ULTRAHUMANIA_RUNTIME_ARCHITECTURE.txt
+
+1. PURPOSE OF THIS DOCUMENT
+
+This document defines the runtime-oriented architecture of ULTRAHUMANIA.
+
+It does not describe abstract layers only.
+It focuses on executable and operable system structure:
+- processes
+- services
+- runtime roles
+- control paths
+- evidence paths
+- knowledge persistence
+- model integration points
+
+2. RUNTIME GOAL
+
+The runtime architecture must support:
+
+- controlled human-AI interaction
+- explicit governance
+- supervised execution
+- evidence generation
+- persistent knowledge
+- future integration of AI orchestration and local/remote model providers
+
+3. CURRENT RUNTIME FOUNDATION INSIDE ULTRAHUMANIA
+
+Based on current evidence, ULTRAHUMANIA already contains runtime-relevant areas such as:
+
+- CORE
+- guard
+- watchdog
+- guardian
+- sentinel
+- verifiers
+- state
+- logs
+- HANDOFF
+- docs
+- PostgreSQL-backed knowledge layer
+
+4. CURRENT KNOWN RUNTIME ROLES
+
+4.1 CORE
+
+Role:
+Central operational/manual entry layer.
+
+Observed examples:
+- humania_run.ps1
+- humania_guard.ps1
+- dashboard.ps1
+
+4.2 guard
+
+Role:
+Primary guarded execution/orchestration layer.
+
+Observed example:
+- UH_GUARD_RUN.ps1
+
+4.3 watchdog
+
+Role:
+Persistent service supervision layer.
+
+Observed examples:
+- UH_WATCHDOG.exe
+- UH_WATCHDOG.xml
+- UH_WATCHDOG_LOOP.ps1
+
+4.4 sentinel
+
+Role:
+Monitoring/notification/alerting helper layer.
+
+Observed examples:
+- sentinel_tick_new.ps1
+- sentinel_tick_notify.ps1
+- Show-CriticalError.ps1
+
+4.5 verifiers
+
+Role:
+Validation, audit, integrity, inventory and repair tooling layer.
+
+4.6 guardian
+
+Role:
+Compiled Rust-based restart helper for humania_run.ps1, with known design risks already documented.
+
+4.7 state
+
+Role:
+Operational evidence of runner state.
+
+Observed examples:
+- last_success.json
+- last_failure.json
+- heartbeat.json
+
+4.8 HANDOFF
+
+Role:
+Context reconstruction and continuity layer for new AI sessions.
+
+Observed examples:
+- UH_BOOTSTRAP_CONTEXT.ps1
+- UH_BOOTSTRAP_INDEX.md
+- UH_CHAT_BOOTSTRAP_*.md
+
+4.9 knowledge/database
+
+Role:
+Persistent structured memory and evidence-backed knowledge storage.
+
+Observed basis:
+- PostgreSQL usage
+- uh_knowledge structures already referenced in operational artifacts
+
+5. CURRENT RUNTIME FLOW
+
+A simplified currently evidenced runtime reading is:
+
+human operator
+-> governed instructions
+-> core/guard entry
+-> watchdog/supervision
+-> state update
+-> evidence/log generation
+-> handoff/bootstrap continuity
+-> database/document knowledge preservation
+
+6. TARGET RUNTIME FLOW
+
+A more complete target runtime flow for ULTRAHUMANIA is:
+
+human operator
+-> chat/interface layer
+-> governance rules and constraints
+-> orchestrator/control logic
+-> approval gate
+-> execution plane / sandbox
+-> evidence recording
+-> knowledge database update
+-> continuity artifacts
+-> observability and supervision
+
+7. LLM INTEGRATION POINTS
+
+ULTRAHUMANIA should support model providers through explicit integration points.
+
+Potential provider classes:
+
+- ChatGPT / cloud models
+- local LM Studio-based models
+- future specialized providers
+
+Required constraints:
+
+- model calls must be explicit
+- model choice must be visible
+- models must not directly execute system actions
+- all action proposals must pass through governed execution paths
+
+8. RELATION TO AIOPS1 AND AIOPS2 AT RUNTIME LEVEL
+
+AIOPS1 contributes runtime ideas in:
+- monitoring
+- observability
+- alert-driven operations
+
+AIOPS2 contributes runtime ideas in:
+- orchestrator/control plane
+- execution plane separation
+- approval-gated execution
+- evidence-first operation
+
+ULTRAHUMANIA runtime should absorb both while adding stronger governance and continuity.
+
+9. RUNTIME RISKS CURRENTLY KNOWN
+
+Known examples:
+
+- some subsystems are more mature than others
+- guardian has path and process-detection weaknesses documented separately
+- AI orchestration layer is not yet fully integrated
+- local LLM runtime integration is not yet fully evidenced
+- execution-plane ideas exist, but production runtime integration remains pending
+
+10. RUNTIME DESIGN PRINCIPLES
+
+The runtime must preserve:
+
+- determinism where possible
+- explicit approvals
+- traceable evidence
+- reversible operations where feasible
+- strong separation between reasoning and execution
+- human accountability
+- continuity across chats and sessions
+
+11. PRACTICAL CONCLUSION
+
+ULTRAHUMANIA already possesses a partial runtime foundation.
+
+However, the full runtime architecture remains in transition from:
+
+documented architecture
+toward
+integrated governed execution platform
+
+This document serves as the baseline runtime reference for that transition.
+
+ORCHESTRATOR RUNTIME
+
+The ULTRAHUMANIA orchestrator runtime is currently implemented as a Python control-plane prototype located at:
+
+C:\HUMANIA\orchestrator
+
+The runtime coordinates:
+
+- context loading
+- model invocation
+- approval handling
+- execution dispatch
+- evidence recording
+
+END OF DOCUMENT
+
+13. ORCHESTRATOR RUNTIME STATUS
+
+Current status:
+A minimal Python orchestrator runtime is operational at:
+
+C:\HUMANIA\orchestrator
+
+The runtime already performs:
+
+- context loading
+- local LLM invocation through LM Studio
+- approval handling
+- simulated execution dispatch
+- evidence writing
+
+This is the first operational AI orchestration loop inside ULTRAHUMANIA.
+
+
+14. KNOWLEDGE-DRIVEN ORCHESTRATION STATUS
+
+The orchestrator no longer operates with minimal placeholder context only.
+
+It now loads knowledge from PostgreSQL through:
+
+- modules\knowledge_db.py
+- modules\context_loader.py
+
+This makes the current ULTRAHUMANIA orchestrator knowledge-driven at a minimal but real level.
+
+Verified flow:
+
+PostgreSQL knowledge
+-> context loader
+-> local LLM invocation
+-> approval
+-> simulated execution
+-> evidence
+
