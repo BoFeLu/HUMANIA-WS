@@ -1,0 +1,39 @@
+ULTRAHUMANIA INTEGRITY ARCHITECTURE
+Generated: 2026-03-10
+
+1. PURPOSE
+This document defines the current integrity architecture baseline of ULTRAHUMANIA.
+
+2. TRUST CHAIN
+allowed_signers
+-> verifies signature of root_manifest.json.sig
+-> root_verify.ps1 validates signed root_manifest.json
+-> root_manifest.json protects C:\HUMANIA\sentinel\sentinel_tick_new.ps1
+-> secure_sentinel.ps1 executes sentinel only after successful root verification
+-> sentinel_tick_new.ps1 validates C:\HUMANIA\sentinel\manifest.json targets
+-> protected runtime files are accepted only if hashes match
+
+3. COMPONENTS
+- C:\ULTRAHUMANIA_TRUST_ROOT\guardian.exe
+- C:\ULTRAHUMANIA_TRUST_ROOT\root_manifest.json
+- C:\ULTRAHUMANIA_TRUST_ROOT\root_manifest.json.sig
+- C:\ULTRAHUMANIA_TRUST_ROOT\root_verify.ps1
+- C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
+- C:\ULTRAHUMANIA_TRUST_ROOT\keys\allowed_signers
+- C:\HUMANIA\sentinel\sentinel_tick_new.ps1
+- C:\HUMANIA\sentinel\manifest.json
+
+4. SECURITY MODEL
+- Sentinel is no longer trusted by itself.
+- A signed external manifest protects the sentinel baseline.
+- Integrity validation is mandatory before sentinel execution.
+- Failure at any level blocks execution.
+
+5. CURRENT LIMITATIONS
+- Trust root remains on the same host.
+- Scripts are not yet replaced by compiled verifier logic.
+- Key rotation and immutable storage are not yet implemented.
+
+6. OPERATIONAL RULE
+All critical execution paths should call:
+C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
