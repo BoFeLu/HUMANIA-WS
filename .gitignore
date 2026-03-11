@@ -21,3 +21,6 @@ state/runner/*.json
 BIN/*.log
 BIN/*.old
 INFRA_MAP.md
+
+# workspace artifacts
+HANDOFF/
