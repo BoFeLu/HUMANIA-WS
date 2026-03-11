@@ -45,3 +45,22 @@
 
 
 
+
+## 2026-03-11 - Integrity Documentation Sync
+
+Relevant current references:
+- docs/architecture/ULTRAHUMANIA_INTEGRITY_ARCHITECTURE.txt
+- docs/governance/DOCUMENTATION_SYNC_NOTE_20260311.md
+- docs/governance/INTEGRITY_PHASE_STATUS_20260311.md
+- docs/governance/INTEGRITY_AND_GIT_INCIDENT_REPORT_20260310.md
+- docs/governance/SIGNED_BASELINE_UPDATE_PROCEDURE_20260310.md
+- docs/governance/REMOTE_SIGNING_CUSTODY_NOTE_20260311.md
+- docs/governance/DUAL_SIGNING_AUTHORITY_NOTE_20260311.md
+- docs/governance/TRUST_ROOT_BACKUP_EVIDENCE_20260310.md
+- docs/governance/SIGNED_BASELINE_APPLY_20260311_103844.md
+- docs/governance/BASELINE_SIGNING_QUICKGUIDE_PLAIN_20260311.txt
+- docs/governance/HEALTHCHECK_QUICKGUIDE_PLAIN_20260311.txt
+
+Operational tools:
+- tools/Update-SignedRootBaseline.ps1
+- tools/Get-UltrahumaniaSecurityHealth.ps1

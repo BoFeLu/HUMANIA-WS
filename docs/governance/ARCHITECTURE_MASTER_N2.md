@@ -42,3 +42,26 @@ Módulo activo: **aseguramiento de continuidad y contextualización perfecta ent
 ## 6. Pendientes canónicos inmediatos
 - Asegurar que el paquete de handoff incluya explícitamente INVENTORY en last_success.json o en MINI_REPORT.
 - Añadir un artefacto canónico de “handoff delta” (CHAT_HANDOFF/DELTA_SINCE_LAST_SUCCESS) si se adopta como estándar.
+
+## 2026-03-11 - Integrity Architecture Addendum
+
+New canonical integrity references added after trust-root hardening, external signing validation, signed baseline workflow validation, and unified health-check validation:
+
+- docs/architecture/ULTRAHUMANIA_INTEGRITY_ARCHITECTURE.txt
+- docs/governance/DOCUMENTATION_SYNC_NOTE_20260311.md
+- docs/governance/INTEGRITY_PHASE_STATUS_20260311.md
+- docs/governance/INTEGRITY_AND_GIT_INCIDENT_REPORT_20260310.md
+- docs/governance/SIGNED_BASELINE_UPDATE_PROCEDURE_20260310.md
+- docs/governance/REMOTE_SIGNING_CUSTODY_NOTE_20260311.md
+- docs/governance/DUAL_SIGNING_AUTHORITY_NOTE_20260311.md
+- docs/governance/TRUST_ROOT_BACKUP_EVIDENCE_20260310.md
+- docs/governance/SIGNED_BASELINE_APPLY_20260311_103844.md
+- docs/governance/BASELINE_SIGNING_QUICKGUIDE_PLAIN_20260311.txt
+- docs/governance/HEALTHCHECK_QUICKGUIDE_PLAIN_20260311.txt
+- tools/Update-SignedRootBaseline.ps1
+- tools/Get-UltrahumaniaSecurityHealth.ps1
+
+Operational state validated:
+- signed baseline update: PASS
+- dual signing authority: PASS
+- health check: OVERALL STATUS: OK
