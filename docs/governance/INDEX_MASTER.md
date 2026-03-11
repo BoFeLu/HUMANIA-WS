@@ -64,3 +64,19 @@ Relevant current references:
 Operational tools:
 - tools/Update-SignedRootBaseline.ps1
 - tools/Get-UltrahumaniaSecurityHealth.ps1
+
+------------------------------------------------------------
+
+SSOT ENTRYPOINT
+BASELINE_TS: 20260311
+
+Canonical system entrypoint:
+
+C:\HUMANIA\ULTRAHUMANIA_SSoT.md
+
+This document defines the minimal context required to
+understand the system architecture, governance and runtime
+structure without reconstructing project context manually.
+
+------------------------------------------------------------
+
