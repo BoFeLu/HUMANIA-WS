@@ -1,0 +1,38 @@
+ULTRAHUMANIA - FIRMA DEL BASELINE (GUIA CORTA)
+
+QUE HACE
+Windows prepara el archivo.
+MiniPC o movil lo firman.
+Windows mete la firma y activa el baseline.
+
+PASO 1 - PREPARAR EN WINDOWS
+pwsh -NoProfile -ExecutionPolicy Bypass -File C:\HUMANIA\tools\Update-SignedRootBaseline.ps1 -PrepareOnly
+
+ARCHIVO A FIRMAR
+C:\ULTRAHUMANIA_TRUST_ROOT\pending\root_manifest.pending.json
+
+PASO 2A - FIRMAR EN MINIPC
+ssh-keygen -Y sign -f ~/ultrahumania_trust/ultrahumania_integrity -n ultrahumania_manifest root_manifest.pending.json
+
+PASO 2B - FIRMAR EN MOVIL
+ssh-keygen -Y sign -f ~/ultrahumania_trust/ultrahumania_phone_integrity -n ultrahumania_manifest root_manifest.pending.json
+
+RESULTADO
+root_manifest.pending.json.sig
+
+PASO 3 - TRAER LA FIRMA A WINDOWS
+Copia el .sig a:
+C:\ULTRAHUMANIA_TRUST_ROOT\pending\root_manifest.pending.json.sig
+
+PASO 4 - ACTIVAR EN WINDOWS
+pwsh -NoProfile -ExecutionPolicy Bypass -File C:\HUMANIA\tools\Update-SignedRootBaseline.ps1 -ImportSignaturePath C:\ULTRAHUMANIA_TRUST_ROOT\pending\root_manifest.pending.json.sig
+
+SI SALE BIEN
+- root_verify.ps1 pasa
+- secure_sentinel.ps1 pasa
+- se guarda evidencia en docs\governance
+
+IDEA SIMPLE
+Windows verifica.
+MiniPC y movil firman.
+Windows no necesita tener la clave privada.
