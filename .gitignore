@@ -15,3 +15,9 @@ BIN/*.log
 BIN/*.out.log
 
 audit_archive/AUDIT_CHAIN_FIXED.jsonl
+
+# runtime noise
+state/runner/*.json
+BIN/*.log
+BIN/*.old
+INFRA_MAP.md
