@@ -23,4 +23,9 @@ BIN/*.old
 INFRA_MAP.md
 
 # workspace artifacts
-HANDOFF/
+
+
+# --- HANDOFF bridge entrypoints (tracked) ---
+HANDOFF/*
+!HANDOFF/UH_BOOTSTRAP_CONTEXT.ps1
+!HANDOFF/UH_BOOTSTRAP_INDEX.md
