@@ -60,6 +60,7 @@ Relevant current references:
 - docs/governance/SIGNED_BASELINE_APPLY_20260311_103844.md
 - docs/governance/BASELINE_SIGNING_QUICKGUIDE_PLAIN_20260311.txt
 - docs/governance/HEALTHCHECK_QUICKGUIDE_PLAIN_20260311.txt
+- docs/governance/HANDOFF_BOOTSTRAP_CANONICAL_MODEL_20260311.md
 
 Operational tools:
 - tools/Update-SignedRootBaseline.ps1
@@ -89,4 +90,5 @@ docs/architecture/SYSTEM_MAP_CANONICAL.md
 
 This document defines modules, domains, critical paths and
 trust-root relationships at system level.
+
 

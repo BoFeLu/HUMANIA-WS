@@ -95,7 +95,7 @@ docs
 tools
 HANDOFF
 
-HANDOFF is used for inspection artifacts and temporary analysis output.
+HANDOFF is a repository-side minimal bridge area: it keeps temporary inspection artifacts ignored by design, while officially tracked bootstrap bridge entrypoints reconnect the repository with the external INFORMES UH workspace.
 
 ----------------------------------------------------------------
 
@@ -181,3 +181,4 @@ Only then start new work.
 ULTRAHUMANIA evolves through documented architecture and reproducible procedures rather than rigid initial design.
 
 This SSoT exists to prevent context reconstruction across sessions.
+
