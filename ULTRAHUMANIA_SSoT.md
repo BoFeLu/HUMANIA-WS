@@ -113,3 +113,11 @@ NOTE
 
 This document is the canonical entrypoint for ULTRAHUMANIA.
 All major architectural references must be reachable from here.
+
+SYSTEM MAP DOCUMENT
+
+docs/architecture/SYSTEM_MAP_CANONICAL.md
+
+This is the canonical structural map of modules, domains,
+execution chains and major system paths.
+

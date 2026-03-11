@@ -65,3 +65,13 @@ Operational state validated:
 - signed baseline update: PASS
 - dual signing authority: PASS
 - health check: OVERALL STATUS: OK
+
+## 2026-03-11 - Canonical System Map
+
+Canonical structural map added:
+
+- docs/architecture/SYSTEM_MAP_CANONICAL.md
+
+Purpose:
+formalize modules, domains, trust-root relations, critical execution chain,
+and current structural interpretation baseline.

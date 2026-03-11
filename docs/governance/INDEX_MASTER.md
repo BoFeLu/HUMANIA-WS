@@ -80,3 +80,13 @@ structure without reconstructing project context manually.
 
 ------------------------------------------------------------
 
+
+SYSTEM MAP CANONICAL
+BASELINE_TS: 20260311
+
+Canonical structural map:
+docs/architecture/SYSTEM_MAP_CANONICAL.md
+
+This document defines modules, domains, critical paths and
+trust-root relationships at system level.
+

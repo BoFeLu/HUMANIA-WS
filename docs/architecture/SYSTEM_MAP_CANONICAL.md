@@ -1,0 +1,221 @@
+ULTRAHUMANIA SYSTEM MAP CANONICAL
+MAP_ID: UH_SYSTEM_MAP
+BASELINE_TS: 20260311
+LOCATION: C:\HUMANIA\docs\architecture\SYSTEM_MAP_CANONICAL.md
+
+PURPOSE
+Canonical structural map of the ULTRAHUMANIA system.
+This document identifies the principal modules, their roles, dependencies and critical paths.
+
+================================================================
+
+1. SYSTEM ROOT
+
+C:\HUMANIA
+
+Main system purpose:
+personal infrastructure platform for automation, integrity, observability,
+documentation, controlled evolution and future AI orchestration.
+
+================================================================
+
+2. PRIMARY EXECUTION DOMAINS
+
+2.1 Runtime domain
+- CORE
+- guard
+- watchdog
+- sentinel
+- verifiers
+- guardian
+- state
+
+2.2 Trust domain
+- C:\ULTRAHUMANIA_TRUST_ROOT
+- root manifests
+- signatures
+- allowed_signers
+- root verification chain
+
+2.3 Documentation domain
+- docs\architecture
+- docs\governance
+- docs\context
+- docs\status
+- docs\analysis
+- docs\constitution
+
+2.4 Tooling domain
+- tools
+- verifier scripts
+- inspection scripts
+- baseline update tools
+- health check tools
+
+2.5 Analysis workspace
+- HANDOFF
+- temporary inspection output
+- context reconstruction artifacts
+- non-runtime workspace material
+
+================================================================
+
+3. MAIN DIRECTORIES AND ROLES
+
+C:\HUMANIA\CORE
+Core operational logic and main system functions.
+
+C:\HUMANIA\guard
+Execution guards and control logic.
+
+C:\HUMANIA\watchdog
+Persistent supervision and service continuity layer.
+
+C:\HUMANIA\sentinel
+Integrity validation and alerting layer.
+
+C:\HUMANIA\verifiers
+Verification, audit, inventory and consistency scripts.
+
+C:\HUMANIA\guardian
+Binary or external guard-related control components.
+
+C:\HUMANIA\state
+Operational state, status, locks, runner evidence and runtime persistence.
+
+C:\HUMANIA\docs
+Canonical knowledge, architecture, governance, context and status documentation.
+
+C:\HUMANIA\tools
+Operational maintenance, health-check and baseline update scripts.
+
+C:\HUMANIA\HANDOFF
+Workspace for handoff artifacts, inspections and context transfer material.
+Not considered runtime core.
+
+================================================================
+
+4. TRUST ROOT STRUCTURE
+
+Root path:
+C:\ULTRAHUMANIA_TRUST_ROOT
+
+Current trust-root elements:
+- guardian.exe
+- root_manifest.json
+- root_manifest.json.sig
+- root_verify.ps1
+- secure_sentinel.ps1
+- keys\allowed_signers
+- pending\
+- archive\
+
+Trusted signing authorities currently validated:
+- miniPC
+- Pocophone / Termux
+
+Windows role:
+- verifier-oriented host
+
+================================================================
+
+5. CRITICAL EXECUTION CHAIN
+
+External signer
+-> root_manifest.json.sig
+-> allowed_signers
+-> root_verify.ps1
+-> secure_sentinel.ps1
+-> C:\HUMANIA\sentinel\manifest.json
+-> protected runtime files
+-> runtime execution acceptance
+
+================================================================
+
+6. CRITICAL OPERATIONAL TOOLS
+
+C:\HUMANIA\tools\Update-SignedRootBaseline.ps1
+Purpose:
+prepare, import, validate and activate signed root baseline updates.
+
+C:\HUMANIA\tools\Get-UltrahumaniaSecurityHealth.ps1
+Purpose:
+perform unified trust and integrity health checks.
+
+C:\HUMANIA\tools\Inspect-DocsInventory.ps1
+Purpose:
+inventory documentation trees.
+
+C:\HUMANIA\tools\Inspect-DocCandidates.ps1
+Purpose:
+identify high-priority documentation candidates for synchronization.
+
+C:\HUMANIA\tools\Inspect-DocReferences.ps1
+Purpose:
+locate structural references across documentation.
+
+C:\HUMANIA\tools\Inspect-DocHeads.ps1
+Purpose:
+extract leading sections from architecture/governance documents for rapid review.
+
+================================================================
+
+7. CANONICAL DOCUMENT ENTRYPOINTS
+
+Root entrypoint:
+C:\HUMANIA\ULTRAHUMANIA_SSoT.md
+
+Governance reference:
+C:\HUMANIA\docs\governance\SSOT_REFERENCE.md
+
+Master documents:
+C:\HUMANIA\docs\governance\ARCHITECTURE_MASTER_N2.md
+C:\HUMANIA\docs\governance\INDEX_MASTER.md
+
+Core architecture:
+C:\HUMANIA\docs\architecture\ULTRAHUMANIA_RUNTIME_ARCHITECTURE.txt
+C:\HUMANIA\docs\architecture\ULTRAHUMANIA_INTEGRITY_ARCHITECTURE.txt
+
+================================================================
+
+8. CURRENT OPERATIONAL STATUS AT BASELINE_TS
+
+Validated at BASELINE_TS:
+- repository synchronized
+- signed root baseline workflow operational
+- dual signing authority operational
+- security health check returns OVERALL STATUS: OK
+- architecture and governance documentation synchronized
+
+================================================================
+
+9. KNOWN STRUCTURAL LIMITATIONS
+
+- trust root still hosted on the same Windows machine
+- verification logic still primarily implemented in PowerShell
+- documentation corpus remains large and historically layered
+- knowledge extraction / ULTRA_DB not yet implemented
+- some legacy/project-history layers remain evolutionary rather than fully normalized
+
+================================================================
+
+10. NEXT STRUCTURAL PHASES
+
+1. trust-root consolidation and directory hardening
+2. evidence policy refinement
+3. archived-key policy finalization
+4. possible machine-readable health outputs
+5. deeper integration into runtime governance
+6. later knowledge-base implementation
+
+================================================================
+
+11. INTERPRETATION RULE
+
+If another document conflicts with this system map on structure,
+the conflict must be resolved by checking:
+- ULTRAHUMANIA_SSoT.md
+- ARCHITECTURE_MASTER_N2.md
+- INDEX_MASTER.md
+- runtime/integrity canonical documents
+and then updating the outdated document.
