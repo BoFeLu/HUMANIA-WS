@@ -69,14 +69,6 @@ $pendingManifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $PendingMa
 
 if ($PrepareOnly -and [string]::IsNullOrWhiteSpace($ImportSignaturePath)) {
     Write-Host "[PENDING READY] $PendingManifestPath"
-    Write-Host ""
-    Write-Host "Sign this file externally with namespace: ultrahumania_manifest"
-    Write-Host ""
-    Write-Host "miniPC example:"
-    Write-Host "ssh-keygen -Y sign -f ~/ultrahumania_trust/ultrahumania_integrity -n ultrahumania_manifest root_manifest.pending.json"
-    Write-Host ""
-    Write-Host "phone example:"
-    Write-Host "ssh-keygen -Y sign -f ~/ultrahumania_trust/ultrahumania_phone_integrity -n ultrahumania_manifest root_manifest.pending.json"
     exit 0
 }
 
@@ -88,7 +80,12 @@ if (!(Test-Path -LiteralPath $ImportSignaturePath)) {
     throw "Missing signature file: $ImportSignaturePath"
 }
 
-Copy-Item -LiteralPath $ImportSignaturePath -Destination $PendingSignaturePath -Force
+$srcSig = [System.IO.Path]::GetFullPath($ImportSignaturePath)
+$dstSig = [System.IO.Path]::GetFullPath($PendingSignaturePath)
+
+if ($srcSig -ne $dstSig) {
+    Copy-Item -LiteralPath $ImportSignaturePath -Destination $PendingSignaturePath -Force
+}
 
 $verify = Invoke-ManifestVerify -ManifestPath $PendingManifestPath -SignaturePath $PendingSignaturePath
 if ($verify.ExitCode -ne 0) {
