@@ -29,3 +29,26 @@ INFRA_MAP.md
 HANDOFF/*
 !HANDOFF/UH_BOOTSTRAP_CONTEXT.ps1
 !HANDOFF/UH_BOOTSTRAP_INDEX.md
+
+# --- git alignment 2026-03-12 ---
+# tracked-ephemeral candidates (to be removed from index separately)
+state/runner/*.json
+state/locks/
+BIN/*.old
+BIN/*.err.log.old
+BIN/*.out.log.old
+
+# generated timestamped reports
+docs/status/STATUS_REPORT_*.md
+docs/context/INVENTORY_CANON_*.json
+
+# generated latest pointers (reviewed as generated artifacts)
+docs/status/STATUS_REPORT_LATEST.md
+docs/context/INVENTORY_CANON_LATEST.json
+
+# local backup artifacts
+*.bak
+*.bak.ps1
+
+# watchdog local backup artifacts
+watchdog/*.bak*
