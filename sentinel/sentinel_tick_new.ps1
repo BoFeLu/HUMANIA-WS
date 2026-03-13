@@ -1,4 +1,4 @@
-# --- ULTRAHUMANIA SENTINEL CORE V3.1 ---
+﻿# --- ULTRAHUMANIA SENTINEL CORE V3.1 ---
 $ErrorActionPreference = 'Stop'
 
 $ManifestPath = "C:\HUMANIA\sentinel\manifest.json"

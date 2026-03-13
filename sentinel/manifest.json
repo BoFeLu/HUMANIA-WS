@@ -1,4 +1,4 @@
-{
+﻿{
   "items": [
     {
       "path": "C:\\HUMANIA\\BIN\\guardian.exe",
@@ -6,7 +6,7 @@
     },
     {
       "path": "C:\\HUMANIA\\sentinel\\sentinel_tick_new.ps1",
-      "sha256": "11D93FB3D2D8E374DA3DBDF6D0FEA0B327C718F6268AE7B2DBC224EE4280D28B"
+      "sha256": "38FE796A741C4993D0C96B20875E475CFA4438E6C28B6548C90332E9E20AD953"
     }
   ]
 }

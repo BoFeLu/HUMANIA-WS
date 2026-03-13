@@ -6,7 +6,7 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Continue"
 
-$Runner = "C:\HUMANIA\sentinel\sentinel_tick_new.ps1"
+$Runner = "C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1"
 $LogDir = "C:\HUMANIA\logs\watchdog"
 $LoopLog = Join-Path $LogDir "UH_WATCHDOG_LOOP.log"
 
@@ -26,7 +26,6 @@ while ($true) {
     $code = $LASTEXITCODE
 
     if ($out) {
-      # Compact: one joined block to avoid multi-line storm in service logs
       $joined = ($out -join " | ")
       LogLine ("[RUN_OUT] " + $joined)
     }

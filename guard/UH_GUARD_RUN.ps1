@@ -131,24 +131,32 @@ function Integrity-Check-CoreStructure {
   }
 
   $expectedRootDirs = @(
+    "archive",
+    "audit",
     "audit_archive",
+    "BACKUP_INTEGRITY",
     "BIN",
     "CORE",
     "DIAG",
     "docs",
     "guard",
+    "guardian",
+    "HANDOFF",
     "LEX",
     "logs",
+    "orchestrator",
     "RUNS",
     "sentinel",
     "SNAPSHOTS",
     "staging",
     "state",
+    "tools",
     "verifiers",
     "watchdog"
   )
 
-  $actualRootDirs = Get-ChildItem $root -Directory | Select-Object -ExpandProperty Name
+  $actualRootDirs = Get-ChildItem $root -Directory | Select-Object -ExpandProperty Name |
+    Where-Object { $_ -ne '.git' }
 
   foreach ($expected in $expectedRootDirs) {
     if ($actualRootDirs -notcontains $expected) {
@@ -427,6 +435,10 @@ catch {
 
 # ===============================
 # ARTIFACT CONSISTENCY CHECK
+
+
+
+
 
 
 

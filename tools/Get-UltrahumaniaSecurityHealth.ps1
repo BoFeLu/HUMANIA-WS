@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 
 $RootPath = "C:\ULTRAHUMANIA_TRUST_ROOT"
 

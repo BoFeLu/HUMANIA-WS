@@ -1,6 +1,6 @@
 ﻿{
-    "error":  "System.Management.Automation.RuntimeException: INTEGRITY_FAIL: Unexpected root directory detected: audit",
-    "trigger":  "WATCHDOG_SERVICE",
-    "runid":  "20260305_110817",
-    "ts":  "2026-03-05T11:08:17.4187627+01:00"
+    "error":  "System.Management.Automation.RuntimeException: INTEGRITY_FAIL: Script not running inside C:\\HUMANIA context.",
+    "trigger":  "SCHEDULED_TICK",
+    "runid":  "20260313_074702",
+    "ts":  "2026-03-13T07:47:02.9876964+01:00"
 }
