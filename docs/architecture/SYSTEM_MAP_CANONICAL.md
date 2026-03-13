@@ -1,6 +1,6 @@
 ULTRAHUMANIA SYSTEM MAP CANONICAL
 MAP_ID: UH_SYSTEM_MAP
-BASELINE_TS: 20260311
+BASELINE_TS: 20260312
 LOCATION: C:\HUMANIA\docs\architecture\SYSTEM_MAP_CANONICAL.md
 
 PURPOSE
@@ -51,6 +51,7 @@ documentation, controlled evolution and future AI orchestration.
 - inspection scripts
 - baseline update tools
 - health check tools
+- governance cycle tools
 
 2.5 Analysis workspace
 - HANDOFF
@@ -87,7 +88,7 @@ C:\HUMANIA\docs
 Canonical knowledge, architecture, governance, context and status documentation.
 
 C:\HUMANIA\tools
-Operational maintenance, health-check and baseline update scripts.
+Operational maintenance, health-check, governance-cycle and baseline update scripts.
 
 C:\HUMANIA\HANDOFF
 Workspace for handoff artifacts, inspections and context transfer material.
@@ -110,25 +111,27 @@ Current trust-root elements:
 - pending\
 - archive\
 
-Trusted signing authorities currently validated:
-- miniPC
+Current canonical root signer:
+- ultrahumania_root_signer
+
+Current verification nodes:
+- Windows
+- MiniPC
 - Pocophone / Termux
 
 Windows role:
-- verifier-oriented host
+- active runtime host
+- verification host
 
 ================================================================
 
 5. CRITICAL EXECUTION CHAIN
 
-External signer
--> root_manifest.json.sig
--> allowed_signers
--> root_verify.ps1
--> secure_sentinel.ps1
--> C:\HUMANIA\sentinel\manifest.json
--> protected runtime files
--> runtime execution acceptance
+WinSW
+-> C:\HUMANIA\watchdog\UH_WATCHDOG_LOOP.ps1
+-> C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
+-> C:\ULTRAHUMANIA_TRUST_ROOT\root_verify.ps1
+-> C:\HUMANIA\sentinel\sentinel_tick_new.ps1
 
 ================================================================
 
@@ -142,21 +145,9 @@ C:\HUMANIA\tools\Get-UltrahumaniaSecurityHealth.ps1
 Purpose:
 perform unified trust and integrity health checks.
 
-C:\HUMANIA\tools\Inspect-DocsInventory.ps1
+C:\HUMANIA\tools\Invoke-UltrahumaniaGovernanceCycle.ps1
 Purpose:
-inventory documentation trees.
-
-C:\HUMANIA\tools\Inspect-DocCandidates.ps1
-Purpose:
-identify high-priority documentation candidates for synchronization.
-
-C:\HUMANIA\tools\Inspect-DocReferences.ps1
-Purpose:
-locate structural references across documentation.
-
-C:\HUMANIA\tools\Inspect-DocHeads.ps1
-Purpose:
-extract leading sections from architecture/governance documents for rapid review.
+generate inventory, reality report, drift report, status report and bootstrap outputs.
 
 ================================================================
 
@@ -173,19 +164,23 @@ C:\HUMANIA\docs\governance\ARCHITECTURE_MASTER_N2.md
 C:\HUMANIA\docs\governance\INDEX_MASTER.md
 
 Core architecture:
+C:\HUMANIA\docs\architecture\EXECUTION_DIAGRAM_REAL_20260312_141448.md
 C:\HUMANIA\docs\architecture\ULTRAHUMANIA_RUNTIME_ARCHITECTURE.txt
 C:\HUMANIA\docs\architecture\ULTRAHUMANIA_INTEGRITY_ARCHITECTURE.txt
 
 ================================================================
 
-8. CURRENT OPERATIONAL STATUS AT BASELINE_TS
+8. CURRENT OPERATIONAL STATUS
 
-Validated at BASELINE_TS:
-- repository synchronized
-- signed root baseline workflow operational
-- dual signing authority operational
-- security health check returns OVERALL STATUS: OK
-- architecture and governance documentation synchronized
+Validated at 2026-03-12:
+- repository structurally audited
+- signed baseline active
+- root_verify.ps1 = PASS
+- Get-UltrahumaniaSecurityHealth.ps1 = PASS
+- fail-secure active
+- governance cycle operational
+- pending manifest state cleaned
+- quarantine-first cleanup validated
 
 ================================================================
 
@@ -195,17 +190,17 @@ Validated at BASELINE_TS:
 - verification logic still primarily implemented in PowerShell
 - documentation corpus remains large and historically layered
 - knowledge extraction / ULTRA_DB not yet implemented
-- some legacy/project-history layers remain evolutionary rather than fully normalized
+- logs and historical artifacts still require stronger lifecycle automation
 
 ================================================================
 
 10. NEXT STRUCTURAL PHASES
 
-1. trust-root consolidation and directory hardening
-2. evidence policy refinement
-3. archived-key policy finalization
-4. possible machine-readable health outputs
-5. deeper integration into runtime governance
+1. housekeeping / retention automation
+2. latest/history canonicalization
+3. evidence policy refinement
+4. trust perimeter expansion
+5. possible machine-readable health outputs
 6. later knowledge-base implementation
 
 ================================================================
@@ -215,7 +210,44 @@ Validated at BASELINE_TS:
 If another document conflicts with this system map on structure,
 the conflict must be resolved by checking:
 - ULTRAHUMANIA_SSoT.md
-- ARCHITECTURE_MASTER_N2.md
-- INDEX_MASTER.md
-- runtime/integrity canonical documents
+- EXECUTION_DIAGRAM_REAL_*.md
+- root_verify.ps1 outputs
+- Get-UltrahumaniaSecurityHealth.ps1 outputs
 and then updating the outdated document.
+
+================================================================
+
+12. TRUST CHAIN REPAIR EVENT
+
+Date: 2026-03-12
+
+Event:
+Trust chain restored after signing key loss.
+
+Actions:
+- new root signer generated
+- allowed_signers updated
+- sentinel hash recomputed
+- root_manifest updated
+- manifest re-signed
+
+Verification nodes:
+- Windows
+- MiniPC
+- Pocophone / Termux
+
+Result:
+Distributed signature verification operational.
+
+================================================================
+
+13. FAIL-SECURE ACTIVATION EVENT
+
+Date: 2026-03-12
+
+Event:
+watchdog runner changed from direct sentinel execution
+to secure_sentinel enforced execution.
+
+Result:
+root_verify is enforced before sentinel execution.

@@ -1,18 +1,33 @@
-# UH_BOOTSTRAP_INDEX
-BASELINE_TS: 20260311
+UH_BOOTSTRAP_INDEX
+Last update: 20260312_164741
 
-## Canonical bootstrap location currently in use
-C:\Users\Alber2Pruebas\Desktop\INFORMES UH
+PRIMARY CANONICAL REFERENCES
+ULTRAHUMANIA_SSoT:
+C:\HUMANIA\ULTRAHUMANIA_SSoT.md
 
-## Latest known bootstrap files
-C:\Users\Alber2Pruebas\Desktop\INFORMES UH\UH_BOOTSTRAP_INDEX.md
-C:\Users\Alber2Pruebas\Desktop\INFORMES UH\UH_CHAT_BOOTSTRAP_20260310_185121.md
-C:\Users\Alber2Pruebas\Desktop\INFORMES UH\UH_CHAT_BOOTSTRAP_20260310_112628.md
-C:\Users\Alber2Pruebas\Desktop\INFORMES UH\UH_CHAT_BOOTSTRAP_20260309_204204.md
+SYSTEM_MAP_CANONICAL:
+C:\HUMANIA\docs\architecture\SYSTEM_MAP_CANONICAL.md
 
-## Interpretation
-The bootstrap subsystem currently exists outside C:\HUMANIA and must be considered externalized until reintegrated or rebuilt.
+ULTRAHUMANIA_STATUS_CANONICAL:
+C:\HUMANIA\docs\status\ULTRAHUMANIA_STATUS_CANONICAL.md
 
-## Rule
-Do not assume that HANDOFF currently generates bootstrap artifacts.
-Check the desktop bootstrap location first.
+CANONICAL LATEST POINTERS
+Latest bootstrap:
+C:\HUMANIA\HANDOFF\UH_CHAT_BOOTSTRAP_LATEST.md
+
+Latest complete description:
+C:\HUMANIA\docs\governance\COMPLETE_DESCRIPTION_UH_LATEST.md
+
+Latest system reality report:
+C:\HUMANIA\docs\architecture\SYSTEM_REALITY_REPORT_LATEST.md
+
+Latest drift report:
+C:\HUMANIA\docs\governance\DOCUMENT_DRIFT_REPORT_LATEST.md
+
+Current inventory:
+C:\HUMANIA\docs\context\INVENTORY_CANON_LATEST.json
+
+IMPORTANT
+- ULTRAHUMANIA_STATUS_CANONICAL.md is the primary current status reference.
+- STATUS_REPORT_* artifacts are historical/legacy and not the primary status reference.
+- This index is canonical and must not be regenerated with timestamp-only legacy references.
