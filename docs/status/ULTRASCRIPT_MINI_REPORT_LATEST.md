@@ -1,0 +1,24 @@
+# ULTRAHUMANIA US V1 MINI REPORT
+
+Generated: 2026-03-14 01:00:05
+Root: C:\HUMANIA
+RepoHealthThresholdMB: 50
+InventoryFile: C:\HUMANIA\docs\context\ULTRASCRIPT_INVENTORY_20260314_010001.json
+InventoryFileCount: 1345
+Log: C:\HUMANIA\logs\ultrscript\ULTRASCRIPT_20260314_010001.log
+
+## RepoHealth
+
+# ULTRAHUMANIA REPO HEALTH MINI REPORT
+
+Generated: 2026-03-14 01:00:03
+Root: C:\HUMANIA
+ThresholdMB: 50
+Findings: 1
+CSV: C:\HUMANIA\logs\repo_health\LARGE_ARTIFACTS_20260314_010002.csv
+TXT: C:\HUMANIA\logs\repo_health\LARGE_ARTIFACTS_20260314_010002.txt
+
+## Large artifacts
+
+- C:\HUMANIA\audit_archive\AUDIT_CHAIN_FIXED.jsonl | 191,34 MB | 14/02/2026 13:51:53
+
