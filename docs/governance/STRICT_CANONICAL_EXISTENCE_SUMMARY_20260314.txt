@@ -1,0 +1,3 @@
+strict_total=10
+strict_existing=10
+strict_missing=0

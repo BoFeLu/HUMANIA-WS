@@ -1,0 +1,52 @@
+[
+  {
+    "Candidate": "LA_CLAVE_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\LA_CLAVE_LATEST.md"
+  },
+  {
+    "Candidate": "POSTGRESQL_CLUSTER_MAP_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\POSTGRESQL_CLUSTER_MAP_LATEST.md"
+  },
+  {
+    "Candidate": "POSTGRESQL_SYSTEM_MAP_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\POSTGRESQL_SYSTEM_MAP_LATEST.md"
+  },
+  {
+    "Candidate": "ULTRAHUMANIA_INTEGRITY_ARCHITECTURE.txt",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\ULTRAHUMANIA_INTEGRITY_ARCHITECTURE.txt"
+  },
+  {
+    "Candidate": "ULTRAHUMANIA_RUNTIME_ARCHITECTURE.txt",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\ULTRAHUMANIA_RUNTIME_ARCHITECTURE.txt"
+  },
+  {
+    "Candidate": "docs/architecture/ULTRAHUMANIA_MASTER_SYSTEM_DOCUMENT.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\docs\\architecture\\ULTRAHUMANIA_MASTER_SYSTEM_DOCUMENT.md"
+  },
+  {
+    "Candidate": "docs/governance/COMPLETE_DESCRIPTION_UH_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\docs\\governance\\COMPLETE_DESCRIPTION_UH_LATEST.md"
+  },
+  {
+    "Candidate": "docs/governance/ULTRAHUMANIA_AUTOMATION_CONSOLIDATION_AUDIT_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\docs\\governance\\ULTRAHUMANIA_AUTOMATION_CONSOLIDATION_AUDIT_LATEST.md"
+  },
+  {
+    "Candidate": "docs/methods/procedures/REPOSITORY_ARTIFACT_CONTROL_PROCEDURE_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\docs\\methods\\procedures\\REPOSITORY_ARTIFACT_CONTROL_PROCEDURE_LATEST.md"
+  },
+  {
+    "Candidate": "docs/methods/procedures/ULTRAHUMANIA_COMMUNICATION_METHOD_LATEST.md",
+    "Exists": true,
+    "FullPath": "C:\\HUMANIA\\docs\\methods\\procedures\\ULTRAHUMANIA_COMMUNICATION_METHOD_LATEST.md"
+  }
+]
