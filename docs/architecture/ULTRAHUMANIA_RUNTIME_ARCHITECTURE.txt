@@ -69,9 +69,8 @@ Role:
 Persistent service supervision layer.
 
 Observed examples:
-- UH_WATCHDOG.exe
-- UH_WATCHDOG.xml
-- UH_WATCHDOG_LOOP.ps1
+- UH_Watchdog_Task
+- C:\HUMANIA\guard\UH_GUARD_RUN.ps1
 
 4.4 sentinel
 

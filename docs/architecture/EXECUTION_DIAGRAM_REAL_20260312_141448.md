@@ -25,8 +25,9 @@ C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
 SECURE EXECUTION CHAIN
 ================================================
 
-WinSW
- -> UH_WATCHDOG_LOOP.ps1
+Scheduled Task
+ -> UH_Watchdog_Task
+ -> C:\HUMANIA\guard\UH_GUARD_RUN.ps1
  -> C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
  -> C:\ULTRAHUMANIA_TRUST_ROOT\root_verify.ps1
  -> C:\HUMANIA\sentinel\sentinel_tick_new.ps1

@@ -8,14 +8,14 @@ TRUST ROOT
 C:\ULTRAHUMANIA_TRUST_ROOT
 
 ACTUAL RUNTIME CHAIN
-WinSW XML:
-C:\HUMANIA\watchdog\UH_WATCHDOG.xml
+Scheduled task:
+UH_Watchdog_Task
 
-Watchdog loop:
-C:\HUMANIA\watchdog\UH_WATCHDOG_LOOP.ps1
+Current action:
+powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -WindowStyle Hidden -File C:\HUMANIA\guard\UH_GUARD_RUN.ps1 -Trigger SCHEDULED_TICK
 
-Configured runner:
-C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
+Active guard:
+C:\HUMANIA\guard\UH_GUARD_RUN.ps1
 
 FAIL-SECURE ACTIVE
 True

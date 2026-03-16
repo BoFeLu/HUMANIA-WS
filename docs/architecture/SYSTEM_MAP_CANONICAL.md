@@ -127,8 +127,9 @@ Windows role:
 
 5. CRITICAL EXECUTION CHAIN
 
-WinSW
--> C:\HUMANIA\watchdog\UH_WATCHDOG_LOOP.ps1
+Scheduled task: UH_Watchdog_Task
+-> C:\ULTRAHUMANIA\guard\UH_WRAPPER.ps1
+-> C:\ULTRAHUMANIA\guard\UH_GUARD_RUN.ps1
 -> C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
 -> C:\ULTRAHUMANIA_TRUST_ROOT\root_verify.ps1
 -> C:\HUMANIA\sentinel\sentinel_tick_new.ps1
