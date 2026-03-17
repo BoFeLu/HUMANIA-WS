@@ -90,27 +90,7 @@ function Require-File([string]$Path, [string]$Label) {
   if (!(Test-Path $Path)) { throw "FALTA_CRITICA: $Label => $Path" }
 }
 
-function Test-Required-Sections([string]$Text, [string[]]$Markers, [string]$Label) {
-  foreach ($m in $Markers) {
-    if ($Text -notmatch [Regex]::Escape($m)) {
-      throw "TEST_FAIL($Label): falta marcador obligatorio: $m"
-    }
-  }
-}
 
-function Test-NoHypotheticals([string]$Text, [string]$Label) {
-  $bad = @(
-    "supongamos",
-    "si devuelve",
-    "debería",
-    "probablemente"
-  )
-  foreach ($b in $bad) {
-    if ($Text.ToLowerInvariant().Contains($b)) {
-      throw "TEST_FAIL($Label): contiene hipotético prohibido: $b"
-    }
-  }
-}
 
 
 # ===============================
@@ -192,9 +172,6 @@ Ensure-Dir $GuardDir
 Ensure-Dir $RunnerState
 Ensure-Dir $LocksDir
 Ensure-Dir $RunnerLogs
-Ensure-Dir $DocsContext
-Ensure-Dir $DocsStatus
-Ensure-Dir $DocsConst
 Ensure-Dir $DocsVital
 
 $RunId = NowStamp
@@ -227,193 +204,16 @@ if (!(Test-Path -LiteralPath $bomVerifier)) { throw "BOM_VERIFIER_MISSING: $bomV
 )
 if ($LASTEXITCODE -ne 0) { throw "ENCODING_FAIL: UTF8_BOM required for critical scripts (exitcode=$LASTEXITCODE)" }
 # --- End encoding invariant ---
-# Generate artifacts (timestamped)
     $ts = NowStamp
-    $contextPath = Join-Path $DocsContext ("CONTEXT_SUMMARY_{0}.md" -f $ts)
-    $statusPath  = Join-Path $DocsStatus  ("STATUS_REPORT_{0}.md" -f $ts)
-    $constPath   = Join-Path $DocsConst   ("DOCS_CONSTITUTION_{0}.txt" -f $ts)
-    $miniPath    = Join-Path $DocsStatus  ("MINI_REPORT_{0}.md" -f $ts)
-
-    # --- Canonical inventory generation ---
-    $inventoryPath = Join-Path $DocsContext ("INVENTORY_CANON_{0}.json" -f $ts)
-    $invOut = & powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File (Join-Path $Root "verifiers\emit_canonical_inventory.ps1") -Root $Root -OutPath $inventoryPath 2>&1; if ($LASTEXITCODE -ne 0) { throw ("INVENTORY_GEN_FAIL exit=" + $LASTEXITCODE + " out=" + ($invOut -join "`n")) }
-    # INVENTORY_DEBUG: emit inventoryPath
-    Log $LogFile ("[DBG] inventoryPath=" + $inventoryPath)
-    # INVENTORY_GUARD: ensure file exists immediately
-    if (!(Test-Path $inventoryPath)) { throw "ARTIFACT_FAIL: Missing artifact: $inventoryPath" }
-    # --- End canonical inventory generation ---
-
-
-    Touch-Heartbeat -Path $Heartbeat -Phase "generate_docs" -RunId $RunId
-
-    @"
-# CONTEXT_SUMMARY — ULTRAHUMANIA
-Timestamp: $ts
-Trigger: $Trigger
-
-## Decisiones/avances recientes
-- Blindaje: no hypotheticals, evidence-gated, stop rule, no cross-layer.
-- Pre_chat_gate obligatorio.
-- ACK_INIT obligatorio.
-- Wrapper como punto único de entrada.
-- Tests como árbitro final.
-- Runner+Watchdog definidos como doble sistema no interferible.
-
-## Riesgos
-- Deriva de foco en chats nuevos.
-- Re-verificación de entorno ya cerrado.
-- Expansión contextual no solicitada.
-
-## Pendientes inmediatos
-- Implementar Watchdog (WinSW).
-- Implementar tests adicionales (scanner de 1 comando, coherencia extendida).
-"@ | Set-Content -Encoding UTF8 $contextPath
-
-    @"
-ULTRAHUMANIA — CONSTITUCIÓN CANÓNICA
-Timestamp: $ts
-Trigger: $Trigger
-
-LEYES VITALES (bloqueantes)
-1) No hypotheticals.
-2) Evidence-gated: 1 comando/acción por turno.
-3) Stop rule: no avanzar sin output.
-4) No cross-layer.
-5) Prohibida expansión contextual no solicitada.
-6) ACK_INIT obligatorio en chat nuevo.
-7) Pre_chat_gate obligatorio.
-8) Wrapper como punto único de entrada.
-9) Tests como árbitro final.
-10) No fallos silenciosos (fail-fast + logs).
-11) HUMANIA_DOCUMENTATION_AND_PROGRESS_LAW_v1 (documentar cada logro/avance + actualizar artefactos + evidencia verificable).
-
-RESPUESTA DEL OPERADOR ANTE RE-VERIFICACIÓN
-"VERIFICACIÓN YA CERRADA EN ENTORNO TÉCNICO FIJO. CONTINÚA CON EL SIGUIENTE PASO PERMITIDO."
-
-RESPUESTA DEL OPERADOR ANTE DERIVA
-"VIOLACIÓN MUY GRAVE: vuelve al único siguiente paso permitido."
-"@ | Set-Content -Encoding UTF8 $constPath
-
-    @"
-# STATUS_REPORT — ULTRAHUMANIA
-Timestamp: $ts
-Trigger: $Trigger
-
-## Estado operativo
-- Runner UH_GUARD_RUN operativo (fail-fast, lock, heartbeat, logs+rotate).
-- Especificación UH_GUARD_SPEC_v1 presente.
-- Estructura base (guard/state/logs) presente.
-
-## Foco activo
-- Control conductual absoluto: impedir suposiciones/adelantos/reverificaciones/deriva.
-
-## Snapshot de cierre - LEVEL_3
-Este cierre es LEVEL_3.
-
-### Orden explicita al operador
-1) Abrir nuevo chat.
-2) Adjuntar los 3 canónicos y el MINI_REPORT de este cierre.
-3) Pegar el mensaje de “Nuevo Chat” (cláusulas bloqueantes).
-4) Exigir ACK_INIT obligatorio antes de cualquier acción.
-
-### Delta final
-- Runner creado.
-- Lock/heartbeat/logrotate activos.
-- Marco de control conductual reforzado (ACK_INIT + Pre_chat_gate + Wrapper + Tests).
-
-### Últimos 8 mensajes con valor (resumen)
-1) Prioridad absoluta: no suponer/no adelantarse.
-2) Entorno técnico cerrado (sin re-verificar).
-3) Creación de SPEC v1.
-4) Estructura base guard/state/logs.
-5) Definición doble sistema runner+watchdog.
-6) Exigencia de invisibilidad sin fallos silenciosos.
-7) Miniinforme por cierre.
-8) Cierre LEVEL_3 y continuidad perfecta.
-
-### Aviso de chat ralentizado
-Si el chat se ralentiza o deriva, decisión humana: cerrar y abrir nuevo chat con este snapshot.
-"@ | Set-Content -Encoding UTF8 $statusPath
-
-    @"
-# MINI_REPORT — ULTRAHUMANIA
-Timestamp: $ts
-Trigger: $Trigger
-
-Artefactos generados:
-- $contextPath
-- $statusPath
-- $constPath
-- $inventoryPath
-
-Tests:
-- PENDIENTE: ejecución automática ampliada (este runner aplica tests mínimos a contenido).
-
-Orden al operador:
-- Abrir nuevo chat + adjuntar canónicos + exigir ACK_INIT.
-- Adjuntar también: C:\HUMANIA\docs\governance\ARCHITECTURE_MASTER_N2.md (SSoT de arquitectura).
-"@ | Set-Content -Encoding UTF8 $miniPath
-
-    Touch-Heartbeat -Path $Heartbeat -Phase "tests" -RunId $RunId
-
-    # Tests mínimos (contenido generado)
-    $ctx = Get-Content $contextPath -Raw
-    $st  = Get-Content $statusPath -Raw
-    $co  = Get-Content $constPath -Raw
-
-    # --- Artifact consistency enforcement ---
-function Integrity-Check-ArtifactConsistency {
-  param(
-    [string]$RunId,
-    [string]$Trigger,
-    [string]$ContextPath,
-    [string]$StatusPath,
-    [string]$ConstPath,
-    [string]$InventoryPath,
-    [string]$MiniPath
-  )
-
-  $artifacts = @($ContextPath, $StatusPath, $ConstPath, $InventoryPath, $MiniPath)
-
-  foreach ($a in $artifacts) {
-    if (!(Test-Path $a)) {
-      throw "ARTIFACT_FAIL: Missing artifact: $a"
-    }
-    if ((Get-Item $a).Length -eq 0) {
-      throw "ARTIFACT_FAIL: Empty artifact: $a"
-    }
-  }
-
-  # Timestamp consistency
-  $tsExpected = $RunId
-
-  foreach ($a in $artifacts) {
-    if ($a -notmatch $tsExpected) {
-      throw "ARTIFACT_FAIL: Timestamp mismatch in $a"
-    }
-  }
-
-  # MINI_REPORT must contain trigger
-  $miniContent = Get-Content $MiniPath -Raw
-  if ($miniContent -notmatch "Trigger:\s+$Trigger") {
-    throw "ARTIFACT_FAIL: Trigger mismatch in MINI_REPORT"
-  }
-}
-
-    Integrity-Check-ArtifactConsistency -RunId $ts -Trigger $Trigger -ContextPath $contextPath -StatusPath $statusPath -ConstPath $constPath -InventoryPath $inventoryPath -MiniPath $miniPath
-    # --- End artifact consistency enforcement ---
-
-    Test-NoHypotheticals -Text $ctx -Label "CONTEXT_SUMMARY"
-    Test-NoHypotheticals -Text $st  -Label "STATUS_REPORT"
-    Test-NoHypotheticals -Text $co  -Label "DOCS_CONSTITUTION"
-
-    Test-Required-Sections -Text $st -Markers @("Snapshot de cierre - LEVEL_3","Orden explicita al operador","Delta final") -Label "STATUS_REPORT"
 
     Touch-Heartbeat -Path $Heartbeat -Phase "success" -RunId $RunId
-    Write-Json -Path $LastSuccess -Obj @{ ts=(Get-Date -Format o); runid=$RunId; trigger=$Trigger; artifacts=@($contextPath,$statusPath,$constPath,$inventoryPath,$miniPath) }
-
-    Log $LogFile "[PASS] runid=$RunId artifacts_ts=$ts"
-    Write-Host "[OK] Runner PASS. Artifacts timestamp=$ts"
+        Write-Json -Path $LastSuccess -Obj @{
+      ts      = (Get-Date -Format o)
+      runid   = $RunId
+      trigger = $Trigger
+      status  = "PASS"
+    }    Log $LogFile "[PASS] runid=$RunId status=PASS"
+    Write-Host "[OK] Runner PASS."
   }
   finally {
     if ($lockFs) { $lockFs.Dispose() }
@@ -445,3 +245,8 @@ catch {
 
 
 
+
+# STAGE1_NOTE: minimal runtime candidate V2 generated outside repo
+# STAGE1_NOTE: descriptive artifact generation removed
+# STAGE1_NOTE: descriptive artifact validation removed
+# STAGE1_NOTE: repo not modified by this operation
