@@ -202,3 +202,8 @@ Current verified linkage:
 - SecurityHealth provider: tools/Get-UltrahumaniaSecurityHealth.ps1
 - kernel_manifest synchronization: verified during integrity recovery close-out
 - repository status after close-out commit 99b64a1: clean
+
+## 2026-03-17 - PostgreSQL Canonical Map Reference
+
+Canonical PostgreSQL architecture reference:
+- docs/architecture/POSTGRESQL_SYSTEM_MAP_CANONICAL.md

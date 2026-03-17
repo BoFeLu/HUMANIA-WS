@@ -107,3 +107,16 @@ state/ultrscript/last_run.json
 
 This policy does not redefine canonical architecture.
 It only separates volatile runtime state from canonical tracked design.
+
+## 2026-03-17 - PostgreSQL Canonical System Map
+
+Canonical PostgreSQL architecture document added:
+
+- docs/architecture/POSTGRESQL_SYSTEM_MAP_CANONICAL.md
+
+Purpose:
+- consolidate verified PostgreSQL topology
+- document ownership and privilege boundaries
+- describe the ultrahumania core database
+- formalize the uh_knowledge knowledge-engine model
+- record the client/server version split on host
