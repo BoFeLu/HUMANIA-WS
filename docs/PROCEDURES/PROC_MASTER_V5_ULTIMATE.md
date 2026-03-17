@@ -243,3 +243,22 @@ Estas condiciones definen el estado "congelado" y deben cumplirse siempre:
 - **Freeze**: No realizar un freeze manual sin los artefactos y registros requeridos.
 - **Edición directa**: No editar archivos canónicos sin seguir el flujo de gobernanza.NO Ediciones directas sin flujo Propose -> Diff -> Apply.
 - **Omisión de seguridad**: No omitir el wrapper, el guard o las allowlists bajo ninguna circunstancia.
+
+## 2026-03-17 - Canonical vs Runtime Operational Rule
+
+Validated during repository integrity recovery close-out.
+
+When a tracked file is repeatedly updated by runtime execution but remains useful on disk for observability, notary visibility or last-run inspection, it must be classified explicitly before any Git cleanup action.
+
+Decision model:
+1. If the file represents stable design, procedure, architecture, governance or audited interpretation, treat it as canonical.
+2. If the file represents generated runtime state, heartbeat, latest snapshot, last-run evidence or rolling visibility output, treat it as volatile runtime artifact.
+3. Volatile runtime artifacts may remain present in the repository working tree, but must not be confused with canonical change.
+4. Local assume-unchanged marking is allowed only as a noise-control mechanism after validation and documentation.
+5. Any such decision must be reflected in canonical governance documentation before phase close-out.
+
+Minimum operator verification:
+- confirm runtime/health path is validated with real evidence
+- confirm Git working tree is clean after the decision
+- confirm the affected files still exist on disk if they are operationally required
+- confirm canonical documents state clearly that volatile runtime artifacts are not canonical tracked design

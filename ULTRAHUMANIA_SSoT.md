@@ -174,3 +174,31 @@ C:\HUMANIA\state\ultrscript\last_run.json
 
 System notary snapshot:
 C:\HUMANIA\docs\notary\LA_CLAVE_LATEST.md
+
+## 2026-03-17 - Canonical/Runtime Separation Addendum
+
+Validated during repository integrity recovery close-out.
+
+Canonical tracked design must remain distinct from volatile runtime evidence.
+
+Operational rule:
+- canonical documents describe stable architecture, procedures, governance and validated system interpretation
+- runtime evidence artifacts may remain on disk for observability and notary visibility
+- volatile runtime artifacts must not be treated as canonical project state
+
+Locally noise-suppressed volatile runtime artifacts currently handled with assume-unchanged:
+- docs/context/ULTRASCRIPT_INVENTORY_LATEST.json
+- docs/notary/LA_CLAVE_LATEST.md
+- docs/status/ULTRASCRIPT_MINI_REPORT_LATEST.md
+- state/runner/heartbeat.json
+- state/runner/last_failure.json
+- state/runner/last_success.json
+- state/ultrscript/last_run.json
+
+This policy does not remove those files from operational use.
+It only prevents routine Git review noise from being confused with canonical architectural change.
+
+Current verified linkage:
+- SecurityHealth provider: tools/Get-UltrahumaniaSecurityHealth.ps1
+- kernel_manifest synchronization: verified during integrity recovery close-out
+- repository status after close-out commit 99b64a1: clean
