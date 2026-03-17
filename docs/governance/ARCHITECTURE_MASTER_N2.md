@@ -76,3 +76,34 @@ Purpose:
 formalize modules, domains, trust-root relations, critical execution chain,
 and current structural interpretation baseline.
 
+
+## VOLATILE RUNTIME ARTIFACT POLICY
+
+Validated on 2026-03-17 during repository integrity recovery.
+
+The following files are classified as volatile runtime artifacts, not canonical project state:
+
+- docs/context/ULTRASCRIPT_INVENTORY_LATEST.json
+- docs/notary/LA_CLAVE_LATEST.md
+- docs/status/ULTRASCRIPT_MINI_REPORT_LATEST.md
+- state/runner/heartbeat.json
+- state/runner/last_failure.json
+- state/runner/last_success.json
+- state/ultrscript/last_run.json
+
+Operational decision:
+these files remain on disk and are useful for runtime visibility, but they are excluded from normal Git review noise through local assume-unchanged marking.
+
+Reversal command:
+
+git update-index --no-assume-unchanged -- `
+docs/context/ULTRASCRIPT_INVENTORY_LATEST.json `
+docs/notary/LA_CLAVE_LATEST.md `
+docs/status/ULTRASCRIPT_MINI_REPORT_LATEST.md `
+state/runner/heartbeat.json `
+state/runner/last_failure.json `
+state/runner/last_success.json `
+state/ultrscript/last_run.json
+
+This policy does not redefine canonical architecture.
+It only separates volatile runtime state from canonical tracked design.
