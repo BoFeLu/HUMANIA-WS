@@ -1,12 +1,12 @@
 {
   "version": "6.0.0-GOLD",
-  "ts_utc": "2026-02-28T10:52:36.0491107Z",
+  "ts_utc": "2026-03-17T11:40:19.6036408Z",
   "items": [
     {
       "path": "C:\\HUMANIA\\sentinel\\sentinel_tick_new.ps1",
-      "sha256": "F69AAD7C964F7D9B00C3EE0E52A537F472BD2DAF0311FF96A20712248DAD6EF1",
-      "length": 2548,
-      "last_write_time_utc": "2026-02-28T10:50:37.7144892Z"
+      "sha256": "38FE796A741C4993D0C96B20875E475CFA4438E6C28B6548C90332E9E20AD953",
+      "length": 1966,
+      "last_write_time_utc": "2026-03-12T06:48:43.9788949Z"
     },
     {
       "path": "C:\\HUMANIA\\sentinel\\sentinel_tick_notify.ps1",
@@ -22,9 +22,9 @@
     },
     {
       "path": "C:\\HUMANIA\\watchdog\\UH_WATCHDOG_LOOP.ps1",
-      "sha256": "307C565D119C1FAE30DB29C154C249B3CBB3363EAADAC997A53E6C1E9C3FBDC9",
-      "length": 1384,
-      "last_write_time_utc": "2026-02-28T10:37:13.4246746Z"
+      "sha256": "05AD137C356127823CF5E97D9F3E9892AD262BE1FC7A856C88E9FF12E734AF8F",
+      "length": 1269,
+      "last_write_time_utc": "2026-03-12T12:33:27.4516785Z"
     },
     {
       "path": "C:\\HUMANIA\\verifiers\\ACTION_CLASSIFIER.ps1",
@@ -40,9 +40,9 @@
     },
     {
       "path": "C:\\HUMANIA\\verifiers\\emit_canonical_inventory.ps1",
-      "sha256": "55CBAB84767F50FD0EBBA613D73B16A6D2CEF9271A9E5F5C260913E55AC93EF8",
-      "length": 2227,
-      "last_write_time_utc": "2026-02-27T11:40:33.4902015Z"
+      "sha256": "3D859C9144C7C9F7240C03A12058BA5842FCFCB81FC812FABF394FF1126444DD",
+      "length": 2854,
+      "last_write_time_utc": "2026-03-12T07:21:04.3409686Z"
     },
     {
       "path": "C:\\HUMANIA\\verifiers\\encoding_add_utf8_bom.ps1",

@@ -8,7 +8,7 @@ ULTRAHUMANIA define un sistema de trabajo humano–IA gobernado por leyes canón
 - **Operador humano (autoridad final):** decide, valida outputs, y aprueba cambios.
 - **LLM/Asistente:** actúa bajo leyes vitales (no hypotheticals, evidence-first, stop rule, no cross-layer, evidence-gated).
 - **Runner (UH_GUARD_RUN):** genera snapshots canónicos (CONTEXT/STATUS/CONSTITUTION/MINI/INVENTORY) y aplica tests mínimos de contenido.
-- **Watchdog (UH_WATCHDOG):** supervisión/continuidad del loop (evidencia separada por hashes y logs).
+- **Launcher watchdog (UH_Watchdog_Task):** tarea programada que ejecuta C:\HUMANIA\guard\UH_GUARD_RUN.ps1 como entrypoint canónico del sistema. El servicio legacy UH_WATCHDOG permanece desactivado.
 - **Notario (Ledger/DB):** módulo de auditoría inmutable para eventos y evidencia (PostgreSQL).
 - **Agentes AIOPS:**
   - **AIOPS1:** mantenimiento/operativa base (ya completado según canónicos del proyecto).
@@ -75,3 +75,4 @@ Canonical structural map added:
 Purpose:
 formalize modules, domains, trust-root relations, critical execution chain,
 and current structural interpretation baseline.
+

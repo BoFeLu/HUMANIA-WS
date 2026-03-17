@@ -128,8 +128,7 @@ Windows role:
 5. CRITICAL EXECUTION CHAIN
 
 Scheduled task: UH_Watchdog_Task
--> C:\ULTRAHUMANIA\guard\UH_WRAPPER.ps1
--> C:\ULTRAHUMANIA\guard\UH_GUARD_RUN.ps1
+-> C:\HUMANIA\guard\UH_GUARD_RUN.ps1
 -> C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
 -> C:\ULTRAHUMANIA_TRUST_ROOT\root_verify.ps1
 -> C:\HUMANIA\sentinel\sentinel_tick_new.ps1
@@ -252,3 +251,4 @@ to secure_sentinel enforced execution.
 
 Result:
 root_verify is enforced before sentinel execution.
+
