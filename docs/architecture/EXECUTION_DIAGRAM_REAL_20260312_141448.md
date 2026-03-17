@@ -46,3 +46,19 @@ C:\HUMANIA\guard\UH_GUARD_RUN.ps1
 -> C:\ULTRAHUMANIA_TRUST_ROOT\secure_sentinel.ps1
 -> C:\ULTRAHUMANIA_TRUST_ROOT\root_verify.ps1
 -> C:\HUMANIA\sentinel\sentinel_tick_new.ps1
+
+## 2026-03-17 - SecurityHealth Alignment Addendum
+
+Validated after integrity recovery close-out and canonical/runtime documentation alignment.
+
+The execution chain represented in this diagram remains valid for the active guard and protected sentinel runtime path:
+
+- UH_Watchdog_Task
+- C:\HUMANIA\guard\UH_GUARD_RUN.ps1
+- C:\HUMANIA\sentinel\sentinel_tick_new.ps1
+
+Additional verified operational alignment:
+
+- health verification is performed through tools/Get-UltrahumaniaSecurityHealth.ps1
+- RepoHealth naming is no longer the active reference for the validated health provider path
+- volatile runtime evidence artifacts may exist on disk for observability, but they are not part of the canonical execution chain represented by this diagram
