@@ -207,3 +207,24 @@ Current verified linkage:
 
 Canonical PostgreSQL architecture reference:
 - docs/architecture/POSTGRESQL_SYSTEM_MAP_CANONICAL.md
+
+## Operational Documentation Assistants
+
+The system includes controlled external assistants used to propose
+documentation updates and produce operational context for AI sessions.
+
+These tools NEVER modify the repository without explicit human approval.
+
+Tools currently deployed:
+
+- Invoke-UHWatchDocAutomation.ps1
+  Proposes updates to runtime status documentation based on system signals.
+
+- Generate-UHChatContext.ps1
+  Produces a compact context package for opening new AI sessions.
+
+- Invoke-UHPhaseReport.ps1
+  Generates a phase closing report summarizing status, risks and next steps.
+
+All tools operate in proposal mode by default and require explicit
+confirmation before any repository modification.

@@ -262,3 +262,13 @@ Minimum operator verification:
 - confirm Git working tree is clean after the decision
 - confirm the affected files still exist on disk if they are operationally required
 - confirm canonical documents state clearly that volatile runtime artifacts are not canonical tracked design
+
+### Documentation Proposal Workflow
+
+1. Runtime verification is executed by USv1.
+2. Documentation assistants may generate candidate updates.
+3. A candidate document is produced outside the repository.
+4. The operator reviews the proposal.
+5. Only after explicit confirmation (Y) the document may be written to the repository.
+
+Automatic silent modifications are forbidden.

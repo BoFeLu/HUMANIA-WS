@@ -92,7 +92,7 @@ $repoArgs = @(
     "-ExecutionPolicy", "Bypass",
     "-File", $repoHealthScript,
     "-Root", $Root,
-    "-ThresholdMB", $RepoHealthThresholdMB
+    "-RepoHealthThresholdMB", $RepoHealthThresholdMB
 )
 
 if ($AlertOnFindings) { $repoArgs += "-AlertOnFindings" }

@@ -62,3 +62,30 @@ Additional verified operational alignment:
 - health verification is performed through tools/Get-UltrahumaniaSecurityHealth.ps1
 - RepoHealth naming is no longer the active reference for the validated health provider path
 - volatile runtime evidence artifacts may exist on disk for observability, but they are not part of the canonical execution chain represented by this diagram
+
+## External Documentation Assistants
+
+The system now includes controlled external documentation assistants.
+
+These assistants do not silently modify canonical repository documentation.
+They operate under an explicit proposal -> human review -> confirmation workflow.
+
+Current external assistants:
+
+- Generate-UHChatContext.ps1
+  Produces a compact relay context for opening new AI sessions.
+
+- Invoke-UHPhaseReport.ps1
+  Produces a detailed phase closing report outside the repository.
+
+- Invoke-UHWatchDocAutomation.ps1
+  Produces candidate runtime status documentation and only writes to the
+  repository after explicit human confirmation.
+
+Conceptual flow:
+
+Runtime State
+-> External Documentation Assistant
+-> Candidate Document Outside Repo
+-> Human Confirmation (Y/N)
+-> Controlled Repository Update
